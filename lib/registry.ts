@@ -69,7 +69,7 @@ const seeds: Array<[id: string, name: string, rows: Seed[]]> = [
     "04",
     "Notification",
     [
-      ["04.1", "toast-stack", "Toast Stack", "Stacked, expands on hover, swipes away"],
+      ["04.1", "live-activity", "Live Activity", "The system's ongoing work, worn as a small object"],
       ["04.2", "collapsible-banner", "Collapsible Banner", "Folds to its title, or lets go entirely"],
       ["04.3", "presence-avatars", "Presence Avatars", "Join and leave as a layout change"],
       ["04.4", "typing-indicator", "Typing Indicator", "Someone is writing"],
@@ -81,7 +81,6 @@ const seeds: Array<[id: string, name: string, rows: Seed[]]> = [
     "Overlay",
     [
       ["05.1", "modal", "Modal", "Backdrop, scroll lock, focus trap"],
-      ["05.2", "bottom-sheet", "Bottom Sheet", "Snap points driven by velocity"],
       ["05.3", "popover", "Popover", "Knows its origin, flips on collision"],
       ["05.4", "tooltip-group", "Tooltip Group", "Delayed once, instant after that"],
       ["05.5", "command-palette", "Command Palette", "Results reorder as you type"],

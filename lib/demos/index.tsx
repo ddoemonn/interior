@@ -1,7 +1,6 @@
 import type { ComponentType } from "react";
 import { AccordionDemo } from "./accordion-demo";
 import { BlurUpImageDemo } from "./blur-up-image-demo";
-import { BottomSheetDemo } from "./bottom-sheet-demo";
 import { CollapsibleBannerDemo } from "./collapsible-banner-demo";
 import { CommandPaletteDemo } from "./command-palette-demo";
 import { ContextMenuDemo } from "./context-menu-demo";
@@ -17,6 +16,7 @@ import { IconMorphDemo } from "./icon-morph-demo";
 import { InlineValidationDemo } from "./inline-validation-demo";
 import { LightboxDemo } from "./lightbox-demo";
 import { LikeBurstDemo } from "./like-burst-demo";
+import { LiveActivityDemo } from "./live-activity-demo";
 import { LoadMoreDemo } from "./load-more-demo";
 import { LoadingButtonDemo } from "./loading-button-demo";
 import { LogoMarqueeDemo } from "./logo-marquee-demo";
@@ -48,7 +48,6 @@ import { TabsDemo } from "./tabs-demo";
 import { TagInputDemo } from "./tag-input-demo";
 import { TaskStepsDemo } from "./task-steps-demo";
 import { TextRevealDemo } from "./text-reveal-demo";
-import { ToastStackDemo } from "./toast-stack-demo";
 import { TooltipGroupDemo } from "./tooltip-group-demo";
 import { TreeViewDemo } from "./tree-view-demo";
 import { TypingIndicatorDemo } from "./typing-indicator-demo";
@@ -56,17 +55,16 @@ import { ValueFlashDemo } from "./value-flash-demo";
 import { WizardStepsDemo } from "./wizard-steps-demo";
 
 export const bleedDemos = new Set<string>([
+  "live-activity",
   "load-more",
   "new-items-pill",
   "popover",
-  "toast-stack",
   "typing-indicator",
 ]);
 
 export const demos: Record<string, ComponentType> = {
   "accordion": AccordionDemo,
   "blur-up-image": BlurUpImageDemo,
-  "bottom-sheet": BottomSheetDemo,
   "collapsible-banner": CollapsibleBannerDemo,
   "command-palette": CommandPaletteDemo,
   "context-menu": ContextMenuDemo,
@@ -82,6 +80,7 @@ export const demos: Record<string, ComponentType> = {
   "inline-validation": InlineValidationDemo,
   "lightbox": LightboxDemo,
   "like-burst": LikeBurstDemo,
+  "live-activity": LiveActivityDemo,
   "load-more": LoadMoreDemo,
   "loading-button": LoadingButtonDemo,
   "logo-marquee": LogoMarqueeDemo,
@@ -113,7 +112,6 @@ export const demos: Record<string, ComponentType> = {
   "tag-input": TagInputDemo,
   "task-steps": TaskStepsDemo,
   "text-reveal": TextRevealDemo,
-  "toast-stack": ToastStackDemo,
   "tooltip-group": TooltipGroupDemo,
   "tree-view": TreeViewDemo,
   "typing-indicator": TypingIndicatorDemo,
