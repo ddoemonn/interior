@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
+    "@vercel/analytics": "^2.0.1",
     "motion": "^12.42.2",
     "next": "16.2.12",
     "react": "19.2.4",

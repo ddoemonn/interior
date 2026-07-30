@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Launcher } from "@/components/site/launcher";
 import "./globals.css";
@@ -86,6 +87,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         {children}
         <Launcher />
+        <Analytics />
       </body>
     </html>
   );
