@@ -293,7 +293,7 @@ export function TypingIndicator({
               initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.74 }}
               animate={
                 sending && !reduced
-                  ? { opacity: 0, scale: 1, y: -(size * 0.7) }
+                  ? { opacity: 0, scale: 0.45, y: 0 }
                   : { opacity: 1, scale: 1, y: 0 }
               }
               exit={

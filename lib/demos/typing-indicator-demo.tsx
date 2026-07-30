@@ -34,12 +34,23 @@ export function TypingIndicatorDemo() {
     timeout: 2400,
   });
   const [messages, setMessages] = useState<Message[]>(SEED);
-  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const timers = useRef<Record<string, ReturnType<typeof setTimeout>[]>>({});
   const seq = useRef(SEED.length);
   const turn = useRef<Record<string, number>>({ Nadia: 0, Ravi: 0 });
   const scroller = useRef<HTMLDivElement>(null);
 
-  useEffect(() => () => timers.current.forEach(clearTimeout), []);
+  useEffect(
+    () => () =>
+      Object.values(timers.current).forEach((list) =>
+        list.forEach(clearTimeout),
+      ),
+    [],
+  );
+
+  const hush = (who: string) => {
+    timers.current[who]?.forEach(clearTimeout);
+    timers.current[who] = [];
+  };
 
   useEffect(() => {
     const el = scroller.current;
@@ -47,19 +58,26 @@ export function TypingIndicatorDemo() {
   }, [messages, typists.length]);
 
   const types = (who: string) => {
+    hush(who);
     for (let i = 0; i < 10; i++) {
-      timers.current.push(setTimeout(() => ping(who), i * 120));
+      timers.current[who].push(setTimeout(() => ping(who), i * 120));
     }
   };
 
   const sends = (who: string) => {
-    if (!typists.includes(who)) return;
+    if (!who || !typists.includes(who)) return;
+    hush(who);
     send(who);
     const pool = LINES[who];
     const at = turn.current[who] % pool.length;
     turn.current[who] = at + 1;
-    seq.current += 1;
-    setMessages((prev) => [...prev, { id: seq.current, who, text: pool[at] }]);
+    const text = pool[at];
+    timers.current[who].push(
+      setTimeout(() => {
+        seq.current += 1;
+        setMessages((prev) => [...prev, { id: seq.current, who, text }]);
+      }, 340),
+    );
   };
 
   return (
@@ -75,8 +93,8 @@ export function TypingIndicatorDemo() {
               return (
                 <motion.div
                   key={message.id}
-                  initial={{ opacity: 0, scale: 0.94, y: 8 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  initial={{ opacity: 0, scale: 0.94, y: 10, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 0.26, ease: EASE }}
                   style={{ transformOrigin: mine ? "100% 100%" : "0% 100%" }}
                   className={`max-w-[76%] rounded-[14px] px-3 py-2 text-[12.5px] leading-snug ${

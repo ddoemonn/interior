@@ -16,12 +16,17 @@ const CAP =
 export function BlurUpImageDemo() {
   const [src, setSrc] = useState<string>();
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pending = useRef(false);
 
   const load = useCallback((next: string) => {
-    if (timer.current) clearTimeout(timer.current);
+    if (pending.current) return;
+    pending.current = true;
     setSrc(undefined);
     const bust = next.startsWith("/") ? `${next}?t=${Date.now()}` : next;
-    timer.current = setTimeout(() => setSrc(bust), 700);
+    timer.current = setTimeout(() => {
+      pending.current = false;
+      setSrc(bust);
+    }, 700);
   }, []);
 
   useEffect(() => {
