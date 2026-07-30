@@ -2,7 +2,7 @@
 
 Finished micro-interactions for React. Copy the file, own the code.
 
-Everybody builds these components. Almost nobody finishes them — the missing
+Everybody builds these components. Almost nobody finishes them. The missing
 twenty percent is always the same three things: a jump, a restart, an animation
 that ignores the person watching it. This set ships that last twenty percent.
 
@@ -22,7 +22,7 @@ overridable from outside.
 
 Trust is won in the half-second after a click, and lost in exactly the same
 place. A button that resizes when its label changes, a list that jumps as it
-loads, a drag that gets stuck because the tab lost focus — none of these are
+loads, a drag that gets stuck because the tab lost focus: none of these are
 bugs anyone files, but every one of them teaches the person to stop believing
 the interface.
 
@@ -31,7 +31,7 @@ something happened; motion that models a physical process obeys that process
 instead of taste; every state the component can reach has its space reserved
 before it arrives; and every gesture knows all the ways it can be abandoned.
 The keyboard is not a fallback but a second complete implementation, and under
-`prefers-reduced-motion` the information still arrives — only the trip is
+`prefers-reduced-motion` the information still arrives; only the trip is
 skipped.
 
 ## Running the docs

@@ -17,7 +17,7 @@ lib/registry.ts                   one seed row in its category
 Every component file is the same document, in the same order: `"use client"`,
 motion constants, domain constants, pure helpers, exported types, the exported
 `useX` hook (all behaviour, zero class names), inline icons, the exported
-styled component. No code comments — reasoning lives in the registry notes.
+styled component. No code comments; reasoning lives in the registry notes.
 
 ## Before opening a PR
 
@@ -27,4 +27,4 @@ styled component. No code comments — reasoning lives in the registry notes.
   registry notes.
 - Walk the invariants in DESIGN.md §11: reserved space, interruptibility,
   reduced motion, keyboard + ARIA, one dependency, RSC compatibility.
-- Demos are a bare component in a fixed container — no extra chrome.
+- Demos are a bare component in a fixed container, with no extra chrome.
