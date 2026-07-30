@@ -6,27 +6,27 @@ import { Logo } from "@/components/site/logo";
 /** Placeholder cover. The real landing comes once the set is further along. */
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-1 p-3 sm:p-5">
-      <div className="mat-panel flex flex-1 flex-col rounded-[20px]">
-        <header className="flex h-12 items-center gap-4 border-b border-hairline px-5">
+    <div className="flex h-dvh flex-1 p-3 sm:h-auto sm:min-h-screen sm:p-5">
+      <div className="mat-panel flex min-h-0 flex-1 flex-col overflow-hidden rounded-[20px]">
+        <header className="flex h-12 shrink-0 items-center gap-4 border-b border-hairline px-5">
           <Logo />
           <span className="flex-1" />
           <ThemeToggle />
         </header>
 
-        <main className="flex flex-1 items-center px-6 sm:px-12">
-          <div className="mx-auto w-full max-w-[900px] py-24">
-            <div className="w-fit origin-left scale-[1.6]">
+        <main className="flex min-h-0 flex-1 overflow-y-auto overscroll-contain px-6 sm:px-12">
+          <div className="mx-auto my-auto w-full max-w-[900px] py-10 sm:py-24">
+            <div className="w-fit origin-left scale-[1.3] sm:scale-[1.6]">
               <BrandMark />
             </div>
 
-            <h1 className="mt-16 max-w-[22ch] text-balance text-[clamp(32px,5.6vw,52px)] font-medium leading-[1.08] tracking-[-0.04em] text-ink">
+            <h1 className="mt-8 max-w-[22ch] text-balance text-[clamp(26px,7.6vw,32px)] font-medium leading-[1.08] tracking-[-0.04em] text-ink sm:mt-16 sm:text-[clamp(32px,5.6vw,52px)]">
               Software feels cheap in the{" "}
               <span className="whitespace-nowrap">half-second</span> after a
               click.
             </h1>
 
-            <div className="mt-9 grid max-w-[44ch] gap-4 text-[15px] leading-[1.7] text-ink-2">
+            <div className="mt-6 grid max-w-[44ch] gap-3 text-[13.5px] leading-[1.7] text-ink-2 sm:mt-9 sm:gap-4 sm:text-[15px]">
               <p>
                 The fade a beat too slow. The spinner outliving the request. The
                 row that jumps as it loads.
@@ -37,10 +37,10 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="mt-12 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-12">
               <Link
                 href="/docs"
-                className="press inline-flex h-9 items-center rounded-[9px] px-3.5 text-[13px] font-medium"
+                className="press inline-flex h-8 items-center rounded-[9px] px-3 text-[12.5px] font-medium sm:h-9 sm:px-3.5 sm:text-[13px]"
                 style={{ background: "var(--ink)", color: "var(--panel)" }}
               >
                 See the components
@@ -49,7 +49,7 @@ export default function Home() {
                 href="https://github.com/ddoemonn/interior"
                 target="_blank"
                 rel="noreferrer"
-                className="mat-cap press inline-flex h-9 items-center gap-2 rounded-[9px] px-3.5 text-[13px] font-medium text-ink-2 hover:text-ink"
+                className="mat-cap press inline-flex h-8 items-center gap-2 rounded-[9px] px-3 text-[12.5px] font-medium text-ink-2 hover:text-ink sm:h-9 sm:px-3.5 sm:text-[13px]"
               >
                 <svg
                   width="15"
