@@ -262,34 +262,24 @@ export function TypingIndicator({
     return () => clearTimeout(timer);
   }, [label, announceAfter]);
 
-  const width = Math.round(size * 1.7);
+  const width = Math.round(size * 2);
   const dot = Math.round(size * 0.23);
   const gap = Math.round(size * 0.15);
-
-  const radius = size * 0.5;
-  const knobR = size * 0.16;
-  const knobY = size * 0.9;
-  const speckR = size * 0.075;
-  const speckY = size * 1.13;
-  const inset = Math.ceil(size * 0.24);
-  const knobX = inset + size * 0.05;
-  const speckX = inset - size * 0.16;
-  const total = Math.ceil(speckY + speckR);
-  const canvas = inset + width;
+  const radius = Math.round(size * 0.47);
 
   return (
     <div
       className={`inline-flex max-w-full items-end gap-3 ${className}`}
-      style={{ height: total }}
+      style={{ height: size }}
     >
-      <div className="relative shrink-0" style={{ width: canvas, height: total }}>
+      <div className="relative shrink-0" style={{ width, height: size }}>
         <AnimatePresence initial={false}>
           {active ? (
             <motion.div
               key="bubble"
               aria-hidden
-              className="absolute inset-0"
-              style={{ transformOrigin: `${speckX}px ${speckY}px` }}
+              className="absolute inset-0 flex items-center justify-center bg-stone-200 dark:bg-white/[0.09]"
+              style={{ borderRadius: radius, transformOrigin: "0% 100%", gap }}
               initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.74 }}
               animate={
                 sending && !reduced
@@ -313,35 +303,17 @@ export function TypingIndicator({
                     : { ...SURFACE, opacity: { duration: 0.18, ease: EASE } }
               }
             >
-              <svg
-                width={canvas}
-                height={total}
-                viewBox={`0 0 ${canvas} ${total}`}
-                className="absolute left-0 top-0 text-stone-200 dark:text-white"
-                aria-hidden="true"
-              >
-                <g fill="currentColor" className="opacity-100 dark:opacity-[0.14]">
-                  <rect x={inset} y="0" width={width} height={size} rx={radius} />
-                  <circle cx={knobX} cy={knobY} r={knobR} />
-                  <circle cx={speckX} cy={speckY} r={speckR} />
-                </g>
-              </svg>
-              <div
-                className="absolute top-0 flex items-center justify-center"
-                style={{ left: inset, width, height: size, gap }}
-              >
-                {[0, 1, 2].map((i) =>
-                  reduced ? (
-                    <span
-                      key={i}
-                      className="block rounded-full bg-stone-500 opacity-80 dark:bg-stone-300"
-                      style={{ width: dot, height: dot }}
-                    />
-                  ) : (
-                    <Dot key={i} index={i} wave={wave} size={dot} />
-                  ),
-                )}
-              </div>
+              {[0, 1, 2].map((i) =>
+                reduced ? (
+                  <span
+                    key={i}
+                    className="block rounded-full bg-stone-500 opacity-80 dark:bg-stone-300"
+                    style={{ width: dot, height: dot }}
+                  />
+                ) : (
+                  <Dot key={i} index={i} wave={wave} size={dot} />
+                ),
+              )}
             </motion.div>
           ) : null}
         </AnimatePresence>
