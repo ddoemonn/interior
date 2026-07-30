@@ -1,0 +1,120 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "react",
+    "react-perf",
+    "jsx-a11y",
+    "nextjs",
+    "typescript",
+    "unicorn",
+    "oxc",
+    "import",
+    "promise"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error",
+    "pedantic": "off",
+    "restriction": "off",
+    "style": "off"
+  },
+  "env": {
+    "browser": true,
+    "es2024": true
+  },
+  "rules": {
+    "eslint/no-console": "error",
+    "eslint/no-debugger": "error",
+    "eslint/no-alert": "error",
+    "eslint/no-var": "error",
+    "eslint/prefer-const": "error",
+    "eslint/eqeqeq": [
+      "error",
+      "smart"
+    ],
+    "typescript/no-explicit-any": "error",
+    "typescript/consistent-type-imports": "error",
+    "typescript/no-non-null-assertion": "warn",
+    "typescript/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    "react/exhaustive-deps": "error",
+    "react/rules-of-hooks": "error",
+    "react/no-array-index-key": "off",
+    "react/jsx-key": "error",
+    "react/no-danger": "off",
+    "react/no-unescaped-entities": "off",
+    "react-perf/jsx-no-new-object-as-prop": "off",
+    "react-perf/jsx-no-new-array-as-prop": "off",
+    "react-perf/jsx-no-new-function-as-prop": "off",
+    "react-perf/jsx-no-jsx-as-prop": "off",
+    "jsx-a11y/alt-text": "error",
+    "jsx-a11y/anchor-is-valid": "error",
+    "jsx-a11y/aria-props": "error",
+    "jsx-a11y/aria-role": "error",
+    "jsx-a11y/role-supports-aria-props": "error",
+    "jsx-a11y/no-autofocus": "off",
+    "import/no-cycle": "error",
+    "import/no-self-import": "error",
+    "import/no-duplicates": "error",
+    "promise/no-return-wrap": "error",
+    "promise/param-names": "error",
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/no-noninteractive-tabindex": "error",
+    "jsx-a11y/no-noninteractive-element-interactions": "error",
+    "jsx-a11y/no-redundant-roles": "error",
+    "jsx-a11y/control-has-associated-label": "error",
+    "jsx-a11y/click-events-have-key-events": "error",
+    "jsx-a11y/no-static-element-interactions": "error",
+    "promise/always-return": "off",
+    "promise/no-callback-in-promise": "off",
+    "eslint/no-shadow": "error",
+    "unicorn/no-array-sort": "error",
+    "jsx-a11y/prefer-tag-over-role": "off",
+    "import/no-unassigned-import": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "components/interior/**/*.tsx"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "@phosphor-icons/react",
+                "message": "Shipped components depend on motion only. Draw the icon inline."
+              },
+              {
+                "name": "shiki",
+                "message": "Shipped components depend on motion only."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "app/**/*.tsx",
+        "components/site/**/*.tsx",
+        "lib/**/*.tsx"
+      ],
+      "rules": {
+        "jsx-a11y/heading-has-content": "off"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    ".next/**",
+    "node_modules/**",
+    "next-env.d.ts"
+  ]
+}
