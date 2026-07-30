@@ -17,7 +17,7 @@ const SITE = "https://interior.dev";
 
 const TITLE = "interior.dev";
 const DESCRIPTION =
-  "micro-interactions for react. no layout shift, interruptible, reduced-motion safe.";
+  "micro-interactions for react, built for the half-second after a click.";
 
 export const viewport: Viewport = {
   themeColor: [
