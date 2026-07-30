@@ -1,5 +1,7 @@
 # interior[.]dev
 
+<img width="1195" height="622" alt="Screenshot 2026-07-30 at 22 15 10" src="https://github.com/user-attachments/assets/73e360b2-5dd1-4e92-b806-5bf4e0c02930" />
+
 Finished micro-interactions for React. Copy the file, own the code.
 
 Everybody builds these components. Almost nobody finishes them. The missing
