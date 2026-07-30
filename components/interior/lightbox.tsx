@@ -38,6 +38,7 @@ const VEIL = {
   mass: 0.8,
 } as const;
 
+const EASE = [0.23, 1, 0.32, 1] as const;
 const EXIT = { duration: 0.2, ease: [0.4, 0, 1, 1] } as const;
 
 const GLYPH = {
@@ -383,7 +384,7 @@ export type LightboxProps = {
   className?: string;
 };
 
-type Landing = { dx: number; dy: number; s: number; o: number };
+type Landing = { dx: number; dy: number; s: number; o: number; r: number };
 
 function Stage({
   onClose,
@@ -404,6 +405,7 @@ function Stage({
   const fy = useMotionValue(0);
   const fs = useMotionValue(1);
   const fo = useMotionValue(0);
+  const fr = useMotionValue(14);
 
   const {
     frameRef,
@@ -444,15 +446,19 @@ function Stage({
       const r = frame.getBoundingClientRect();
       const o = origin.getBoundingClientRect();
       if (o.width > 0) {
+        const s = o.width / content.offsetWidth;
+        const rad =
+          Number.parseFloat(getComputedStyle(origin).borderTopLeftRadius) || 9;
         return {
           dx: o.left + o.width / 2 - (r.left + r.width / 2),
           dy: o.top + o.height / 2 - (r.top + r.height / 2),
-          s: o.width / content.offsetWidth,
+          s,
           o: 1,
+          r: rad / s,
         };
       }
     }
-    return { dx: 0, dy: 10, s: 0.97, o: 0 };
+    return { dx: 0, dy: 10, s: 0.97, o: 0, r: 14 };
   }, [contentRef, frameRef, originRef]);
 
   useLayoutEffect(() => {
@@ -461,6 +467,7 @@ function Stage({
       fy.set(0);
       fs.set(1);
       fo.set(1);
+      fr.set(14);
       return;
     }
     const d = landing();
@@ -468,21 +475,31 @@ function Stage({
     fy.set(d.dy);
     fs.set(d.s);
     fo.set(d.o);
+    fr.set(d.r);
 
     const runs = [
       animate(fx, 0, HOME),
       animate(fy, 0, HOME),
       animate(fs, 1, HOME),
       animate(fo, 1, HOME),
+      animate(fr, 14, HOME),
     ];
     return () => runs.forEach((r) => r.stop());
-  }, [fo, fs, fx, fy, landing, reduced]);
+  }, [fo, fr, fs, fx, fy, landing, reduced]);
 
   const away = useCallback(() => {
     if (reduced) return { opacity: 0, transition: { duration: 0.12 } };
     const d = landing();
-    return { x: d.dx, y: d.dy, scale: d.s, opacity: d.o, transition: HOME };
-  }, [landing, reduced]);
+    animate(fr, d.r, HOME);
+    return {
+      x: d.dx,
+      y: d.dy,
+      scale: d.s,
+      opacity: d.o,
+      filter: "blur(4px)",
+      transition: HOME,
+    };
+  }, [fr, landing, reduced]);
 
   const unwind = useCallback(
     () => ({
@@ -562,7 +579,10 @@ function Stage({
         aria-hidden
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0, transition: reduced ? { duration: 0 } : EXIT }}
+        exit={{
+          opacity: 0,
+          transition: reduced ? { duration: 0 } : { duration: 0.3, ease: EASE },
+        }}
         transition={reduced ? { duration: 0 } : VEIL}
         className="absolute inset-0 bg-stone-950/80"
       />
@@ -581,8 +601,15 @@ function Stage({
       >
         <motion.div
           style={{ x: fx, y: fy, scale: fs, opacity: fo }}
+          initial={reduced ? false : { filter: "blur(6px)" }}
+          animate={{ filter: "blur(0px)" }}
           variants={{ away }}
           exit="away"
+          transition={
+            reduced
+              ? { duration: 0 }
+              : { filter: { duration: 0.35, ease: EASE } }
+          }
           className="absolute inset-0 flex items-center justify-center p-4 sm:p-14"
         >
           <motion.img
@@ -592,10 +619,10 @@ function Stage({
             width={width}
             height={height}
             draggable={false}
-            style={{ x, y, scale }}
+            style={{ x, y, scale, borderRadius: fr }}
             variants={{ away: unwind }}
             exit="away"
-            className="max-h-full max-w-full rounded-[14px] object-contain"
+            className="max-h-full max-w-full object-contain"
           />
         </motion.div>
       </div>

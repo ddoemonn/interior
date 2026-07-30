@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# interior[.]dev
 
-## Getting Started
+Finished micro-interactions for React. Copy the file, own the code.
 
-First, run the development server:
+Everybody builds these components. Almost nobody finishes them — the missing
+twenty percent is always the same three things: a jump, a restart, an animation
+that ignores the person watching it. This set ships that last twenty percent.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## How it works
+
+There is no package. Every component is one file in
+[`components/interior/`](components/interior/) that you copy into your project.
+Each file exports two things:
+
+- a headless hook (`useX`) that owns all the behaviour and touches zero class names
+- a styled component (`X`) built on the hook, as an example you can keep or replace
+
+The only dependency is [`motion`](https://motion.dev). Tailwind classes are
+overridable from outside.
+
+## The idea
+
+Trust is won in the half-second after a click, and lost in exactly the same
+place. A button that resizes when its label changes, a list that jumps as it
+loads, a drag that gets stuck because the tab lost focus — none of these are
+bugs anyone files, but every one of them teaches the person to stop believing
+the interface.
+
+So every component here is argued out to the frame. Nothing moves unless
+something happened; motion that models a physical process obeys that process
+instead of taste; every state the component can reach has its space reserved
+before it arrives; and every gesture knows all the ways it can be abandoned.
+The keyboard is not a fallback but a second complete implementation, and under
+`prefers-reduced-motion` the information still arrives — only the trip is
+skipped.
+
+## Running the docs
+
+```
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The design language behind every decision lives in [DESIGN.md](DESIGN.md).

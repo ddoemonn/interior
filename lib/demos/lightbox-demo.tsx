@@ -3,50 +3,53 @@
 import { useRef, useState } from "react";
 import { Lightbox } from "@/components/interior/lightbox";
 
-const plate = (label: string, tone: string) =>
-  `data:image/svg+xml;utf8,${encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440"><rect width="640" height="440" fill="${tone}"/><g fill="none" stroke="#1B1B19" stroke-opacity="0.45" stroke-width="2"><rect x="34" y="34" width="572" height="372"/><path d="M34 262h236M270 262v144M406 34v228M406 132h200M150 34v96M34 130h116"/></g><g fill="#1B1B19" fill-opacity="0.66" font-family="ui-monospace, monospace" font-size="6.5"><text x="44" y="26">${label} · scale 1:50 · sheet 09.5</text><text x="44" y="122">utility 1.80 x 2.05 m</text><text x="282" y="282">bedroom 3.40 x 4.15 m</text><text x="418" y="152">terrace 6.02 x 2.24 m</text><text x="44" y="424">plotted at 100 percent — verify all dimensions on site</text></g></svg>`,
-  )}`;
-
-const SHEETS = [
-  { id: "a", label: "Ground floor", src: plate("Ground floor", "#FFFFFF") },
-  { id: "b", label: "Mezzanine", src: plate("Mezzanine", "#F6F6F4") },
-  { id: "c", label: "Roof deck", src: plate("Roof deck", "#EFEEEA") },
-];
+const PHOTO = "/demo/river-valley.jpg";
 
 export function LightboxDemo() {
-  const [sheet, setSheet] = useState(SHEETS[0]);
   const [open, setOpen] = useState(false);
   const originRef = useRef<HTMLElement | null>(null);
 
   return (
-    <div className="mx-auto w-full max-w-[440px]">
-      <div className="grid grid-cols-3 gap-2">
-        {SHEETS.map((s) => (
-          <button
-            key={s.id}
-            type="button"
-            aria-label={`Open ${s.label}`}
-            onClick={(e) => {
-              originRef.current = e.currentTarget;
-              setSheet(s);
-              setOpen(true);
-            }}
-            style={{ backgroundImage: `url("${s.src}")` }}
-            className="mat-well aspect-[640/440] overflow-hidden rounded-[9px] border border-hairline bg-cover bg-center"
+    <div className="grid w-full place-items-center">
+      <figure className="w-full max-w-[300px]">
+        <button
+          type="button"
+          aria-label="Open River valley"
+          onClick={(e) => {
+            originRef.current = e.currentTarget;
+            setOpen(true);
+          }}
+          className="group block w-full cursor-zoom-in overflow-hidden rounded-[9px] outline-none focus-visible:shadow-[0_0_0_1.5px_#4568FF] dark:focus-visible:shadow-[0_0_0_1.5px_#93B0FF]"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={PHOTO}
+            alt="River winding through a mountain valley"
+            width={1280}
+            height={800}
+            draggable={false}
+            className="block w-full transition-transform duration-200 ease-out group-hover:scale-[1.02]"
           />
-        ))}
-      </div>
+        </button>
+        <figcaption className="mt-1.5 flex items-baseline justify-between">
+          <span className="text-[11.5px] text-stone-500 dark:text-stone-400">
+            River valley
+          </span>
+          <span className="font-mono text-[9.5px] tabular-nums text-stone-400 dark:text-stone-500">
+            1280 × 800
+          </span>
+        </figcaption>
+      </figure>
 
       <Lightbox
         open={open}
         onClose={() => setOpen(false)}
         originRef={originRef}
-        src={sheet.src}
-        alt={`${sheet.label} floor plan`}
-        caption={`${sheet.label} · 1:50`}
-        width={640}
-        height={440}
+        src={PHOTO}
+        alt="River winding through a mountain valley"
+        caption="River valley"
+        width={1280}
+        height={800}
       />
     </div>
   );

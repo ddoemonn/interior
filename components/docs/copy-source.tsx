@@ -29,7 +29,7 @@ export function CopySource({ code }: { code: string }) {
     <button
       type="button"
       onClick={copy}
-      className="mat-cap press grid h-[22px] items-center rounded-[6px] px-2 text-[10.5px] font-medium text-ink-2 hover:text-ink"
+      className="mat-cap press grid h-[22px] place-items-center rounded-[6px] px-2 text-[10.5px] font-medium text-ink-2 hover:text-ink"
     >
       <span
         className="col-start-1 row-start-1 transition-opacity duration-100"
@@ -39,11 +39,10 @@ export function CopySource({ code }: { code: string }) {
       </span>
       <span
         aria-hidden
-        className="col-start-1 row-start-1 inline-flex items-center gap-1 transition-opacity duration-100"
+        className="col-start-1 row-start-1 inline-flex items-center transition-opacity duration-100"
         style={{ opacity: copied ? 1 : 0, color: "var(--moss)" }}
       >
-        <CheckIcon size={10} weight="bold" aria-hidden />
-        copied
+        <CheckIcon size={11} weight="bold" aria-hidden />
       </span>
       <span className="sr-only" role="status">
         {copied ? "Copied" : ""}
