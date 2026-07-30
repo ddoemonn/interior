@@ -16,7 +16,7 @@ export default function Home() {
 
         <main className="flex flex-1 items-center px-6 sm:px-12">
           <div className="mx-auto w-full max-w-[900px] py-24">
-            <div className="origin-left scale-[1.6]">
+            <div className="w-fit origin-left scale-[1.6]">
               <BrandMark />
             </div>
 
