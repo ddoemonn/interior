@@ -20,8 +20,8 @@ export default function DocsLayout({
       </aside>
 
       <div className="min-w-0 flex-1">
-        <div className="mat-panel scroll-inset h-full overflow-y-auto overscroll-contain rounded-[20px]">
-          <header className="sticky top-0 z-20 flex h-12 items-center gap-4 border-b border-hairline bg-panel/85 px-5 backdrop-blur-md">
+        <div className="mat-panel scroll-inset h-full overflow-y-auto overflow-x-hidden overscroll-contain rounded-[20px]">
+          <header className="sticky top-0 z-20 flex h-12 items-center gap-2.5 border-b border-hairline bg-panel/85 px-4 backdrop-blur-md sm:gap-4 sm:px-5">
             <Link href="/docs" className="lg:hidden">
               <Logo size={14} />
             </Link>

@@ -16,10 +16,10 @@ export function LauncherButton() {
       type="button"
       onClick={() => window.dispatchEvent(new Event(LAUNCH))}
       aria-label="Search components"
-      className="mat-cap press flex h-7 items-center gap-2 rounded-[7px] pl-2.5 pr-1.5 text-[11.5px] text-ink-3 hover:text-ink-2"
+      className="mat-cap press flex h-7 items-center gap-2 rounded-[7px] pl-2.5 pr-2.5 text-[11.5px] text-ink-3 hover:text-ink-2 sm:pr-1.5"
     >
       Search
-      <span className="flex items-center gap-1">
+      <span className="hidden items-center gap-1 sm:flex">
         <kbd className="mat-well grid h-[16px] min-w-[16px] place-items-center rounded-[4px] px-1 font-mono text-[9px] text-ink-3">
           ⌘
         </kbd>

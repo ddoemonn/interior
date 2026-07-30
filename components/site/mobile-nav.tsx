@@ -101,7 +101,7 @@ export function MobileNav() {
             strokeLinecap="round"
           />
         </svg>
-        Components
+        <span className="hidden sm:inline">Components</span>
       </button>
 
       {host ? createPortal(overlay, host) : null}
