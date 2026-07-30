@@ -32,8 +32,8 @@ export default function Home() {
                 row that jumps as it loads.
               </p>
               <p>
-                Every one of these is argued out to the frame, then handed over
-                as a file you own.
+                Every one of these is argued out to the frame. The behaviour is
+                finished; the style is yours.
               </p>
             </div>
 

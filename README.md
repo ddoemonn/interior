@@ -2,7 +2,7 @@
 
 <img width="1195" height="622" alt="Screenshot 2026-07-30 at 22 15 10" src="https://github.com/user-attachments/assets/73e360b2-5dd1-4e92-b806-5bf4e0c02930" />
 
-Finished micro-interactions for React. Copy the file, own the code.
+Micro-interactions for React, built for the half-second after a click.
 
 Everybody builds these components. Almost nobody finishes them. The missing
 twenty percent is always the same three things: a jump, a restart, an animation
@@ -17,8 +17,9 @@ Each file exports two things:
 - a headless hook (`useX`) that owns all the behaviour and touches zero class names
 - a styled component (`X`) built on the hook, as an example you can keep or replace
 
-The only dependency is [`motion`](https://motion.dev). Tailwind classes are
-overridable from outside.
+The behaviour lives entirely in the hook, so reskinning a component to your own
+design language costs nothing but classes. The only dependency is
+[`motion`](https://motion.dev).
 
 ## The idea
 
