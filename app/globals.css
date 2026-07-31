@@ -232,7 +232,12 @@ body {
   margin-block: 20px;
 }
 
-@supports not selector(::-webkit-scrollbar) {
+/*
+ * Firefox 153+ parses ::-webkit-scrollbar without implementing it, so a
+ * `not selector(...)` gate is false there and the fallback never fires.
+ * Only Gecko parses -moz-appearance, so this reaches Firefox and nothing else.
+ */
+@supports (-moz-appearance: none) {
   * {
     scrollbar-width: thin;
     scrollbar-color: color-mix(in oklab, var(--ink) 12%, transparent) transparent;
