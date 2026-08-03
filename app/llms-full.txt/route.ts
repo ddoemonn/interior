@@ -30,7 +30,7 @@ export async function GET() {
         `${entry.blurb}.`,
         "",
         `Docs: ${SITE}/docs/${entry.slug}`,
-        `Install: \`bun add motion\`, then copy the source below into \`components/interior/${entry.slug}.tsx\`.`,
+        `Install: \`bun add motion\`, then copy the source below into \`components/interior/${entry.slug}.tsx\` — or \`bunx shadcn@latest add ${SITE}/r/${entry.slug}.json\`.`,
         notes,
         usage,
         `### Source (\`${entry.src}\`)`,

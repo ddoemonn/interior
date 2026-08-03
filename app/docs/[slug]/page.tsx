@@ -109,6 +109,15 @@ export default async function SheetPage({
         is yours after that.
       </p>
       <CodeBlock code="bun add motion" lang="bash" filename="terminal" />
+      <p className="mb-3 mt-5 max-w-[58ch] text-[13.5px] leading-relaxed text-ink-2">
+        Or let the shadcn CLI do the copying — same file, landing in
+        components/interior.
+      </p>
+      <CodeBlock
+        code={`bunx shadcn@latest add ${SITE}/r/${slug}.json`}
+        lang="bash"
+        filename="terminal"
+      />
 
       {entry.usage && (
         <>

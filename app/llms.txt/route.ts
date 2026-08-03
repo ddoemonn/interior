@@ -26,6 +26,7 @@ export function GET() {
     `- Source code: ${GITHUB}`,
     `- Full documentation with component source: ${SITE}/llms-full.txt`,
     `- Install for any component: \`bun add motion\`, then copy the file from its docs page`,
+    `- shadcn registry: \`bunx shadcn@latest add ${SITE}/r/<name>.json\` — catalog at ${SITE}/r/registry.json`,
     "",
     sections,
     "",
