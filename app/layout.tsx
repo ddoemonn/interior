@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Launcher } from "@/components/site/launcher";
+import { DESCRIPTION, SITE, TITLE } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,12 +14,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const SITE = "https://interior.dev";
-
-const TITLE = "interior.dev";
-const DESCRIPTION =
-  "micro-interactions for react, built for the half-second after a click.";
 
 export const viewport: Viewport = {
   themeColor: [

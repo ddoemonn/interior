@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { readyEntries } from "@/lib/registry";
-
-const SITE = "https://interior.dev";
+import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

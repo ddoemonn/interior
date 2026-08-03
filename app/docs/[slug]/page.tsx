@@ -7,6 +7,7 @@ import { Preview } from "@/components/docs/preview";
 import { CodeBlock } from "@/components/docs/code-block";
 import { bleedDemos, demos } from "@/lib/demos";
 import { getCategoryOf, getEntry, readyEntries } from "@/lib/registry";
+import { GITHUB, SITE } from "@/lib/site";
 
 export function generateStaticParams() {
   return readyEntries.map((e) => ({ slug: e.slug }));
@@ -20,7 +21,23 @@ export async function generateMetadata({
   const { slug } = await params;
   const entry = getEntry(slug);
   if (!entry) return {};
-  return { title: entry.name, description: entry.blurb };
+  return {
+    title: entry.name,
+    description: entry.blurb,
+    alternates: { canonical: `/docs/${slug}` },
+    openGraph: {
+      type: "article",
+      url: `${SITE}/docs/${slug}`,
+      title: entry.name,
+      description: entry.blurb,
+      siteName: "interior.dev",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: entry.name,
+      description: entry.blurb,
+    },
+  };
 }
 
 export default async function SheetPage({
@@ -41,8 +58,25 @@ export default async function SheetPage({
     "utf8",
   );
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    name: entry.name,
+    description: entry.blurb,
+    url: `${SITE}/docs/${slug}`,
+    codeRepository: GITHUB,
+    programmingLanguage: "TypeScript",
+    runtimePlatform: "React",
+    isAccessibleForFree: true,
+    isPartOf: { "@type": "WebSite", name: "interior.dev", url: SITE },
+  };
+
   return (
     <article className="mx-auto max-w-[740px] px-6 pb-24 pt-11 sm:px-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Enter>
         <header>
           <p className="flex items-center gap-1.5 text-[11px] text-ink-3">
