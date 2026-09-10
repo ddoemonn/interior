@@ -300,6 +300,7 @@ export type ModalProps = {
   open: boolean;
   onClose: () => void;
   title: React.ReactNode;
+  titleAlign?: "left" | "center";
   description?: React.ReactNode;
   children?: React.ReactNode;
   footer?: React.ReactNode;
@@ -319,6 +320,7 @@ export function Modal({
   open,
   onClose,
   title,
+  titleAlign = "left",
   description,
   children,
   footer,
@@ -416,7 +418,11 @@ export function Modal({
               <div className="min-w-0 flex-1">
                 <h2
                   id={titleId}
-                  className="text-[15px] font-medium tracking-[-0.01em] text-stone-800 dark:text-stone-100"
+                  className={`text-[15px] font-medium tracking-[-0.01em] text-stone-800 dark:text-stone-100 ${
+                    titleAlign === "center"
+                      ? `text-center ${showClose ? "pl-9" : ""}`
+                      : ""
+                  }`}
                 >
                   {title}
                 </h2>
