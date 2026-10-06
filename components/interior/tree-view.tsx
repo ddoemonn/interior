@@ -219,7 +219,7 @@ function Caret({ open }: { open: boolean }) {
       initial={false}
       animate={{ rotate: open ? 90 : 0 }}
       transition={reduced ? STILL : SMALL}
-      className="flex size-4 shrink-0 items-center justify-center text-stone-400 dark:text-stone-500"
+      className="flex size-4 shrink-0 items-center justify-center text-neutral-400 dark:text-neutral-500"
     >
       <svg viewBox="0 0 12 12" width="10" height="10" focusable="false">
         <path
@@ -297,10 +297,10 @@ export function TreeView({
               tree.focusRow(node.id);
               if (row.branch) tree.toggle(node.id);
             }}
-            className={`flex h-7 cursor-default select-none items-center gap-1 rounded-[8px] px-1.5 outline-none transition-colors duration-150 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] ${
+            className={`flex h-7 cursor-default select-none items-center gap-1 rounded-[8px] px-1.5 outline-none transition-colors duration-150 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.12] ${
               isSelected
-                ? "bg-stone-100/80 text-stone-800 dark:bg-white/[0.07] dark:text-stone-100"
-                : "text-stone-600 hover:bg-stone-100/60 dark:text-stone-300 dark:hover:bg-white/[0.04]"
+                ? "bg-neutral-50 text-neutral-900 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07),0_1px_2px_rgba(0,0,0,0.05)] dark:bg-[#222222] dark:text-neutral-100 dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_1px_2px_rgba(0,0,0,0.25)]"
+                : "text-neutral-600 hover:bg-black/[0.03] dark:text-neutral-300 dark:hover:bg-white/[0.04]"
             }`}
           >
 
@@ -315,7 +315,7 @@ export function TreeView({
             </span>
 
             {node.meta ? (
-              <span className="shrink-0 font-mono text-[10.5px] tabular-nums text-stone-400 dark:text-stone-500">
+              <span className="shrink-0 font-mono text-[10.5px] tabular-nums text-neutral-400 dark:text-neutral-500">
                 {node.meta}
               </span>
             ) : null}
@@ -343,7 +343,7 @@ export function TreeView({
                   }
                   className="overflow-hidden"
                 >
-                  <div className="ml-[13px] border-l border-stone-200/80 pl-[7px] dark:border-white/[0.16]">
+                  <div className="ml-[13px] border-l border-black/10 pl-[7px] dark:border-white/10">
                     {renderNodes(node.children ?? [], level + 1)}
                   </div>
                 </motion.ul>
@@ -356,7 +356,7 @@ export function TreeView({
 
   return (
     <div
-      className={`rounded-[13px] border border-stone-200 bg-white p-[5px] shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)] ${className}`}
+      className={`rounded-[13px] border border-black/10 bg-white p-[5px] shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:border-white/10 dark:bg-[#111111] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4)] ${className}`}
     >
       <ul role="tree" aria-label={label}>
         {renderNodes(nodes, 1)}

@@ -196,18 +196,18 @@ export function LongPressButton({
       initial={false}
       animate={{ scale: reduced ? 1 : fired ? [1, 1.045, 1] : 1 }}
       transition={reduced ? INSTANT : POP}
-      className={`group relative inline-flex h-9 select-none items-center rounded-[9px] border px-3.5 text-[13px] font-medium outline-none transition-[border-color,background-color,box-shadow,transform] duration-150 focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)] ${
+      className={`group relative inline-flex h-9 select-none items-center rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] px-[15px] text-[13px] font-medium shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_0_1px_rgba(0,0,0,0.15),0_2px_3px_rgba(0,0,0,0.09)] outline-none transition-[filter,transform] duration-150 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:from-[#303030] dark:to-[#282828] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_0_0_1px_#202020,0_2px_3px_rgba(0,0,0,0.25)] ${
         holding
-          ? "translate-y-px border-stone-200 bg-stone-100/70 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] dark:border-white/[0.08] dark:bg-[#1D1D1A] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)]"
+          ? "translate-y-px brightness-[0.97] dark:brightness-90"
           : fired
-            ? "border-[#4568FF] bg-[#4568FF]/[0.07] dark:border-[#93B0FF] dark:bg-[#93B0FF]/[0.12]"
-            : "border-stone-200 bg-white shadow-[inset_0_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(28,25,23,0.06),0_1px_2px_rgba(28,25,23,0.08)] hover:bg-stone-50 dark:border-white/[0.16] dark:bg-[#252522] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4)] dark:hover:bg-[#2A2A27]"
+            ? ""
+            : "hover:brightness-[0.98] dark:hover:brightness-110"
       } ${disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"} ${className}`}
       style={{ touchAction: "manipulation", WebkitTouchCallout: "none" }}
       {...bind}
     >
       <span className="relative grid">
-        <span className="col-start-1 row-start-1 whitespace-nowrap text-stone-700 dark:text-stone-200">
+        <span className="col-start-1 row-start-1 whitespace-nowrap text-neutral-700 dark:text-neutral-200">
           {children}
         </span>
         <motion.span
@@ -217,7 +217,7 @@ export function LongPressButton({
             clipPath: `inset(0 ${((1 - progress) * 100).toFixed(2)}% 0 0)`,
           }}
           transition={reduced ? INSTANT : CELL}
-          className="col-start-1 row-start-1 whitespace-nowrap text-[#4568FF] dark:text-[#93B0FF]"
+          className="col-start-1 row-start-1 whitespace-nowrap text-[#4568FF]"
         >
           {children}
         </motion.span>

@@ -331,33 +331,33 @@ export function Drawer({
         aria-hidden
         style={{ opacity: drawer.veil }}
         onClick={dismissOnScrimClick ? drawer.close : undefined}
-        className="absolute inset-0 bg-stone-900/25 dark:bg-black/55"
+        className="absolute inset-0 bg-neutral-900/25 dark:bg-black/55"
       />
       <motion.div
         ref={drawer.panelRef}
         aria-labelledby={titleId}
         aria-describedby={hintId}
         style={{ x: drawer.x, width, maxWidth: "calc(100% - 40px)", touchAction: "pan-y" }}
-        className={`absolute inset-y-0 flex flex-col border-stone-200 bg-white shadow-[0_28px_56px_-24px_rgba(24,22,20,0.45)] outline-none dark:border-white/[0.16] dark:bg-[#1D1D1A] ${edge} ${
+        className={`absolute inset-y-0 flex flex-col border-black/[0.12] bg-white text-neutral-700 shadow-[0_2px_4px_rgba(0,0,0,0.06),0_0_32px_-8px_rgba(0,0,0,0.16)] outline-none dark:border-white/10 dark:bg-[#111111] dark:text-neutral-200 dark:shadow-[0_0_56px_-16px_rgba(0,0,0,0.8)] ${edge} ${
           drawer.dragging ? "select-none" : ""
         } ${className}`}
         {...drawer.panelProps}
       >
         <header
           onPointerDown={drawer.gripProps.onPointerDown}
-          className={`flex select-none items-start gap-3 border-b border-stone-200 px-4 py-3 dark:border-white/[0.16] ${
+          className={`flex select-none items-start gap-3 border-b border-black/[0.07] px-4 py-3 dark:border-white/[0.06] ${
             drawer.dragging ? "cursor-grabbing" : "cursor-grab"
           }`}
         >
           <div className="min-w-0 flex-1">
             <h2
               id={titleId}
-              className="truncate text-[13px] font-medium text-stone-700 dark:text-stone-200"
+              className="truncate text-[13px] font-medium text-neutral-900 dark:text-neutral-100"
             >
               {title}
             </h2>
             {description ? (
-              <p className="mt-0.5 truncate text-[12.5px] text-stone-500 dark:text-stone-400">
+              <p className="mt-0.5 truncate text-[12.5px] text-neutral-500 dark:text-neutral-400">
                 {description}
               </p>
             ) : null}
@@ -367,7 +367,7 @@ export function Drawer({
             onPointerDown={(e) => e.stopPropagation()}
             onClick={drawer.close}
             aria-label={closeLabel}
-            className="-mr-1 grid size-7 shrink-0 place-items-center rounded-[7px] text-stone-400 outline-none transition-colors duration-150 hover:bg-stone-100 hover:text-stone-700 focus-visible:bg-[#4568FF]/[0.06] focus-visible:text-stone-700 focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-stone-500 dark:hover:bg-white/10 dark:hover:text-stone-100 dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:text-stone-100 dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
+            className="-mr-1 grid size-7 shrink-0 place-items-center rounded-[7px] text-neutral-500 outline-none transition-colors duration-150 hover:bg-neutral-100 hover:text-neutral-800 focus-visible:text-neutral-800 focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-neutral-400 dark:hover:bg-white/[0.08] dark:hover:text-neutral-100 dark:focus-visible:text-neutral-100 dark:focus-visible:shadow-[inset_0_0_0_1px_#4568FF]"
           >
             {CLOSE_ICON}
           </button>
@@ -377,7 +377,7 @@ export function Drawer({
         </div>
 
         {footer ? (
-          <div className="border-t border-stone-200 px-4 py-3 dark:border-white/[0.16]">
+          <div className="border-t border-black/[0.07] px-4 py-3 dark:border-white/[0.06]">
             {footer}
           </div>
         ) : null}

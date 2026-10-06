@@ -169,12 +169,14 @@ export function usePopover<A extends HTMLElement = HTMLElement>({
 
     const arrow = arrowRef.current;
     if (arrow) {
+      const bx = panel.clientLeft;
+      const by = panel.clientTop;
       if (horizontal) {
-        arrow.style.left = `${Math.round(point - half)}px`;
-        arrow.style.top = `${Math.round(next === "top" ? h - half : -half)}px`;
+        arrow.style.left = `${Math.round(point - bx - half)}px`;
+        arrow.style.top = `${Math.round(next === "top" ? h - by * 1.5 - half : -by / 2 - half)}px`;
       } else {
-        arrow.style.top = `${Math.round(point - half)}px`;
-        arrow.style.left = `${Math.round(next === "left" ? w - half : -half)}px`;
+        arrow.style.top = `${Math.round(point - by - half)}px`;
+        arrow.style.left = `${Math.round(next === "left" ? w - bx * 1.5 - half : -bx / 2 - half)}px`;
       }
     }
 
@@ -315,7 +317,7 @@ export function Popover({
         aria-expanded={open}
         aria-controls={open ? id : undefined}
         onClick={() => setOpen(!open)}
-        className={`inline-flex h-9 select-none items-center gap-2 rounded-[9px] border border-stone-200 bg-white px-3 text-[13px] font-medium text-stone-700 outline-none transition-[border-color,box-shadow] duration-150 hover:border-stone-300 focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200 dark:hover:border-white/20 dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)] ${triggerClassName}`}
+        className={`inline-flex h-9 select-none items-center gap-2 rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] px-3 text-[13px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.12)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:from-[#222222] dark:to-[#151515] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)] dark:hover:brightness-110 ${triggerClassName}`}
       >
         {trigger}
       </button>
@@ -356,16 +358,18 @@ export function Popover({
                   ? { duration: 0 }
                   : { ...CROSSFADE, opacity: { duration: 0.14, ease: EASE } }
               }
-              className={`relative rounded-[11px] border border-stone-200 bg-white p-3 shadow-[0_18px_40px_-24px_rgba(28,25,23,0.5)] focus-visible:outline-none dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)] ${className}`}
+              className={`relative rounded-[11px] border border-black/[0.12] bg-[#fafafa] p-[3px] shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14)] focus-visible:outline-none dark:border-white/10 dark:bg-[#1c1c1c] dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7)] ${className}`}
             >
               <span
                 ref={arrowRef}
                 aria-hidden
                 style={{ width: arrowSize, height: arrowSize, transform: "rotate(45deg)" }}
-                className={`absolute block bg-white dark:bg-[#1D1D1A] border-stone-200 dark:border-white/[0.16] ${ARROW_EDGE[at]}`}
+                className={`absolute block border-black/[0.12] bg-[#fafafa] dark:border-white/10 dark:bg-[#1c1c1c] ${ARROW_EDGE[at]}`}
               />
-              <div ref={contentRef} className="relative overflow-y-auto overscroll-contain">
-                {children}
+              <div className="relative rounded-[7px] bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.07)] dark:bg-[#111111] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
+                <div ref={contentRef} className="relative overflow-y-auto overscroll-contain">
+                  {children}
+                </div>
               </div>
             </motion.div>
           </div>

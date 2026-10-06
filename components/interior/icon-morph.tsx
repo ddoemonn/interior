@@ -209,8 +209,8 @@ export function IconMorph({
       aria-expanded={semantics === "expanded" ? index === 1 : undefined}
       whileTap={disabled ? undefined : { y: 1 }}
       transition={transition}
-      className={`inline-flex h-9 shrink-0 select-none items-center justify-center gap-2 rounded-[9px] border border-stone-200 bg-white text-[13px] font-medium text-stone-700 outline-none focus-visible:ring-2 focus-visible:ring-stone-400 disabled:opacity-50 dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200 dark:focus-visible:ring-white/30 ${
-        showLabel ? "px-3" : "w-9"
+      className={`inline-flex h-9 shrink-0 select-none items-center justify-center gap-2 rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] text-[13px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.08)] outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:from-[#222222] dark:to-[#151515] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_0_0_1px_rgba(255,255,255,0.12),0_1px_2px_rgba(0,0,0,0.4)] ${
+        showLabel ? "px-[13px]" : "w-9"
       } ${className}`}
       style={{ touchAction: "manipulation" }}
     >

@@ -301,10 +301,10 @@ export function Dropdown({
     <div ref={rootRef} className={`relative inline-block text-left ${className}`}>
       <button
         {...triggerProps}
-        className={`flex h-9 select-none items-center gap-2 whitespace-nowrap rounded-[9px] border border-stone-200 bg-white px-3 text-[13px] font-medium text-stone-700 outline-none transition-[box-shadow,border-color] duration-150 disabled:opacity-50 dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200 ${
+        className={`flex h-9 select-none items-center gap-2 whitespace-nowrap rounded-[9px] bg-gradient-to-b px-3 text-[13px] font-medium text-neutral-700 outline-none transition-[box-shadow,filter] duration-150 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:text-neutral-200 ${
           open
-            ? "shadow-[inset_0_1px_2px_rgba(28,25,23,0.09)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.5)]"
-            : "shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] hover:border-stone-300 hover:shadow-[0_1px_2px_rgba(28,25,23,0.06),0_8px_18px_-12px_rgba(28,25,23,0.5)] focus-visible:border-stone-400 focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_22px_-12px_rgba(28,25,23,0.55)] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)] dark:hover:border-white/20 dark:hover:shadow-[0_2px_10px_rgba(0,0,0,0.55)] dark:focus-visible:border-white/30 dark:focus-visible:shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+            ? "from-[#fafafa] to-[#fafafa] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.12)] dark:from-[#151515] dark:to-[#151515] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)]"
+            : "from-white to-[#f5f5f5] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.12)] hover:brightness-[0.98] dark:from-[#222222] dark:to-[#151515] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)] dark:hover:brightness-110"
         }`}
       >
         <span className="sr-only">
@@ -314,7 +314,7 @@ export function Dropdown({
         <motion.svg
           aria-hidden
           viewBox="0 0 12 12"
-          className="size-3 shrink-0 text-stone-500 dark:text-stone-400"
+          className="size-3 shrink-0 text-neutral-500 dark:text-neutral-400"
           initial={false}
           animate={{ rotate: open ? 180 : 0 }}
           transition={reduced ? NONE : NUDGE}
@@ -346,7 +346,7 @@ export function Dropdown({
                 : { ...OPEN, opacity: { duration: 0.12, ease: EASE } }
             }
             style={{ transformOrigin: "top left" }}
-            className="absolute left-0 top-[calc(100%+6px)] z-50 min-w-[224px] whitespace-nowrap rounded-[11px] border border-stone-200 bg-white p-[5px] shadow-[0_1px_2px_rgba(28,25,23,0.06),0_16px_36px_-18px_rgba(28,25,23,0.5)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
+            className="absolute left-0 top-[calc(100%+6px)] z-50 min-w-[224px] whitespace-nowrap rounded-[11px] border border-black/[0.12] bg-white p-[5px] shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14)] dark:border-white/10 dark:bg-[#111111] dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7)]"
           >
             <ul
               {...listProps}
@@ -355,7 +355,7 @@ export function Dropdown({
             >
               <motion.span
                 aria-hidden
-                className="pointer-events-none absolute inset-x-0 top-0 h-8 rounded-[7px] bg-stone-100 dark:bg-white/10"
+                className="pointer-events-none absolute inset-x-0 top-0 h-8 rounded-[7px] bg-neutral-100 dark:bg-[#222222]"
                 initial={false}
                 animate={{
                   y: activeIndex < 0 ? 0 : activeIndex * ROW_H,
@@ -376,16 +376,16 @@ export function Dropdown({
                     {...getItemProps(i)}
                     className={`relative flex h-8 cursor-default select-none items-center rounded-[7px] px-2.5 text-[13px] ${
                       item.disabled
-                        ? "text-stone-500/70 dark:text-stone-400/70"
+                        ? "text-neutral-400 dark:text-neutral-600"
                         : active
-                          ? "text-stone-900 dark:text-stone-100"
-                          : "text-stone-700 dark:text-stone-200"
+                          ? "text-neutral-900 dark:text-neutral-100"
+                          : "text-neutral-700 dark:text-neutral-300"
                     }`}
                   >
                     <span className="relative flex min-w-0 flex-1 items-center gap-3">
                       <span className="truncate">{item.label}</span>
                       {item.hint ? (
-                        <span className="ml-auto shrink-0 font-mono text-[10.5px] text-stone-500 dark:text-stone-400">
+                        <span className="ml-auto shrink-0 font-mono text-[10.5px] text-neutral-500 dark:text-neutral-400">
                           {item.hint}
                         </span>
                       ) : null}
@@ -395,7 +395,7 @@ export function Dropdown({
                       initial={false}
                       animate={{ opacity: picked ? 1 : 0, scale: picked ? 1 : 0.7 }}
                       transition={cell}
-                      className="relative ml-2 flex size-[14px] shrink-0 items-center justify-center"
+                      className="relative ml-2 flex size-[14px] shrink-0 items-center justify-center text-[#4568FF]"
                     >
                       <svg viewBox="0 0 14 14" className="size-[14px]">
                         <path
@@ -415,7 +415,7 @@ export function Dropdown({
               {items.length === 0 && (
                 <li
                   role="presentation"
-                  className="flex h-8 items-center px-2.5 text-[13px] text-stone-500 dark:text-stone-400"
+                  className="flex h-8 items-center px-2.5 text-[13px] text-neutral-500 dark:text-neutral-400"
                 >
                   {emptyLabel}
                 </li>

@@ -291,10 +291,10 @@ function DeckCard({
           scale: on ? 1 : 0.94,
         }}
         transition={reduced ? { duration: 0 } : CELL}
-        className={`pointer-events-none absolute top-3 whitespace-nowrap rounded-[6px] border bg-white px-2 py-1 text-[10.5px] font-semibold uppercase tracking-[0.08em] transition-colors duration-150 dark:bg-[#1D1D1A] ${
+        className={`pointer-events-none absolute top-3 whitespace-nowrap rounded-[6px] border px-2 py-1 text-[10.5px] font-semibold uppercase tracking-[0.08em] transition-colors duration-150 ${
           on && intent.step >= steps
-            ? "border-[#4568FF] text-[#4568FF] dark:border-[#93B0FF] dark:text-[#93B0FF]"
-            : "border-stone-300 text-stone-700 dark:border-white/20 dark:text-stone-200"
+            ? "border-[#3655dc] bg-[#4568FF] text-white"
+            : "border-neutral-300 bg-white text-neutral-700 dark:border-white/[0.16] dark:bg-[#111111] dark:text-neutral-200"
         } ${place}`}
       >
         {text}
@@ -349,10 +349,10 @@ function DeckCard({
         transformOrigin: "50% 100%",
         touchAction: "pan-y",
       }}
-      className={`absolute inset-x-5 top-0 select-none overflow-hidden rounded-[14px] border border-stone-200 bg-white dark:border-white/[0.16] dark:bg-[#1D1D1A] ${
+      className={`absolute inset-x-5 top-0 select-none overflow-hidden rounded-[14px] border border-black/10 bg-white dark:border-white/10 dark:bg-[#191919] ${
         active
-          ? "cursor-grab shadow-[0_1px_2px_rgba(28,25,23,0.06),0_16px_32px_-18px_rgba(28,25,23,0.55)] active:cursor-grabbing dark:shadow-[0_2px_16px_rgba(0,0,0,0.6)]"
-          : "shadow-[0_1px_2px_rgba(28,25,23,0.05),0_6px_14px_-12px_rgba(28,25,23,0.4)] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
+          ? "cursor-grab shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14)] active:cursor-grabbing dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7)]"
+          : "shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
       }`}
     >
       {children}
@@ -420,7 +420,7 @@ export function SwipeDeck<T>({
   const current = items[deck.index];
 
   const control =
-    "inline-flex h-8 items-center gap-1.5 rounded-[9px] border border-stone-200 bg-white px-2.5 text-[12px] font-medium text-stone-700 outline-none transition-[background-color,border-color,opacity] duration-150 hover:bg-stone-100 focus-visible:border-[#4568FF] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200 dark:hover:bg-white/10 dark:focus-visible:border-[#93B0FF]";
+    "inline-flex h-8 items-center gap-1.5 rounded-[8px] bg-gradient-to-b from-white to-[#f5f5f5] px-[11px] text-[12px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_0_1px_rgba(0,0,0,0.15),0_2px_3px_rgba(0,0,0,0.09)] outline-none transition-[filter,opacity] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:from-[#303030] dark:to-[#282828] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_0_0_1px_#202020,0_2px_3px_rgba(0,0,0,0.25)] dark:hover:brightness-110";
 
   return (
     <div className={`w-full ${className}`}>
@@ -428,7 +428,7 @@ export function SwipeDeck<T>({
         aria-label={label}
         aria-describedby={hintId}
         style={{ height: height + 26 }}
-        className="relative w-full overflow-hidden rounded-[14px] outline-none focus-visible:shadow-[0_0_0_1px_#4568FF] dark:focus-visible:shadow-[0_0_0_1px_#93B0FF]"
+        className="relative w-full overflow-hidden rounded-[14px] outline-none focus-visible:shadow-[0_0_0_1px_#4568FF]"
         {...deck.deckProps}
       >
         <div className="absolute inset-0 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20px,black_calc(100%-20px),transparent)]">
@@ -438,7 +438,7 @@ export function SwipeDeck<T>({
             animate={{ opacity: deck.done ? 1 : 0 }}
             transition={reduced ? { duration: 0 } : CROSSFADE}
             style={{ height }}
-            className="absolute inset-x-5 top-0 z-0 grid place-items-center rounded-[14px] bg-stone-100/70 px-4 text-center text-[12.5px] text-stone-500 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] dark:bg-[#252522] dark:text-stone-400 dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)]"
+            className="absolute inset-x-5 top-0 z-0 grid place-items-center rounded-[14px] bg-[#fafafa] px-4 text-center text-[12.5px] text-neutral-500 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)] dark:bg-[#191919] dark:text-neutral-400 dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]"
           >
             {emptyLabel}
           </motion.div>
@@ -477,7 +477,7 @@ export function SwipeDeck<T>({
           {ICON_LEFT}
           <span>{leftLabel}</span>
         </button>
-        <span className="flex items-center gap-2 font-mono text-[10.5px] tabular-nums text-stone-500 dark:text-stone-400">
+        <span className="flex items-center gap-2 font-mono text-[10.5px] tabular-nums text-neutral-500 dark:text-neutral-400">
           <span aria-hidden className="inline-grid justify-items-end">
             <span className="invisible col-start-1 row-start-1">
               {items.length}
@@ -489,7 +489,7 @@ export function SwipeDeck<T>({
             type="button"
             onClick={deck.undo}
             inert={!deck.canUndo}
-            className={`inline-flex items-center gap-1 rounded-[5px] px-1 py-0.5 text-stone-700 outline-none transition-[background-color,box-shadow,opacity] duration-150 hover:bg-stone-100 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-stone-200 dark:hover:bg-white/10 dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] ${spent(
+            className={`inline-flex items-center gap-1 rounded-[5px] px-1 py-0.5 text-neutral-700 outline-none transition-[background-color,box-shadow,opacity] duration-150 hover:bg-black/[0.05] focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-neutral-200 dark:hover:bg-white/10 dark:focus-visible:bg-[#4568FF]/[0.14] ${spent(
               !deck.canUndo,
             )}`}
           >

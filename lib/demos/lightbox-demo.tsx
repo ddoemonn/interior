@@ -19,7 +19,7 @@ export function LightboxDemo() {
             originRef.current = e.currentTarget;
             setOpen(true);
           }}
-          className="group block w-full cursor-zoom-in overflow-hidden rounded-[9px] outline-none focus-visible:shadow-[0_0_0_1.5px_#4568FF] dark:focus-visible:shadow-[0_0_0_1.5px_#93B0FF]"
+          className="group block w-full cursor-zoom-in overflow-hidden rounded-[9px] outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF]"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -32,10 +32,10 @@ export function LightboxDemo() {
           />
         </button>
         <figcaption className="mt-1.5 flex items-baseline justify-between">
-          <span className="text-[11.5px] text-stone-500 dark:text-stone-400">
+          <span className="text-[11.5px] text-neutral-600 dark:text-neutral-300">
             River valley
           </span>
-          <span className="font-mono text-[9.5px] tabular-nums text-stone-400 dark:text-stone-500">
+          <span className="font-mono text-[9.5px] tabular-nums text-neutral-500 dark:text-neutral-400">
             1280 × 800
           </span>
         </figcaption>

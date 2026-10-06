@@ -494,13 +494,13 @@ export function Tooltip({
                   : { ...(skipped ? WARM : RISE), layout: GLIDE }
               }
               style={{ transformOrigin: side === "top" ? "50% 100%" : "50% 0%" }}
-              className={`relative w-max max-w-[220px] shrink-0 overflow-hidden rounded-[8px] px-2 py-1 text-[11.5px] font-medium leading-snug text-stone-700 dark:text-stone-100 ${contentClassName}`}
+              className={`relative w-max max-w-[220px] shrink-0 overflow-hidden rounded-[8px] px-2 py-1 text-[11.5px] font-medium leading-snug text-neutral-800 shadow-[0_2px_4px_rgba(0,0,0,0.06),0_8px_20px_-8px_rgba(0,0,0,0.14)] dark:text-neutral-100 dark:shadow-[0_12px_24px_-10px_rgba(0,0,0,0.7)] ${contentClassName}`}
             >
               <motion.span
                 aria-hidden
                 layout={!reduced}
                 transition={reduced ? { duration: 0 } : GLIDE}
-                className="absolute inset-0 rounded-[8px] border border-stone-200 bg-white shadow-[0_1px_2px_rgba(28,25,23,0.06),0_6px_16px_-12px_rgba(28,25,23,0.35)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+                className="absolute inset-0 rounded-[8px] border border-black/[0.12] bg-white dark:border-white/10 dark:bg-[#111111]"
               />
               <motion.span
                 layout={reduced ? false : "position"}

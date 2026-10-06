@@ -128,12 +128,12 @@ export function TaskSteps({
         {rows.map((row) => {
           const tone =
             row.status === "done"
-              ? "text-stone-600 dark:text-stone-300"
+              ? "text-neutral-600 dark:text-neutral-300"
               : row.status === "active"
-                ? "font-medium text-stone-800 dark:text-stone-100"
+                ? "font-medium text-neutral-800 dark:text-neutral-100"
                 : row.status === "error"
                   ? "font-medium text-red-600 dark:text-red-400"
-                  : "text-stone-400 dark:text-stone-500";
+                  : "text-neutral-400 dark:text-neutral-500";
 
           return (
             <li
@@ -168,7 +168,7 @@ export function TaskSteps({
                   ) : row.status === "active" ? (
                     <motion.span
                       key="active"
-                      className="col-start-1 row-start-1 text-stone-500 dark:text-stone-400"
+                      className="col-start-1 row-start-1 text-neutral-500 dark:text-neutral-400"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0, transition: STILL }}
@@ -179,7 +179,7 @@ export function TaskSteps({
                   ) : (
                     <motion.span
                       key="pending"
-                      className="col-start-1 row-start-1 size-[5px] rounded-[2px] bg-stone-300 dark:bg-white/20"
+                      className="col-start-1 row-start-1 size-[5px] rounded-[2px] bg-neutral-300 dark:bg-white/20"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0, transition: STILL }}
@@ -191,7 +191,7 @@ export function TaskSteps({
 
               {row.status === "active" && !reduced ? (
                 <motion.span
-                  className="min-w-0 flex-1 truncate bg-[linear-gradient(90deg,#78716c_38%,#1c1917_50%,#78716c_62%)] bg-clip-text text-[12.5px] font-medium text-transparent [background-size:220%_100%] dark:bg-[linear-gradient(90deg,#a8a29e_38%,#fafaf9_50%,#a8a29e_62%)]"
+                  className="min-w-0 flex-1 truncate bg-[linear-gradient(90deg,#737373_38%,#171717_50%,#737373_62%)] bg-clip-text text-[12.5px] font-medium text-transparent [background-size:220%_100%] dark:bg-[linear-gradient(90deg,#a3a3a3_38%,#fafafa_50%,#a3a3a3_62%)]"
                   animate={{ backgroundPosition: ["120% 0", "-120% 0"] }}
                   transition={{ duration: 1.6, ease: "linear", repeat: Infinity }}
                 >
@@ -209,7 +209,7 @@ export function TaskSteps({
                 <span
                   className={`shrink-0 font-mono text-[10.5px] tabular-nums transition-opacity duration-200 ${
                     row.status === "done"
-                      ? "text-stone-400 opacity-100 dark:text-stone-500"
+                      ? "text-neutral-400 opacity-100 dark:text-neutral-500"
                       : "opacity-0"
                   }`}
                   aria-hidden={row.status !== "done"}

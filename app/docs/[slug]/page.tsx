@@ -91,7 +91,7 @@ export default async function SheetPage({
   };
 
   return (
-    <article className="mx-auto max-w-[740px] px-6 pb-24 pt-11 sm:px-10">
+    <article className="mx-auto max-w-[820px] px-5 pb-24 pt-10 sm:px-10 sm:pt-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbs]).replace(/</g, "\\u003c") }}
@@ -104,7 +104,7 @@ export default async function SheetPage({
             <span className="tnum font-mono">{entry.id}</span>
           </p>
 
-          <h1 className="mt-3 text-[27px] font-medium leading-[1.15] tracking-[-0.03em] text-ink">
+          <h1 className="mt-3 text-[30px] font-medium leading-[1.15] tracking-[-0.03em] text-ink">
             {entry.name}
           </h1>
           <p className="mt-2.5 max-w-[54ch] text-[14px] leading-relaxed text-ink-2">
@@ -151,7 +151,8 @@ export default async function SheetPage({
       {entry.props && (
         <>
           <H2>Props</H2>
-          <div className="mat-panel rounded-[14px] px-4">
+          <div className="doc-surface mat-frame rounded-[14px] p-[5px]">
+          <div className="mat-stage rounded-[9px] px-4">
             {entry.props.map((prop, i) => (
               <div
                 key={`${prop.name}-${i}`}
@@ -164,7 +165,7 @@ export default async function SheetPage({
                     {prop.name}
                   </code>
                   {prop.default && (
-                    <span className="mat-well tnum rounded-[5px] px-1.5 py-0.5 font-mono text-[10px] text-ink-3">
+                    <span className="tnum rounded-[5px] bg-sub px-1.5 py-0.5 font-mono text-[10px] text-ink-3 shadow-[inset_0_0_0_1px_var(--hairline)]">
                       {prop.default}
                     </span>
                   )}
@@ -183,6 +184,7 @@ export default async function SheetPage({
               </div>
             ))}
           </div>
+          </div>
         </>
       )}
 
@@ -195,7 +197,7 @@ function H2({ children }: { children: string }) {
   return (
     <h2
       id={children.toLowerCase().replace(/\s+/g, "-")}
-      className="mb-3 mt-12 text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-3"
+      className="mb-3 mt-12 text-[17px] font-medium tracking-[-0.01em] text-ink"
     >
       {children}
     </h2>

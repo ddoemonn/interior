@@ -29,7 +29,7 @@ export function CopySource({ code }: { code: string }) {
     <button
       type="button"
       onClick={copy}
-      className="mat-cap press grid h-[22px] place-items-center rounded-[6px] px-2 text-[10.5px] font-medium text-ink-2 hover:text-ink"
+      className="mat-action press grid h-[22px] place-items-center rounded-[6px] px-2 text-[10.5px] font-medium text-ink-2 hover:text-ink"
     >
       <span
         className="col-start-1 row-start-1 transition-opacity duration-100"

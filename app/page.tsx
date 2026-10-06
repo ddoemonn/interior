@@ -42,13 +42,13 @@ export default async function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-1 p-3 sm:p-5">
+    <div className="flex min-h-screen flex-1 p-3 sm:p-4">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(website).replace(/</g, "\\u003c") }}
       />
-      <div className="landing-panel mat-panel flex min-h-0 flex-1 flex-col overflow-hidden rounded-[20px]">
-        <header className="flex h-12 shrink-0 items-center gap-4 border-b border-hairline px-5">
+      <div className="landing-panel mat-panel flex min-h-0 flex-1 flex-col overflow-hidden rounded-[16px]">
+        <header className="flex h-14 shrink-0 items-center gap-4 border-b border-hairline px-5">
           <Logo />
           <span className="flex-1" />
           <nav aria-label="Main" className="mr-2 hidden items-center gap-5 text-[12.5px] text-ink-3 sm:flex">
@@ -85,8 +85,7 @@ export default async function Home() {
               <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-12">
                 <Link
                   href="/docs"
-                  className="press inline-flex h-8 items-center rounded-[9px] px-3 text-[12.5px] font-medium sm:h-9 sm:px-3.5 sm:text-[13px]"
-                  style={{ background: "var(--ink)", color: "var(--panel)" }}
+                  className="mat-primary press inline-flex h-8 items-center rounded-[9px] px-3 text-[12.5px] font-medium sm:h-9 sm:px-3.5 sm:text-[13px]"
                 >
                   See the components
                 </Link>
@@ -95,7 +94,7 @@ export default async function Home() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={stars === null ? "View interior.dev on GitHub" : `View interior.dev on GitHub, ${stars.toLocaleString("en")} stars`}
-                  className="group mat-cap press inline-flex h-8 items-center gap-1.5 rounded-[9px] px-3 text-[12.5px] font-medium text-ink-2 hover:text-ink sm:h-9 sm:px-3.5 sm:text-[13px]"
+                  className="group mat-action press inline-flex h-8 items-center gap-1.5 rounded-[9px] px-3 text-[12.5px] font-medium text-ink-2 hover:text-ink sm:h-9 sm:px-3.5 sm:text-[13px]"
                 >
                   <svg
                     className="shrink-0"

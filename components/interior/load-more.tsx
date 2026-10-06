@@ -235,10 +235,10 @@ const DEFAULT_LABELS: LoadMoreLabels = {
 const ORDER: LoadMoreStatus[] = ["idle", "loading", "error", "end"];
 
 const TONE: Record<LoadMoreStatus, string> = {
-  idle: "text-stone-700 dark:text-stone-200",
-  loading: "text-stone-500 dark:text-stone-400",
+  idle: "text-neutral-700 dark:text-neutral-200",
+  loading: "text-neutral-500 dark:text-neutral-400",
   error: "text-red-600 dark:text-red-400",
-  end: "text-stone-500 dark:text-stone-400",
+  end: "text-neutral-500 dark:text-neutral-400",
 };
 
 export type LoadMoreProps = {
@@ -308,10 +308,10 @@ export function LoadMore({
           }
           load();
         }}
-        className={`group relative inline-flex h-8 select-none items-center justify-center rounded-[9px] px-3 text-[12.5px] font-medium outline-none transition-[background-color,box-shadow,transform] duration-150 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] ${
+        className={`group relative inline-flex h-8 select-none items-center justify-center rounded-[9px] px-3 text-[12.5px] font-medium outline-none transition-[background-color,box-shadow,transform] duration-150 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.14] dark:focus-visible:shadow-[inset_0_0_0_1px_#4568FF] ${
           inert
             ? "cursor-default"
-            : "cursor-pointer hover:bg-stone-800/[0.04] active:translate-y-px dark:hover:bg-white/[0.06]"
+            : "cursor-pointer hover:bg-neutral-800/[0.04] active:translate-y-px dark:hover:bg-white/[0.06]"
         }`}
         style={{ touchAction: "manipulation" }}
       >

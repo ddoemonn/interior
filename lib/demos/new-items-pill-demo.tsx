@@ -60,7 +60,7 @@ export function NewItemsPillDemo() {
           >
             <motion.span
               aria-hidden
-              className="pointer-events-none absolute inset-0 rounded-[8px] bg-[#4568FF]/[0.09] dark:bg-[#93B0FF]/[0.12]"
+              className="pointer-events-none absolute inset-0 rounded-[8px] bg-[#4568FF]/[0.09] dark:bg-[#4568FF]/[0.14]"
               initial={false}
               animate={{ opacity: i < marked ? 1 : 0 }}
               transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}

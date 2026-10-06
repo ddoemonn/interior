@@ -6,6 +6,7 @@ export function HoldToConfirmDemo() {
   return (
     <div className="flex justify-center">
       <HoldToConfirm
+        tone="destructive"
         onConfirm={() => {}}
         confirmLabel="Workspace deleted"
       >

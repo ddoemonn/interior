@@ -120,7 +120,7 @@ export function DeployCard({ runId }: { runId: string }) {
   });
 
   return (
-    <div className="rounded-[14px] border border-stone-200 bg-white p-4 dark:border-white/[0.16] dark:bg-[#1D1D1A]">
+    <div className="rounded-[14px] border border-neutral-200 bg-white p-4 dark:border-white/[0.16] dark:bg-[#111111]">
       <h3 className="mb-3 text-[13px] font-medium">Deploy {runId}</h3>
       <TaskSteps steps={STEPS} current={current} failed={failed} label="Deploy progress" />
     </div>

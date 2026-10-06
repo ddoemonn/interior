@@ -51,13 +51,13 @@ export function PopoverDemo() {
             trigger={person.first}
           >
             <div className="w-[196px]">
-              <p className="text-[13px] font-medium text-stone-700 dark:text-stone-100">
+              <p className="text-[13px] font-medium text-neutral-900 dark:text-neutral-100">
                 {person.name}
               </p>
-              <p className="mt-0.5 text-[11.5px] text-stone-400 dark:text-stone-500">
+              <p className="mt-0.5 text-[11.5px] text-neutral-500 dark:text-neutral-400">
                 {person.role} · joined 2019
               </p>
-              <p className="mt-2 text-[12.5px] leading-relaxed text-stone-500 dark:text-stone-400">
+              <p className="mt-2 text-[12.5px] leading-relaxed text-neutral-600 dark:text-neutral-300">
                 Two reviews open. Last shipped the docs shell on Tuesday.
               </p>
             </div>

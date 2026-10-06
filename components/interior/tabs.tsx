@@ -216,13 +216,13 @@ export function Tabs({
 
   return (
     <div
-      className={`w-full overflow-hidden rounded-[12px] border border-stone-200 bg-white shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)] ${className}`}
+      className={`w-full overflow-hidden rounded-[12px] border border-black/10 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:border-white/10 dark:bg-[#111111] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4)] ${className}`}
     >
       <div
         {...tabs.tabListProps}
         ref={rowRef}
         aria-label={label}
-        className="relative flex w-full gap-1 border-b border-stone-200 bg-stone-50 px-1 pt-1 dark:border-white/[0.16] dark:bg-[#1D1D1A]"
+        className="relative flex w-full gap-1 border-b border-black/10 bg-neutral-50 px-1 pt-1 dark:border-white/10 dark:bg-[#191919]"
       >
         <motion.span
           layout
@@ -236,7 +236,7 @@ export function Tabs({
             width: plateau.width,
             opacity: plateau.ready ? 1 : 0,
           }}
-          className="absolute bottom-[-1px] top-1 bg-white dark:bg-[#1D1D1A]"
+          className="absolute bottom-[-1px] top-1 bg-white dark:bg-[#111111]"
           transition={reduced ? { duration: 0 } : INDICATOR}
         >
           <motion.span
@@ -244,7 +244,7 @@ export function Tabs({
             aria-hidden
             style={{ borderTopLeftRadius: 8, borderTopRightRadius: 8 }}
             transition={reduced ? { duration: 0 } : INDICATOR}
-            className="absolute inset-0 border border-b-0 border-stone-200 dark:border-white/[0.16]"
+            className="absolute inset-0 border border-b-0 border-black/10 dark:border-white/10"
           />
         </motion.span>
 
@@ -257,12 +257,12 @@ export function Tabs({
               ref={(node) => {
                 tabRefs.current[index] = node;
               }}
-              className={`relative flex h-8 shrink-0 items-center justify-center rounded-t-[8px] px-3.5 text-[12.5px] outline-none transition-colors duration-150 after:pointer-events-none after:absolute after:inset-0 after:rounded-t-[8px] after:content-[''] focus-visible:after:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:after:shadow-[inset_0_0_0_1px_#93B0FF] ${
+              className={`relative flex h-8 shrink-0 items-center justify-center rounded-t-[8px] px-3.5 text-[12.5px] outline-none transition-colors duration-150 after:pointer-events-none after:absolute after:inset-0 after:rounded-t-[8px] after:content-[''] focus-visible:after:shadow-[inset_0_0_0_1px_#4568FF] ${
                 item.disabled
-                  ? "cursor-default text-stone-400 dark:text-stone-500"
+                  ? "cursor-default text-neutral-400 dark:text-neutral-500"
                   : selected
-                    ? "text-stone-800 dark:text-stone-100"
-                    : "text-stone-500 hover:bg-stone-200/50 hover:text-stone-700 dark:text-stone-400 dark:hover:bg-white/[0.05] dark:hover:text-stone-200"
+                    ? "text-neutral-900 dark:text-neutral-100"
+                    : "text-neutral-500 hover:bg-black/[0.04] hover:text-neutral-700 dark:text-neutral-400 dark:hover:bg-white/[0.05] dark:hover:text-neutral-200"
               }`}
             >
               <span className="relative grid place-items-center leading-[1.4]">
@@ -288,7 +288,7 @@ export function Tabs({
           initial={reduced ? false : { opacity: 0, x: tabs.direction * 12 }}
           animate={{ opacity: 1, x: 0 }}
           transition={reduced ? { duration: 0 } : PANEL}
-          className={`rounded-[11px] text-[13.5px] leading-relaxed text-stone-700 outline-none focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-stone-200 dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] ${panelClassName}`}
+          className={`rounded-[11px] text-[13.5px] leading-relaxed text-neutral-700 outline-none focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-neutral-200 ${panelClassName}`}
         >
           {renderPanel(tabs.value)}
         </motion.div>

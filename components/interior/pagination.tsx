@@ -16,10 +16,10 @@ const range = (from: number, to: number) =>
   Array.from({ length: to - from + 1 }, (_, i) => from + i);
 
 const arrow = (can: boolean) =>
-  `flex h-8 w-8 shrink-0 items-center justify-center rounded-[9px] outline-none transition-colors duration-150 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] ${
+  `flex h-8 w-8 shrink-0 items-center justify-center rounded-[9px] outline-none transition-colors duration-150 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.1] ${
     can
-      ? "text-stone-500 hover:bg-stone-100 hover:text-stone-800 dark:text-stone-400 dark:hover:bg-white/[0.06] dark:hover:text-stone-200"
-      : "text-stone-300 dark:text-white/20"
+      ? "text-neutral-500 hover:bg-black/[0.04] hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-white/[0.06] dark:hover:text-neutral-200"
+      : "text-neutral-300 dark:text-white/20"
   }`;
 
 export type PaginationItem = number | "gap-l" | "gap-r";
@@ -206,7 +206,7 @@ export function Pagination({
             animate={{ x: thumbIndex * (slot + GAP) }}
             transition={reduced ? STILL : CELL}
             style={{ width: slot }}
-            className="absolute inset-y-0 left-0 rounded-[9px] bg-stone-800 dark:bg-stone-100"
+            className="absolute inset-y-0 left-0 rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.12)] dark:from-[#222222] dark:to-[#1c1c1c] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)]"
           />
           <ol className="relative flex" style={{ gap: GAP }}>
             {items.map((item) => {
@@ -216,7 +216,7 @@ export function Pagination({
                     key={item}
                     aria-hidden
                     style={{ width: slot }}
-                    className="flex h-8 items-center justify-center text-[12.5px] text-stone-400 dark:text-stone-500"
+                    className="flex h-8 items-center justify-center text-[12.5px] text-neutral-400 dark:text-neutral-500"
                   >
                     &hellip;
                   </li>
@@ -231,10 +231,10 @@ export function Pagination({
                     aria-label={`Page ${item}`}
                     aria-current={selected ? "page" : undefined}
                     onClick={() => pagination.goTo(item)}
-                    className={`flex h-8 w-full items-center justify-center rounded-[9px] text-[12.5px] tabular-nums outline-none transition-colors duration-150 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] ${
+                    className={`flex h-8 w-full items-center justify-center rounded-[9px] text-[12.5px] tabular-nums outline-none transition-colors duration-150 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.1] ${
                       selected
-                        ? "font-medium text-white dark:text-stone-900"
-                        : "text-stone-500 hover:bg-stone-100 hover:text-stone-800 dark:text-stone-400 dark:hover:bg-white/[0.06] dark:hover:text-stone-200"
+                        ? "font-medium text-neutral-900 dark:text-neutral-100"
+                        : "text-neutral-500 hover:bg-black/[0.03] hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-white/[0.035] dark:hover:text-neutral-200"
                     }`}
                   >
                     <motion.span

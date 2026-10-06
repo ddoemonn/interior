@@ -108,7 +108,7 @@ export type PasswordStrengthProps = {
 };
 
 const TONES = {
-  none: { bar: "bg-stone-300 dark:bg-white/20", text: "text-stone-500 dark:text-stone-400" },
+  none: { bar: "bg-neutral-300 dark:bg-white/20", text: "text-neutral-500 dark:text-neutral-400" },
   danger: { bar: "bg-red-500", text: "text-red-600 dark:text-red-400" },
   caution: { bar: "bg-amber-500", text: "text-amber-600 dark:text-amber-400" },
   safe: { bar: "bg-emerald-500", text: "text-emerald-600 dark:text-emerald-400" },
@@ -156,7 +156,7 @@ export function PasswordStrength({
         {Array.from({ length: max }, (_, i) => (
           <div
             key={i}
-            className="relative h-1.5 overflow-hidden rounded-[2px] bg-stone-200 dark:bg-white/12"
+            className="relative h-1.5 overflow-hidden rounded-[2px] bg-neutral-200 dark:bg-[#262626]"
           >
             <motion.span
               className={`absolute inset-0 origin-left rounded-[2px] transition-colors duration-200 ${tone.bar}`}
@@ -201,7 +201,7 @@ export function PasswordStrength({
         <ul className="mt-3 grid gap-1.5">
           {evaluated.map((rule) => (
             <li key={rule.id} className="flex items-center gap-2">
-              <span className="relative grid size-[14px] shrink-0 place-items-center rounded-[4px] border border-stone-200 text-white dark:border-white/[0.16] dark:text-stone-900">
+              <span className="relative grid size-[14px] shrink-0 place-items-center rounded-[4px] border border-neutral-200 text-white dark:border-white/[0.16] dark:text-neutral-900">
                 <motion.span
                   className="absolute inset-0 rounded-[3px] bg-emerald-500"
                   initial={false}
@@ -229,8 +229,8 @@ export function PasswordStrength({
               <span
                 className={`text-[12.5px] leading-5 transition-colors duration-200 ${
                   rule.met
-                    ? "text-stone-700 dark:text-stone-200"
-                    : "text-stone-500 dark:text-stone-400"
+                    ? "text-neutral-700 dark:text-neutral-200"
+                    : "text-neutral-500 dark:text-neutral-400"
                 }`}
               >
                 {rule.label}

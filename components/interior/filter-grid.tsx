@@ -220,7 +220,7 @@ export function FilterGrid<T>({
               tabIndex={on ? 0 : -1}
               onClick={() => choose(filter.id)}
               onKeyDown={(e) => onKeyDown(e, i)}
-              className="group relative inline-grid h-8 select-none place-items-center rounded-[6px] px-3 outline-none focus-visible:shadow-[0_1px_3px_rgba(28,25,23,0.18)] dark:focus-visible:shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+              className="group relative inline-grid h-8 select-none place-items-center rounded-[6px] px-3 outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF]"
               style={{ touchAction: "manipulation" }}
             >
               {on ? (
@@ -228,14 +228,16 @@ export function FilterGrid<T>({
                   aria-hidden
                   layoutId={reduced ? undefined : `${uid}-thumb`}
                   transition={CELL}
-                  className="absolute inset-0 rounded-[6px] bg-stone-800 dark:bg-stone-100"
+                  className="absolute inset-0 rounded-[6px] bg-gradient-to-b from-white to-[#f5f5f5] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_0_1px_rgba(0,0,0,0.15),0_1px_2px_rgba(0,0,0,0.08)] dark:from-[#222222] dark:to-[#151515] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_0_0_1px_rgba(255,255,255,0.12),0_1px_2px_rgba(0,0,0,0.4)]"
                 />
               ) : null}
 
               <span
                 aria-hidden
-                className={`pointer-events-none absolute inset-0 rounded-[6px] border group-focus-visible:border-[#4568FF] dark:group-focus-visible:border-[#93B0FF] ${
-                  on ? "border-transparent" : "border-stone-200 dark:border-white/[0.16]"
+                className={`pointer-events-none absolute inset-0 rounded-[6px] border ${
+                  on
+                    ? "border-transparent"
+                    : "border-transparent group-hover:bg-black/[0.04] dark:group-hover:bg-white/[0.06]"
                 }`}
               />
               <span className="relative col-start-1 row-start-1 inline-grid">
@@ -244,10 +246,10 @@ export function FilterGrid<T>({
                   initial={false}
                   animate={{ opacity: on ? 0 : 1 }}
                   transition={swap}
-                  className="col-start-1 row-start-1 inline-flex items-center gap-1.5 whitespace-nowrap text-[12.5px] font-medium text-stone-700 dark:text-stone-200"
+                  className="col-start-1 row-start-1 inline-flex items-center gap-1.5 whitespace-nowrap text-[12.5px] font-medium text-neutral-600 dark:text-neutral-300"
                 >
                   {filter.label}
-                  <span className="text-[10.5px] tabular-nums text-stone-500 dark:text-stone-400">
+                  <span className="text-[10.5px] tabular-nums text-neutral-500 dark:text-neutral-400">
                     {counts[filter.id]}
                   </span>
                 </motion.span>
@@ -256,10 +258,10 @@ export function FilterGrid<T>({
                   initial={false}
                   animate={{ opacity: on ? 1 : 0 }}
                   transition={swap}
-                  className="col-start-1 row-start-1 inline-flex items-center gap-1.5 whitespace-nowrap text-[12.5px] font-medium text-stone-50 dark:text-stone-900"
+                  className="col-start-1 row-start-1 inline-flex items-center gap-1.5 whitespace-nowrap text-[12.5px] font-medium text-neutral-900 dark:text-neutral-100"
                 >
                   {filter.label}
-                  <span className="text-[10.5px] tabular-nums opacity-70">
+                  <span className="text-[10.5px] tabular-nums text-neutral-500 dark:text-neutral-400">
                     {counts[filter.id]}
                   </span>
                 </motion.span>
@@ -296,7 +298,7 @@ export function FilterGrid<T>({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98, transition: leave }}
                 transition={step}
-                className="min-w-0 overflow-hidden rounded-[11px] border border-stone-200 bg-white p-2.5 shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
+                className="min-w-0 overflow-hidden rounded-[11px] border border-black/10 bg-white p-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:border-white/10 dark:bg-[#191919] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
               >
                 {renderItem(item)}
               </motion.li>
@@ -313,7 +315,7 @@ export function FilterGrid<T>({
               transition={reduced ? INSTANT : { duration: 0.2, ease: EASE }}
               className="pointer-events-none absolute inset-0 grid place-items-center"
             >
-              <span className="text-[12.5px] text-stone-500 dark:text-stone-400">
+              <span className="text-[12.5px] text-neutral-500 dark:text-neutral-400">
                 {emptyLabel}
               </span>
             </motion.div>

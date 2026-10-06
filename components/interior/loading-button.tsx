@@ -212,13 +212,13 @@ export function LoadingButton({
     {
       key: "idle",
       text: children,
-      tone: "text-stone-700 dark:text-stone-200",
+      tone: "text-neutral-700 dark:text-neutral-200",
       icon: null,
     },
     {
       key: "pending",
       text: pendingLabel,
-      tone: "text-stone-500 dark:text-stone-400",
+      tone: "text-neutral-500 dark:text-neutral-400",
       icon: <Spinner still={reduced === true || status !== "pending"} />,
     },
     {
@@ -252,7 +252,7 @@ export function LoadingButton({
           }
           run();
         }}
-        className={`relative inline-flex h-9 select-none items-center justify-center rounded-[9px] border border-stone-200 bg-white px-3.5 text-[13px] font-medium text-stone-700 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(28,25,23,0.06),0_1px_2px_rgba(28,25,23,0.08)] outline-none transition-[border-color,box-shadow,background-color] duration-150 hover:bg-stone-50 focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] disabled:opacity-50 dark:border-white/[0.16] dark:bg-[#252522] dark:text-stone-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4)] dark:hover:bg-[#2A2A27] dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)] ${className}`}
+        className={`relative inline-flex h-9 select-none items-center justify-center rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] px-3.5 text-[13px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_0_1px_rgba(0,0,0,0.15),0_2px_3px_rgba(0,0,0,0.09)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:from-[#303030] dark:to-[#282828] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_0_0_1px_#202020,0_2px_3px_rgba(0,0,0,0.25)] dark:hover:brightness-110 ${className}`}
         style={{ borderRadius: 9, touchAction: "manipulation" }}
       >
         <span aria-hidden className="relative grid place-items-center">

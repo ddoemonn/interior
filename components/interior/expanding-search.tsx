@@ -323,10 +323,12 @@ export function ExpandingSearch({
         }}
         className={`absolute inset-y-0 ${
           align === "right" ? "right-0" : "left-0"
-        } overflow-hidden rounded-[10px] border-2 transition-[background-color,border-color,box-shadow] duration-150 ${
+        } overflow-hidden rounded-[10px] transition-[background-color,border-color,box-shadow] duration-150 ${
           focused
-            ? "border-[#4568FF] bg-white dark:border-[#93B0FF] dark:bg-[#252522]"
-            : "border-stone-200 bg-stone-100/70 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] dark:border-white/[0.08] dark:bg-[#1D1D1A] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)]"
+            ? "bg-white shadow-[0_1px_2px_rgba(0,0,0,0.10),0_0_0_2px_#4568FF] dark:bg-[#111111] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_2px_#4568FF]"
+            : open
+              ? "bg-white shadow-[0_1px_2px_rgba(0,0,0,0.10),0_0_0_1px_rgba(0,0,0,0.17)] dark:bg-[#111111] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)]"
+              : "bg-gradient-to-b from-white to-[#f5f5f5] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.12)] dark:from-[#222222] dark:to-[#151515] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)]"
         }`}
       >
         <motion.input
@@ -345,7 +347,7 @@ export function ExpandingSearch({
           transition={
             reduced ? INSTANT : { ...CROSSFADE, delay: open ? 0.06 : 0 }
           }
-          className="absolute inset-y-0 bg-transparent text-[13px] leading-9 text-stone-700 outline-none focus-visible:outline-none placeholder:text-stone-400 dark:text-stone-200 dark:placeholder:text-stone-500 [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none"
+          className="absolute inset-y-0 bg-transparent text-[13px] leading-9 text-neutral-900 outline-none focus-visible:outline-none placeholder:text-neutral-400 dark:text-neutral-100 dark:placeholder:text-neutral-500 [&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none"
         />
 
         <motion.div
@@ -357,7 +359,7 @@ export function ExpandingSearch({
           {resultCount === undefined ? null : (
             <span
               aria-hidden
-              className="w-8 truncate text-right font-mono text-[9.5px] tabular-nums text-stone-500 dark:text-stone-400"
+              className="w-8 truncate text-right font-mono text-[9.5px] tabular-nums text-neutral-500 dark:text-neutral-400"
             >
               {filled ? resultCount : ""}
             </span>
@@ -372,7 +374,7 @@ export function ExpandingSearch({
             initial={false}
             animate={{ opacity: filled ? 1 : 0, scale: filled ? 1 : 0.86 }}
             transition={cellMotion}
-            className={`grid size-[22px] place-items-center rounded-[6px] text-stone-500 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#4568FF] dark:text-stone-400 dark:focus-visible:outline-[#93B0FF] ${
+            className={`grid size-[22px] place-items-center rounded-[6px] text-neutral-500 outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-[#4568FF] dark:text-neutral-400 ${
               open && filled ? "pointer-events-auto" : ""
             }`}
           >
@@ -398,7 +400,7 @@ export function ExpandingSearch({
           x: align === "right" && open ? -(expanded - COLLAPSED) : 0,
         }}
         transition={shellMotion}
-        className={`absolute inset-y-0 z-10 grid w-10 place-items-center rounded-[8px] text-stone-500 outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:text-stone-400 dark:focus-visible:outline-[#93B0FF] ${
+        className={`absolute inset-y-0 z-10 grid w-10 place-items-center rounded-[8px] text-neutral-500 outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:-outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:text-neutral-400 ${
           align === "right" ? "right-0" : "left-0"
         } ${open ? "pointer-events-none" : ""}`}
       >

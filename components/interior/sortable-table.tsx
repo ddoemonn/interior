@@ -215,9 +215,10 @@ export function SortableTable<T>({
 
   return (
     <div
-      className={`overflow-hidden rounded-[14px] border border-stone-200 bg-white shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)] ${className}`}
+      className={`overflow-x-auto overflow-y-hidden rounded-[14px] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05),0_0_0_1px_rgba(0,0,0,0.10)] dark:bg-[#111111] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.10)] ${className}`}
     >
       <div
+        className="min-w-[400px]"
         role="table"
         aria-label={label}
         aria-rowcount={rows.length + 1}
@@ -227,7 +228,7 @@ export function SortableTable<T>({
           <div
             role="row"
             aria-rowindex={1}
-            className="grid h-9 items-center gap-x-2 border-b border-stone-200 px-2 dark:border-white/[0.16]"
+            className="grid h-9 items-center gap-x-2 border-b border-black/10 bg-[#fafafa] px-2 dark:border-white/10 dark:bg-[#191919]"
             style={{ gridTemplateColumns: template }}
           >
             {markable && (
@@ -250,7 +251,7 @@ export function SortableTable<T>({
                 >
                   {column.sortable === false ? (
                     <span
-                      className={`block truncate px-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-stone-500 dark:text-stone-400 ${
+                      className={`block truncate px-1.5 text-[11px] font-semibold uppercase tracking-[0.08em] text-neutral-500 dark:text-neutral-400 ${
                         end ? "text-right" : ""
                       }`}
                     >
@@ -260,22 +261,22 @@ export function SortableTable<T>({
                     <button
                       type="button"
                       onClick={() => onToggle(column.id)}
-                      className={`group flex h-7 w-full items-center gap-1.5 rounded-[6px] px-1.5 outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.06] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] ${
+                      className={`group flex h-7 w-full items-center gap-1.5 rounded-[6px] px-1.5 outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.14] ${
                         end ? "flex-row-reverse" : ""
                       }`}
                     >
                       <span
                         className={`truncate text-[11px] font-semibold uppercase tracking-[0.08em] ${
                           active
-                            ? "text-stone-700 dark:text-stone-200"
-                            : "text-stone-500 group-hover:text-stone-700 dark:text-stone-400 dark:group-hover:text-stone-200"
+                            ? "text-neutral-900 dark:text-neutral-100"
+                            : "text-neutral-500 group-hover:text-neutral-900 dark:text-neutral-400 dark:group-hover:text-neutral-100"
                         }`}
                       >
                         {column.header}
                       </span>
                       <motion.span
                         aria-hidden
-                        className="shrink-0 text-stone-700 dark:text-stone-200"
+                        className="shrink-0 text-neutral-900 dark:text-neutral-100"
                         initial={false}
                         animate={{
                           rotate: state === "descending" ? 180 : 0,
@@ -319,7 +320,7 @@ export function SortableTable<T>({
             >
               <span
                 role="cell"
-                className="text-[12.5px] text-stone-500 dark:text-stone-400"
+                className="text-[12.5px] text-neutral-500 dark:text-neutral-400"
               >
                 No rows
               </span>
@@ -343,7 +344,7 @@ export function SortableTable<T>({
                     : { ...CELL, delay: Math.min(index, STEP_CAP) * STEP }
                 }
                 className={`absolute inset-x-0 top-0 grid items-center gap-x-2 px-2 transition-colors duration-150 ${
-                  isMarked ? "bg-stone-100 dark:bg-white/[0.06]" : ""
+                  isMarked ? "bg-black/[0.03] dark:bg-white/[0.05]" : ""
                 }`}
                 style={{ height: rowHeight, gridTemplateColumns: template }}
               >
@@ -353,10 +354,10 @@ export function SortableTable<T>({
                       type="button"
                       aria-pressed={marked === id}
                       onClick={() => onMark(id)}
-                      className={`flex size-[18px] items-center justify-center rounded-[5px] border outline-none focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_3px_rgba(28,25,23,0.18)] dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_1px_3px_rgba(0,0,0,0.5)] ${
+                      className={`flex size-[18px] items-center justify-center rounded-[5px] border outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] ${
                         marked === id
-                          ? "border-[#4568FF] bg-[#4568FF] text-white dark:border-[#93B0FF] dark:bg-[#93B0FF] dark:text-stone-900"
-                          : "border-stone-200 text-transparent dark:border-white/15"
+                          ? "border-[#3655dc] bg-[#4568FF] text-white"
+                          : "border-neutral-300 bg-white text-transparent shadow-[0_1px_2px_rgba(0,0,0,0.06)] dark:border-white/[0.16] dark:bg-[#191919]"
                       }`}
                     >
                       <span className="sr-only">Follow {nameOf(row)}</span>
@@ -398,8 +399,8 @@ export function SortableTable<T>({
                         column.align === "end" ? "text-right" : ""
                       } ${column.numeric ? "tabular-nums" : ""} ${
                         c === 0
-                          ? "font-medium text-stone-700 dark:text-stone-200"
-                          : "text-stone-500 dark:text-stone-400"
+                          ? "font-medium text-neutral-900 dark:text-neutral-100"
+                          : "text-neutral-600 dark:text-neutral-300"
                       }`}
                     >
                       {content}
@@ -420,7 +421,7 @@ export function SortableTable<T>({
             {Array.from({ length: Math.max(0, rows.length - 1) }, (_, i) => (
               <div
                 key={i}
-                className="absolute inset-x-0 border-t border-stone-200 dark:border-white/[0.16]"
+                className="absolute inset-x-0 border-t border-black/[0.07] dark:border-white/[0.08]"
                 style={{ top: (i + 1) * rowHeight }}
               />
             ))}

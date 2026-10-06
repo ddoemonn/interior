@@ -110,9 +110,9 @@ function HoldFilm({ playing }: { playing: boolean }) {
   );
   return (
     <div className="flex justify-center">
-      <button ref={button} {...bind} type="button" className="relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] border border-stone-200 bg-white px-4 text-[13px] font-medium text-stone-700 dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200">
+      <button ref={button} {...bind} type="button" className="relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] px-[17px] text-[13px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(0,0,0,0.15),0_2px_3px_rgba(0,0,0,0.09)] dark:from-[#303030] dark:to-[#282828] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_0_0_1px_#202020,0_2px_3px_rgba(0,0,0,0.25)]">
         {labels}
-        <motion.span style={{ clipPath }} className="absolute inset-0 grid place-items-center bg-stone-800 px-4 text-white dark:bg-stone-100 dark:text-stone-900">{labels}</motion.span>
+        <motion.span style={{ clipPath }} className="absolute inset-0 grid place-items-center rounded-[9px] bg-gradient-to-b from-[#ef4444] to-[#dc2626] px-[17px] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),inset_0_0_0_1px_#b91c1c]">{labels}</motion.span>
       </button>
     </div>
   );
@@ -196,7 +196,7 @@ export function LandingDemo({ name, slug }: { name: string; slug: LandingDemoSlu
   }, []);
   const playing = visible && pageVisible && reduced === false && !paused;
   return (
-    <div ref={frame} role="img" aria-label={`${name} preview. Interactive example available in the documentation.`} className="@container mat-well relative flex h-[224px] items-center rounded-[11px] px-5 sm:h-[240px] sm:px-6">
+    <div ref={frame} role="img" aria-label={`${name} preview. Interactive example available in the documentation.`} className="@container mat-stage relative flex h-[224px] items-center rounded-[9px] px-5 sm:h-[240px] sm:px-6">
       <div key={playing ? "playing" : "still"} inert aria-hidden="true" className="pointer-events-none w-full min-w-0 select-none">
         {slug === "loading-button" ? <LoadingFilm playing={playing} /> : slug === "hold-to-confirm" ? <HoldFilm playing={playing} /> : slug === "like-burst" ? <LikeFilm playing={playing} /> : slug === "tooltip-group" ? <TooltipFilm playing={playing} /> : <SelectionFilm slug={slug} playing={playing} />}
       </div>

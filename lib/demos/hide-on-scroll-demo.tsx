@@ -33,7 +33,7 @@ export function HideOnScrollDemo() {
               aria-label={saved ? "Remove bookmark" : "Bookmark"}
               onClick={() => setSaved((v) => !v)}
               className={`mat-cap press flex size-7 items-center justify-center rounded-[6px] transition-colors duration-150 ${
-                saved ? "text-[#4568FF] dark:text-[#93B0FF]" : "text-ink-2"
+                saved ? "text-[#4568FF]" : "text-ink-2"
               }`}
             >
               <svg width="15" height="15" viewBox="0 0 256 256" aria-hidden>
