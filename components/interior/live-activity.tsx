@@ -338,7 +338,7 @@ export function LiveActivity({
                     type="button"
                     tabIndex={expanded ? 0 : -1}
                     onClick={activity.action.onClick}
-                    className="inline-flex h-[24px] shrink-0 select-none items-center whitespace-nowrap rounded-[6px] bg-white px-2 text-[11px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] active:translate-y-px dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110"
+                    className="inline-flex h-[24px] shrink-0 select-none items-center whitespace-nowrap rounded-[6px] bg-white px-2 text-[11px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] active:translate-y-px dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110"
                   >
                     {activity.action.label}
                   </button>

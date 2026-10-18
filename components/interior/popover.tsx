@@ -317,7 +317,7 @@ export function Popover({
         aria-expanded={open}
         aria-controls={open ? id : undefined}
         onClick={() => setOpen(!open)}
-        className={`inline-flex h-9 select-none items-center gap-2 rounded-[9px] bg-white px-3 text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110 ${triggerClassName}`}
+        className={`inline-flex h-9 select-none items-center gap-2 rounded-[9px] bg-white px-3 text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110 ${triggerClassName}`}
       >
         {trigger}
       </button>

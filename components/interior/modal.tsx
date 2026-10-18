@@ -298,9 +298,9 @@ const CLOSE_ICON = (
 
 const ACTION_TONES = {
   neutral:
-    "bg-white text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110",
+    "bg-white text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110",
   destructive:
-    "bg-[#dc2626] text-white shadow-[0_0_0_1px_#b91c1c,0_1px_2px_rgba(185,28,28,0.16)] hover:brightness-[1.04] dark:shadow-[0_0_0_1px_#b91c1c,0_1px_2px_rgba(0,0,0,0.25)]",
+    "bg-[#dc2626] text-white shadow-[0_0_0_1px_#b91c1c,0_1px_2px_rgba(185,28,28,0.16)] hover:brightness-[1.04] dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)]",
 } as const;
 
 export type ModalActionTone = keyof typeof ACTION_TONES;

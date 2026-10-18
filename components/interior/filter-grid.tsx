@@ -228,7 +228,7 @@ export function FilterGrid<T>({
                   aria-hidden
                   layoutId={reduced ? undefined : `${uid}-thumb`}
                   transition={CELL}
-                  className="absolute inset-0 rounded-[6px] bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)]"
+                  className="absolute inset-0 rounded-[6px] bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)]"
                 />
               ) : null}
 

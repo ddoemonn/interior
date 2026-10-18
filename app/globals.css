@@ -64,7 +64,7 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
     0 0 0 1px rgba(255, 255, 255, 0.1);
   --shadow-well: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-  --shadow-cap: 0 0 0 1px #202020, 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-cap: 0 0 0 1px #333333, 0 1px 2px rgba(0, 0, 0, 0.25);
   --shadow-row: inset 0 0 0 1px rgba(255, 255, 255, 0.06),
     0 1px 2px rgba(0, 0, 0, 0.25);
 }
@@ -165,7 +165,7 @@ body {
 }
 .dark .mat-action {
   background: #282828;
-  box-shadow: 0 0 0 1px #202020, 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 1px #333333, 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 /* the primary action keeps its saturation in both themes */
@@ -175,7 +175,7 @@ body {
   box-shadow: 0 0 0 1px #3655dc, 0 1px 2px rgba(42, 68, 184, 0.16);
 }
 .dark .mat-primary {
-  box-shadow: 0 0 0 1px #3655dc, 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 /* a row that has been picked out of a list */

@@ -57,7 +57,7 @@ const NEAR_HOME = 1.02;
 const SNAP_HOME = 1.05;
 
 const CHROME_BUTTON =
-  "grid size-8 place-items-center rounded-[8px] bg-white text-neutral-600 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[color,filter] duration-150 hover:text-neutral-900 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-300 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:text-neutral-100 dark:hover:brightness-110";
+  "grid size-8 place-items-center rounded-[8px] bg-white text-neutral-600 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[color,filter] duration-150 hover:text-neutral-900 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-300 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:text-neutral-100 dark:hover:brightness-110";
 
 type Spring = {
   type: "spring";

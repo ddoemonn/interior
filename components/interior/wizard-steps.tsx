@@ -366,7 +366,7 @@ export function WizardSteps({
                 intent.current = "panel";
                 back();
               }}
-              className="h-9 rounded-[9px] bg-white px-3 text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110"
+              className="h-9 rounded-[9px] bg-white px-3 text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110"
             >
               {backLabel}
             </motion.button>
@@ -392,11 +392,11 @@ export function WizardSteps({
                   : { duration: 0.14, ease: EXIT_EASE },
               }}
               transition={reduced ? { duration: 0 } : CROSSFADE}
-              className="relative ml-auto grid h-9 place-items-center rounded-[9px] bg-white px-3.5 text-[13px] font-medium shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110"
+              className="relative ml-auto grid h-9 place-items-center rounded-[9px] bg-white px-3.5 text-[13px] font-medium shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110"
             >
               <motion.span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-[9px] bg-[#4568FF] shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(42,68,184,0.16)] dark:shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(0,0,0,0.25)]"
+                className="pointer-events-none absolute inset-0 rounded-[9px] bg-[#4568FF] shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(42,68,184,0.16)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
                 initial={false}
                 animate={{ opacity: isLast ? 1 : 0 }}
                 transition={reduced ? { duration: 0 } : CROSSFADE}

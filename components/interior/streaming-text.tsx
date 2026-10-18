@@ -242,7 +242,7 @@ export function StreamingText({
                 ? `Replay ${label}`
                 : "Skip to the end"
             }
-            className="inline-grid h-7 place-items-center rounded-[6px] bg-white px-[11px] text-[11.5px] font-medium text-neutral-500 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-colors duration-150 hover:text-neutral-700 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-400 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:text-neutral-200"
+            className="inline-grid h-7 place-items-center rounded-[6px] bg-white px-[11px] text-[11.5px] font-medium text-neutral-500 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-colors duration-150 hover:text-neutral-700 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-400 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:text-neutral-200"
           >
             <motion.span
               aria-hidden

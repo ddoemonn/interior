@@ -252,7 +252,7 @@ export function LoadingButton({
           }
           run();
         }}
-        className={`relative inline-flex h-9 select-none items-center justify-center rounded-[9px] bg-white px-3.5 text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110 ${className}`}
+        className={`relative inline-flex h-9 select-none items-center justify-center rounded-[9px] bg-white px-3.5 text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110 ${className}`}
         style={{ borderRadius: 9, touchAction: "manipulation" }}
       >
         <span aria-hidden className="relative grid place-items-center">

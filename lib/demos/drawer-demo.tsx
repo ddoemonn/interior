@@ -13,10 +13,10 @@ const ACTION =
   "h-8 rounded-[8px] px-3 text-[12.5px] font-medium outline-none transition-[filter] duration-150 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF]";
 
 const NEUTRAL =
-  "bg-white text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110";
+  "bg-white text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110";
 
 const PRIMARY =
-  "bg-[#4568FF] text-white shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(42,68,184,0.16)] hover:brightness-[1.04] dark:shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(0,0,0,0.25)]";
+  "bg-[#4568FF] text-white shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(42,68,184,0.16)] hover:brightness-[1.04] dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)]";
 
 export function DrawerDemo() {
   const [open, setOpen] = useState(false);

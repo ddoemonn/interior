@@ -196,7 +196,7 @@ export function LongPressButton({
       initial={false}
       animate={{ scale: !reduced && fired ? 1.045 : 1 }}
       transition={reduced ? INSTANT : POP}
-      className={`group relative inline-flex h-9 select-none items-center rounded-[9px] bg-white px-[15px] text-[13px] font-medium shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter,transform] duration-150 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] ${
+      className={`group relative inline-flex h-9 select-none items-center rounded-[9px] bg-white px-[15px] text-[13px] font-medium shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter,transform] duration-150 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] ${
         holding
           ? "translate-y-px brightness-[0.97] dark:brightness-90"
           : fired
