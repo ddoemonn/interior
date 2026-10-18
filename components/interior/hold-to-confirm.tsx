@@ -278,7 +278,7 @@ export function HoldToConfirm({
 
     const controls = animate(swept, 0, {
       duration: (duration * from) / releaseRate / 1000,
-      ease: [0.23, 1, 0.32, 1],
+      ease: "linear",
     });
     return () => controls.stop();
   }, [phase, duration, releaseRate, reduced, swept]);
