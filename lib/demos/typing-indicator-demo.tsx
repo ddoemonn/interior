@@ -113,7 +113,6 @@ export function TypingIndicatorDemo() {
               typists={typists}
               sending={sending}
               size={30}
-              showLabel={false}
             />
           </motion.div>
         </div>
