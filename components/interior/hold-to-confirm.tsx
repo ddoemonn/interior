@@ -15,7 +15,7 @@ const FILL = {
   neutral:
     "bg-neutral-800 text-white dark:bg-neutral-100 dark:text-neutral-900",
   destructive:
-    "bg-gradient-to-b from-[#ef4444] to-[#dc2626] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),inset_0_0_0_1px_#b91c1c]",
+    "bg-[#dc2626] text-white shadow-[inset_0_0_0_1px_#b91c1c]",
 } as const;
 
 
@@ -290,7 +290,7 @@ export function HoldToConfirm({
       aria-describedby={hintId}
       {...bind}
       style={{ touchAction: "manipulation", WebkitTouchCallout: "none" }}
-      className={`relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] px-[17px] text-[13px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(0,0,0,0.15),0_2px_3px_rgba(0,0,0,0.09)] outline-none transition-[filter] duration-150 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:from-[#303030] dark:to-[#282828] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_0_0_1px_#202020,0_2px_3px_rgba(0,0,0,0.25)] ${
+      className={`relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] bg-white px-[17px] text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] ${
         disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
       } ${
         phase === "idle" && !disabled

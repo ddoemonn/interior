@@ -200,7 +200,7 @@ export function PressDepth({
           initial={false}
           animate={{ opacity: pressed ? 0 : 1 }}
           transition={reduced ? { duration: 0 } : PRESS}
-          className="pointer-events-none absolute inset-0 rounded-[9px] shadow-[inset_0_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(28,25,23,0.06)] dark:shadow-[inset_0_1.5px_0_rgba(255,255,255,0.09)]"
+          className="pointer-events-none absolute inset-0 rounded-[9px] shadow-[inset_0_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(28,25,23,0.06)] dark:-inset-px dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09)]"
         />
         {children}
       </motion.span>

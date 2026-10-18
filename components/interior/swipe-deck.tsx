@@ -420,7 +420,7 @@ export function SwipeDeck<T>({
   const current = items[deck.index];
 
   const control =
-    "inline-flex h-8 items-center gap-1.5 rounded-[8px] bg-gradient-to-b from-white to-[#f5f5f5] px-[11px] text-[12px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_0_1px_rgba(0,0,0,0.15),0_2px_3px_rgba(0,0,0,0.09)] outline-none transition-[filter,opacity] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:from-[#303030] dark:to-[#282828] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_0_0_1px_#202020,0_2px_3px_rgba(0,0,0,0.25)] dark:hover:brightness-110";
+    "inline-flex h-8 items-center gap-1.5 rounded-[8px] bg-white px-[11px] text-[12px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter,opacity] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110";
 
   return (
     <div className={`w-full ${className}`}>

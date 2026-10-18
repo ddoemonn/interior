@@ -301,10 +301,10 @@ export function Dropdown({
     <div ref={rootRef} className={`relative inline-block text-left ${className}`}>
       <button
         {...triggerProps}
-        className={`flex h-9 select-none items-center gap-2 whitespace-nowrap rounded-[9px] bg-gradient-to-b px-3 text-[13px] font-medium text-neutral-700 outline-none transition-[box-shadow,filter] duration-150 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:text-neutral-200 ${
+        className={`flex h-9 select-none items-center gap-2 whitespace-nowrap rounded-[9px] px-3 text-[13px] font-medium text-neutral-700 outline-none transition-[box-shadow,filter] duration-150 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 dark:text-neutral-200 ${
           open
-            ? "from-[#fafafa] to-[#fafafa] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.12)] dark:from-[#151515] dark:to-[#151515] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)]"
-            : "from-white to-[#f5f5f5] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.12)] hover:brightness-[0.98] dark:from-[#222222] dark:to-[#151515] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)] dark:hover:brightness-110"
+            ? "bg-[#fafafa] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.12)] dark:bg-[#151515] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_#202020]"
+            : "bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110"
         }`}
       >
         <span className="sr-only">

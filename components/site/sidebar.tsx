@@ -9,6 +9,7 @@ import { categories, getCategoryOf, type Entry } from "@/lib/registry";
 import { Logo } from "./logo";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
+const CELL = { type: "spring", stiffness: 520, damping: 34, mass: 0.45 } as const;
 
 export function Sidebar() {
   const pathname = usePathname();
@@ -108,7 +109,7 @@ export function Sidebar() {
           </button>
         )}
       </div>
-      <div className="fade-y no-bar min-h-0 flex-1 overflow-y-auto overscroll-contain pb-8 pt-4">
+      <motion.div layoutScroll className="fade-y no-bar min-h-0 flex-1 overflow-y-auto overscroll-contain pb-8 pt-4">
         {groups.length === 0 && (
           <p className="px-2.5 py-6 text-[12.5px] text-ink-3">
             Nothing matches “{q.trim()}”.
@@ -171,12 +172,14 @@ export function Sidebar() {
             </section>
           );
         })}
-      </div>
+      </motion.div>
     </nav>
   );
 }
 
 function Row({ entry, active }: { entry: Entry; active: boolean }) {
+  const reduce = useReducedMotion();
+
   if (entry.status !== "ready") {
     return (
       <li className="flex h-[30px] select-none items-center pl-[30px] pr-2.5 text-[13px] text-ink-3/70">
@@ -190,12 +193,21 @@ function Row({ entry, active }: { entry: Entry; active: boolean }) {
       <Link
         href={`/docs/${entry.slug}`}
         aria-current={active ? "page" : undefined}
-        className={`group flex h-[30px] items-center rounded-[8px] pl-[30px] pr-2.5 ${
-          active ? "sidebar-selected" : "hover:bg-well"
+        className={`group relative flex h-[30px] items-center rounded-[8px] pl-[30px] pr-2.5 ${
+          active ? "" : "hover:bg-well"
         }`}
       >
+        {active && (
+          <motion.span
+            aria-hidden
+            layoutId="sidebar-current"
+            transition={reduce ? { duration: 0 } : CELL}
+            className="absolute left-[13px] top-[13px] block size-[4px] rounded-[1px]"
+            style={{ background: "var(--accent)" }}
+          />
+        )}
         <span
-          className={`truncate text-[13px] ${
+          className={`truncate text-[13px] transition-colors duration-150 ${
             active ? "font-medium text-ink" : "text-ink-2 group-hover:text-ink"
           }`}
         >

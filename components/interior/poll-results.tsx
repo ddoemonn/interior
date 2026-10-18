@@ -137,7 +137,7 @@ function Row({ label, share, winner, mine, revealed, reduced, onPick }: RowProps
       className={`group relative h-9 w-full overflow-hidden rounded-[8px] border text-left outline-none transition-[border-color,background-color,box-shadow,transform] duration-200 focus-visible:after:pointer-events-none focus-visible:after:absolute focus-visible:after:inset-0 focus-visible:after:rounded-[7px] focus-visible:after:bg-[#4568FF]/[0.06] focus-visible:after:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:after:bg-[#4568FF]/[0.12] ${
         revealed
           ? "cursor-default border-black/[0.06] bg-[#fafafa] dark:border-white/[0.06] dark:bg-[#191919]"
-          : "border-neutral-200 bg-gradient-to-b from-white to-[#f5f5f5] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08)] hover:brightness-[0.98] active:translate-y-px active:shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)] dark:border-white/[0.12] dark:from-[#222222] dark:to-[#151515] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4)] dark:hover:brightness-110"
+          : "border-neutral-200 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] active:translate-y-px active:shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)] dark:border-[#202020] dark:bg-[#282828] dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110"
       }`}
     >
       <motion.span

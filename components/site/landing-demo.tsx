@@ -110,9 +110,9 @@ function HoldFilm({ playing }: { playing: boolean }) {
   );
   return (
     <div className="flex justify-center">
-      <button ref={button} {...bind} type="button" className="relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] px-[17px] text-[13px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_0_0_1px_rgba(0,0,0,0.15),0_2px_3px_rgba(0,0,0,0.09)] dark:from-[#303030] dark:to-[#282828] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),inset_0_0_0_1px_#202020,0_2px_3px_rgba(0,0,0,0.25)]">
+      <button ref={button} {...bind} type="button" className="relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] bg-white px-[17px] text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)]">
         {labels}
-        <motion.span style={{ clipPath }} className="absolute inset-0 grid place-items-center rounded-[9px] bg-gradient-to-b from-[#ef4444] to-[#dc2626] px-[17px] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),inset_0_0_0_1px_#b91c1c]">{labels}</motion.span>
+        <motion.span style={{ clipPath }} className="absolute inset-0 grid place-items-center rounded-[9px] bg-[#dc2626] px-[17px] text-white shadow-[inset_0_0_0_1px_#b91c1c]">{labels}</motion.span>
       </button>
     </div>
   );

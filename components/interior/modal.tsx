@@ -298,9 +298,9 @@ const CLOSE_ICON = (
 
 const ACTION_TONES = {
   neutral:
-    "bg-gradient-to-b from-white to-[#f5f5f5] text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_0_0_1px_rgba(0,0,0,0.15),0_2px_3px_rgba(0,0,0,0.09)] hover:brightness-[0.98] dark:from-[#303030] dark:to-[#282828] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_0_0_1px_#202020,0_2px_3px_rgba(0,0,0,0.25)] dark:hover:brightness-110",
+    "bg-white text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110",
   destructive:
-    "bg-gradient-to-b from-[#ef4444] to-[#dc2626] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_0_0_1px_#b91c1c,0_2px_3px_rgba(185,28,28,0.16)] hover:brightness-[1.04] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_0_0_1px_#b91c1c,0_2px_3px_rgba(0,0,0,0.25)]",
+    "bg-[#dc2626] text-white shadow-[0_0_0_1px_#b91c1c,0_1px_2px_rgba(185,28,28,0.16)] hover:brightness-[1.04] dark:shadow-[0_0_0_1px_#b91c1c,0_1px_2px_rgba(0,0,0,0.25)]",
 } as const;
 
 export type ModalActionTone = keyof typeof ACTION_TONES;

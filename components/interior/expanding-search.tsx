@@ -328,7 +328,7 @@ export function ExpandingSearch({
             ? "bg-white shadow-[0_1px_2px_rgba(0,0,0,0.10),0_0_0_2px_#4568FF] dark:bg-[#111111] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_2px_#4568FF]"
             : open
               ? "bg-white shadow-[0_1px_2px_rgba(0,0,0,0.10),0_0_0_1px_rgba(0,0,0,0.17)] dark:bg-[#111111] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)]"
-              : "bg-gradient-to-b from-white to-[#f5f5f5] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.12)] dark:from-[#222222] dark:to-[#151515] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)]"
+              : "bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)]"
         }`}
       >
         <motion.input

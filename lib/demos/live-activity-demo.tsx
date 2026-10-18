@@ -64,7 +64,7 @@ export function LiveActivityDemo() {
         <button
           type="button"
           onClick={deploy}
-          className="inline-flex h-8 select-none items-center rounded-[8px] bg-gradient-to-b from-[#5878ff] to-[#4568ff] px-3 text-[12.5px] font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.38),0_0_0_1px_#3655dc,0_2px_3px_rgba(42,68,184,0.16)] outline-none transition-[filter] duration-150 hover:brightness-105 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] active:translate-y-px dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_0_0_1px_#3655dc,0_2px_3px_rgba(0,0,0,0.25)]"
+          className="inline-flex h-8 select-none items-center rounded-[8px] bg-[#4568FF] px-3 text-[12.5px] font-medium text-white shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(42,68,184,0.16)] outline-none transition-[filter] duration-150 hover:brightness-105 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] active:translate-y-px dark:shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(0,0,0,0.25)]"
         >
           Deploy
         </button>

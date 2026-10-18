@@ -355,7 +355,7 @@ export function SnapCarousel({
   });
 
   const button =
-    "grid size-7 place-items-center rounded-[6px] border border-neutral-200 bg-gradient-to-b from-white to-[#f5f5f5] text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08)] outline-none transition-[filter,box-shadow,transform] duration-150 hover:brightness-[0.98] active:translate-y-px active:shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:border-white/[0.16] dark:from-[#222222] dark:to-[#151515] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4)] dark:hover:brightness-110";
+    "grid size-7 place-items-center rounded-[6px] border border-neutral-200 bg-white text-neutral-700 shadow-[0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter,box-shadow,transform] duration-150 hover:brightness-[0.98] active:translate-y-px active:shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:border-[#202020] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110";
 
   return (
     <div className={`w-full ${className}`}>

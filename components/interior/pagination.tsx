@@ -206,7 +206,7 @@ export function Pagination({
             animate={{ x: thumbIndex * (slot + GAP) }}
             transition={reduced ? STILL : CELL}
             style={{ width: slot }}
-            className="absolute inset-y-0 left-0 rounded-[9px] bg-gradient-to-b from-white to-[#f5f5f5] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08),0_0_0_1px_rgba(0,0,0,0.12)] dark:from-[#222222] dark:to-[#1c1c1c] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)]"
+            className="absolute inset-y-0 left-0 rounded-[9px] bg-white shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] dark:bg-[#282828] dark:shadow-[0_0_0_1px_#202020,0_1px_2px_rgba(0,0,0,0.25)]"
           />
           <ol className="relative flex" style={{ gap: GAP }}>
             {items.map((item) => {
