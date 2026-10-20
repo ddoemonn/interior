@@ -358,15 +358,15 @@ export function Popover({
                   ? { duration: 0 }
                   : { ...CROSSFADE, opacity: { duration: 0.14, ease: EASE } }
               }
-              className={`relative rounded-[11px] border border-black/[0.12] bg-[#fafafa] p-[3px] shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14)] focus-visible:outline-none dark:border-white/10 dark:bg-[#1c1c1c] dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7)] ${className}`}
+              className={`relative rounded-[11px] border border-black/[0.12] bg-white shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14)] focus-visible:outline-none dark:border-white/10 dark:bg-[#111111] dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7)] ${className}`}
             >
               <span
                 ref={arrowRef}
                 aria-hidden
                 style={{ width: arrowSize, height: arrowSize, transform: "rotate(45deg)" }}
-                className={`absolute block border-black/[0.12] bg-[#fafafa] dark:border-white/10 dark:bg-[#1c1c1c] ${ARROW_EDGE[at]}`}
+                className={`absolute block border-black/[0.12] bg-white dark:border-white/10 dark:bg-[#111111] ${ARROW_EDGE[at]}`}
               />
-              <div className="relative rounded-[7px] bg-white p-3 shadow-[0_1px_2px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.07)] dark:bg-[#111111] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.06)]">
+              <div className="relative p-3">
                 <div ref={contentRef} className="relative overflow-y-auto overscroll-contain">
                   {children}
                 </div>
