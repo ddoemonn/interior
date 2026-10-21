@@ -6,30 +6,44 @@ import { LandingSections } from "@/components/site/landing-sections";
 import { LIBRARY_FEATURE } from "@/lib/testimonials";
 import { GITHUB, SEO_DESCRIPTION, SITE, TITLE } from "@/lib/site";
 
-async function getGitHubStars(): Promise<number | null> {
+const STAR_BADGE = /^\d+(\.\d+)?[kKmM]?$/;
+
+async function fetchJson(url: string, headers?: HeadersInit): Promise<Record<string, unknown> | null> {
   try {
-    const response = await fetch("https://api.github.com/repos/ddoemonn/interior", {
-      headers: { Accept: "application/vnd.github+json" },
+    const response = await fetch(url, {
+      headers,
       next: { revalidate: 3600 },
       signal: AbortSignal.timeout(3000),
     });
     if (!response.ok) return null;
-    const data: { stargazers_count?: unknown } = await response.json();
-    const count = data.stargazers_count;
-    return typeof count === "number" && Number.isSafeInteger(count) && count >= 0
-      ? count
-      : null;
+    const data: unknown = await response.json();
+    return data && typeof data === "object" ? (data as Record<string, unknown>) : null;
   } catch {
     return null;
   }
 }
 
+async function getGitHubStars(): Promise<string | null> {
+  const token = process.env.GITHUB_TOKEN;
+  const repo = await fetchJson("https://api.github.com/repos/ddoemonn/interior", {
+    Accept: "application/vnd.github+json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+  });
+  const count = repo?.stargazers_count;
+  if (typeof count === "number" && Number.isSafeInteger(count) && count >= 0) {
+    return new Intl.NumberFormat("en", {
+      notation: count >= 10000 ? "compact" : "standard",
+      maximumFractionDigits: 1,
+    }).format(count);
+  }
+  const badge = await fetchJson("https://img.shields.io/github/stars/ddoemonn/interior.json");
+  const value = badge?.value;
+  return typeof value === "string" && STAR_BADGE.test(value) ? value : null;
+}
+
 export default async function Home() {
   const stars = await getGitHubStars();
-  const starCount = stars === null ? "—" : new Intl.NumberFormat("en", {
-    notation: stars >= 10000 ? "compact" : "standard",
-    maximumFractionDigits: 1,
-  }).format(stars);
+  const starCount = stars ?? "—";
   const website = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -93,7 +107,7 @@ export default async function Home() {
                   href={GITHUB}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={stars === null ? "View interior.dev on GitHub" : `View interior.dev on GitHub, ${stars.toLocaleString("en")} stars`}
+                  aria-label={stars === null ? "View interior.dev on GitHub" : `View interior.dev on GitHub, ${stars} stars`}
                   className="group mat-action press inline-flex h-8 items-center gap-1.5 rounded-[9px] px-3 text-[12.5px] font-medium text-ink-2 hover:text-ink sm:h-9 sm:px-3.5 sm:text-[13px]"
                 >
                   <svg
@@ -109,7 +123,7 @@ export default async function Home() {
                   GitHub
                   <span
                     aria-hidden="true"
-                    title={stars === null ? "Star count temporarily unavailable" : `${stars.toLocaleString("en")} stars`}
+                    title={stars === null ? "Star count temporarily unavailable" : `${stars} stars`}
                     className="inline-flex h-3 items-center border-l border-hairline pl-1.5 text-[11px] font-normal tabular-nums tracking-tight text-ink-3 transition-colors duration-150 group-hover:text-ink group-focus-visible:text-ink motion-reduce:transition-none"
                   >
                     {starCount}
