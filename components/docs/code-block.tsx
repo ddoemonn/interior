@@ -16,9 +16,9 @@ export async function CodeBlock({
   const lines = trimmed.split("\n").length;
 
   return (
-    <div className="doc-surface mat-frame rounded-[14px] p-[5px]">
-      <div className="flex h-9 items-center justify-between pl-2.5 pr-[3px]">
-        <span className="truncate font-mono text-[11.5px] text-ink-3">{filename ?? lang}</span>
+    <div className="mat-panel rounded-[14px] p-[5px]">
+      <div className="flex h-8 items-center justify-between pl-2.5 pr-[3px]">
+        <span className="meta truncate text-ink-3">{filename ?? lang}</span>
         <CopySource code={trimmed} />
       </div>
 

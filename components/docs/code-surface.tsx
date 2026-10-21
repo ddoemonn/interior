@@ -56,7 +56,7 @@ export function CodeSurface({ html, lines }: { html: string; lines: number }) {
   return (
     <div ref={wrap} className="relative scroll-mt-24">
       <motion.div
-        className={`mat-stage relative rounded-[10px] ${
+        className={`mat-well relative rounded-[10px] ${
           settled && capped ? "overflow-y-auto" : "overflow-hidden"
         }`}
         initial={false}
@@ -96,7 +96,7 @@ export function CodeSurface({ html, lines }: { html: string; lines: number }) {
           <button
             type="button"
             onClick={toggle}
-            className="mat-action press pointer-events-auto inline-flex h-[26px] items-center gap-1.5 rounded-[7px] pl-2.5 pr-2 text-[11.5px] font-medium text-ink-2 hover:text-ink"
+            className="mat-cap press pointer-events-auto inline-flex h-[26px] items-center gap-1.5 rounded-[7px] pl-2.5 pr-2 text-[11.5px] font-medium text-ink-2 hover:text-ink"
           >
             {expanded ? "Collapse" : `Show all ${lines} lines`}
             <motion.span

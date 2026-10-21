@@ -14,13 +14,13 @@ export default function DocsLayout({
   return (
     /* pinned to the viewport: the document itself never scrolls, only the
        two panes inside it do */
-    <div className="fixed inset-0 flex gap-3 overflow-hidden p-3 sm:p-4">
+    <div className="fixed inset-0 flex gap-3 overflow-hidden p-3 sm:gap-4 sm:p-5">
       <aside className="hidden h-full w-[236px] shrink-0 lg:block">
         <Sidebar />
       </aside>
 
       <div className="min-w-0 flex-1">
-        <div className="mat-panel scroll-inset h-full overflow-y-auto overflow-x-hidden overscroll-contain rounded-[16px]">
+        <div className="mat-panel scroll-inset h-full overflow-y-auto overflow-x-hidden overscroll-contain rounded-[20px]">
           <header className="sticky top-0 z-20 flex h-12 items-center gap-2.5 border-b border-hairline bg-panel/85 px-4 backdrop-blur-md sm:gap-4 sm:px-5">
             <Link href="/docs" className="lg:hidden">
               <Logo size={14} />

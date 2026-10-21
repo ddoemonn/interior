@@ -69,7 +69,7 @@ export function Sidebar() {
             <Logo size={15} />
           </Link>
         </div>
-        <div className="mat-input mx-1 flex h-[34px] items-center gap-2 rounded-[9px] px-2.5">
+        <div className="mat-well flex h-[34px] items-center gap-2 rounded-[9px] px-2.5">
           <MagnifyingGlassIcon
             size={13}
             weight="bold"
@@ -109,7 +109,7 @@ export function Sidebar() {
           </button>
         )}
       </div>
-      <motion.div layoutScroll className="fade-y no-bar min-h-0 flex-1 overflow-y-auto overscroll-contain pb-8 pt-4">
+      <motion.div layoutScroll className="fade-y no-bar min-h-0 flex-1 overflow-y-auto overscroll-contain pb-8 pt-1">
         {groups.length === 0 && (
           <p className="px-2.5 py-6 text-[12.5px] text-ink-3">
             Nothing matches “{q.trim()}”.

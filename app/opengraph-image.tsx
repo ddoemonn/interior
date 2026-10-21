@@ -4,11 +4,11 @@ export const alt = "interior.dev";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const BEZEL = "#070707";
-const PANEL = "#111111";
+const BEZEL = "#141312";
+const PANEL = "#1D1D1A";
 const HAIRLINE = "rgba(255,255,255,0.06)";
-const CELL_OFF = "rgba(245,245,245,0.09)";
-const CELL_ON = "#4568FF";
+const CELL_OFF = "rgba(243,243,239,0.09)";
+const CELL_ON = "#93B0FF";
 
 const COLS = 10;
 const ROWS = 8;

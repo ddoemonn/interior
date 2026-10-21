@@ -196,7 +196,7 @@ export function LandingDemo({ name, slug }: { name: string; slug: LandingDemoSlu
   }, []);
   const playing = visible && pageVisible && reduced === false && !paused;
   return (
-    <div ref={frame} role="img" aria-label={`${name} preview. Interactive example available in the documentation.`} className="@container mat-stage relative flex h-[224px] items-center rounded-[9px] px-5 sm:h-[240px] sm:px-6">
+    <div ref={frame} role="img" aria-label={`${name} preview. Interactive example available in the documentation.`} className="@container mat-well relative flex h-[224px] items-center rounded-[11px] px-5 sm:h-[240px] sm:px-6">
       <div key={playing ? "playing" : "still"} inert aria-hidden="true" className="pointer-events-none w-full min-w-0 select-none">
         {slug === "loading-button" ? <LoadingFilm playing={playing} /> : slug === "hold-to-confirm" ? <HoldFilm playing={playing} /> : slug === "like-burst" ? <LikeFilm playing={playing} /> : slug === "tooltip-group" ? <TooltipFilm playing={playing} /> : <SelectionFilm slug={slug} playing={playing} />}
       </div>

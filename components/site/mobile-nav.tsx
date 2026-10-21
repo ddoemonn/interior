@@ -59,7 +59,7 @@ export function MobileNav() {
             exit={{ opacity: 0, transition: reduced ? STILL : LEAVE }}
             transition={reduced ? STILL : { duration: 0.2 }}
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-40 bg-neutral-900/25 dark:bg-black/55"
+            className="fixed inset-0 z-40 bg-stone-900/25 dark:bg-black/55"
           />
           <motion.aside
             key="sheet"
@@ -71,7 +71,7 @@ export function MobileNav() {
                 : { x: "-100%", transition: LEAVE }
             }
             transition={reduced ? STILL : SHEET}
-            className="mat-float fixed inset-y-0 left-0 z-50 w-[280px] max-w-[85vw] overflow-hidden rounded-r-[20px] p-3"
+            className="fixed inset-y-0 left-0 z-50 w-[280px] max-w-[85vw] overflow-hidden rounded-r-[20px] p-3 shadow-[0_28px_56px_-24px_rgba(24,22,20,0.45)]"
             style={{ background: "var(--bezel)" }}
           >
             <div className="h-full">

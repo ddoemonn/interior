@@ -74,7 +74,7 @@ export default function DocsIndexPage() {
       </header>
 
       <section className="mt-12">
-        <h2 className="text-[17px] font-medium tracking-[-0.01em] text-ink">
+        <h2 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-3">
           The three failures
         </h2>
         <p className="mt-3 text-[13.5px] leading-relaxed text-ink-2">
@@ -102,7 +102,7 @@ export default function DocsIndexPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-[17px] font-medium tracking-[-0.01em] text-ink">
+        <h2 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-3">
           What you get
         </h2>
         <p className="mt-3 text-[13.5px] leading-relaxed text-ink-2">
@@ -123,7 +123,7 @@ export default function DocsIndexPage() {
       </section>
 
       <section className="mt-12">
-        <h2 className="text-[17px] font-medium tracking-[-0.01em] text-ink">
+        <h2 className="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-3">
           Ten moments
         </h2>
         <p className="mt-3 text-[13.5px] leading-relaxed text-ink-2">
@@ -131,11 +131,11 @@ export default function DocsIndexPage() {
           person is in the middle of when the interaction happens.
         </p>
 
-        <dl className="mat-stage mt-5 divide-y divide-hairline overflow-hidden rounded-[14px]">
+        <dl className="mt-5 divide-y divide-hairline border-y border-hairline">
           {moments.map(([name, line]) => (
             <div
               key={name}
-              className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-baseline sm:gap-4"
+              className="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4"
             >
               <dt className="w-[130px] shrink-0 text-[13px] font-medium text-ink">
                 {name}
@@ -149,7 +149,8 @@ export default function DocsIndexPage() {
       <div className="mt-12 flex flex-wrap items-center gap-2.5">
         <Link
           href="/docs/poll-results"
-          className="mat-primary press inline-flex h-9 items-center rounded-[9px] px-3.5 text-[13px] font-medium"
+          className="press inline-flex h-9 items-center rounded-[9px] px-3.5 text-[13px] font-medium"
+          style={{ background: "var(--ink)", color: "var(--panel)" }}
         >
           Start with Poll Results
         </Link>
