@@ -109,7 +109,8 @@ export default async function Home() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={stars === null ? "View interior.dev on GitHub" : `View interior.dev on GitHub, ${stars} stars`}
-                  className="group mat-cap press inline-flex h-8 items-center gap-1.5 rounded-[9px] px-3 text-[12.5px] font-medium text-ink-2 hover:text-ink sm:h-9 sm:px-3.5 sm:text-[13px]"
+                  className="group press inline-flex h-8 items-center gap-1.5 rounded-[9px] px-3 text-[12.5px] font-medium text-ink ring-1 ring-hairline-strong sm:h-9 sm:px-3.5 sm:text-[13px]"
+                  style={{ background: "var(--well)" }}
                 >
                   <svg
                     className="shrink-0"
