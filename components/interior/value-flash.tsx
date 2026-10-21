@@ -125,7 +125,7 @@ export function ValueFlash({
     ? direction === "up"
       ? "text-emerald-600 dark:text-emerald-400"
       : "text-red-600 dark:text-red-400"
-    : "text-neutral-900 dark:text-neutral-100";
+    : "text-stone-700 dark:text-stone-200";
 
   const tint =
     direction === "up"

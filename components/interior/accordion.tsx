@@ -264,7 +264,7 @@ export function Accordion({
 
   return (
     <div
-      className={`divide-y divide-black/[0.07] overflow-hidden rounded-[11px] border border-black/10 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:divide-white/[0.07] dark:border-white/10 dark:bg-[#111111] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4)] ${className}`}
+      className={`divide-y divide-stone-200 overflow-hidden rounded-[11px] border border-stone-200 bg-white shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] dark:divide-white/10 dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)] ${className}`}
     >
       {items.map((item) => (
         <AccordionRow
@@ -315,20 +315,20 @@ function AccordionRow({
       <div role="heading" aria-level={headingLevel}>
         <button
           {...header}
-          className="flex w-full items-center gap-3 px-3.5 py-3 text-left outline-none transition-colors duration-150 hover:bg-black/[0.03] focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:hover:bg-white/[0.04] dark:focus-visible:bg-[#4568FF]/[0.1]"
+          className="flex w-full items-center gap-3 px-3.5 py-3 text-left outline-none transition-colors duration-150 hover:bg-stone-100 focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:hover:bg-white/10 dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
         >
           <span
             className={`min-w-0 flex-1 truncate text-[13px] font-medium transition-colors duration-150 ${
               open
-                ? "text-neutral-900 dark:text-neutral-100"
-                : "text-neutral-700 dark:text-neutral-200"
+                ? "text-stone-900 dark:text-stone-50"
+                : "text-stone-700 dark:text-stone-200"
             }`}
           >
             {item.title}
           </span>
 
           {item.meta ? (
-            <span className="shrink-0 text-[11.5px] tabular-nums text-neutral-500 dark:text-neutral-400">
+            <span className="shrink-0 text-[11.5px] tabular-nums text-stone-400 dark:text-stone-500">
               {item.meta}
             </span>
           ) : null}
@@ -339,7 +339,7 @@ function AccordionRow({
             viewBox="0 0 256 256"
             fill="none"
             aria-hidden="true"
-            className="shrink-0 text-neutral-500 dark:text-neutral-400"
+            className="shrink-0 text-stone-500 dark:text-stone-400"
             initial={false}
             animate={{ rotate: open ? 180 : 0 }}
             transition={reduced ? { duration: 0 } : CHEVRON}
@@ -366,7 +366,7 @@ function AccordionRow({
         <div
           {...panel}
           ref={ref}
-          className="outline-none focus-visible:shadow-[inset_0_0_0_1px_#4568FF]"
+          className="border-t border-stone-200 bg-stone-50 shadow-[inset_0_1px_2px_rgba(28,25,23,0.05)] dark:border-white/[0.16] dark:bg-white/[0.05] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.3)]"
           style={{
             maxHeight: maxPanelHeight,
             overflowY: "auto",
@@ -385,7 +385,7 @@ function AccordionRow({
                   ? { duration: 0.18, ease: EASE }
                   : { duration: 0.14, ease: EXIT_EASE }
             }
-            className="px-3.5 pb-3.5 pt-0.5 text-[12.5px] leading-relaxed text-neutral-600 dark:text-neutral-300"
+            className="px-3.5 pb-3.5 pt-3 text-[12.5px] leading-relaxed text-stone-500 dark:text-stone-400"
           >
             {item.content}
           </motion.div>

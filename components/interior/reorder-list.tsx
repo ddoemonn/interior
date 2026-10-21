@@ -210,26 +210,22 @@ export function ReorderList<T>({
               transition={reduced ? INSTANT : CELL}
               whileDrag={reduced ? undefined : { scale: 1.02 }}
               style={{ touchAction: "pan-x" }}
-              className={`relative flex items-center gap-2.5 rounded-[9px] border px-3 py-2.5 outline-none transition-[border-color,box-shadow,background-color] duration-150 focus-visible:outline-none ${
+              className={`relative flex items-center gap-2.5 rounded-[9px] border bg-white px-3 py-2.5 outline-none transition-[border-color,box-shadow,background-color] duration-150 focus-visible:outline-none dark:bg-[#1D1D1A] ${
                 lifted
-                  ? "z-10 cursor-grabbing shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14)] dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7),0_2px_6px_rgba(0,0,0,0.4)]"
-                  : "cursor-grab shadow-[0_1px_2px_rgba(0,0,0,0.05)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
+                  ? "z-10 cursor-grabbing border-stone-200 shadow-[0_1px_2px_rgba(28,25,23,0.08),0_14px_28px_-16px_rgba(28,25,23,0.5)] dark:border-white/[0.16] dark:shadow-[0_2px_14px_rgba(0,0,0,0.55)]"
+                  : "cursor-grab border-stone-200 shadow-[0_1px_2px_rgba(28,25,23,0.06)] dark:border-white/[0.16] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)]"
               } ${
                 held
-                  ? "border-[#4568FF] bg-[#f7f8ff] dark:bg-[#161a2b]"
-                  : `bg-white focus-visible:bg-[#f6f8ff] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:bg-[#191919] dark:focus-visible:bg-[#161a2b] ${
-                      lifted
-                        ? "border-black/10 dark:border-white/[0.16]"
-                        : "border-black/10 dark:border-white/10"
-                    }`
+                  ? "border-[#4568FF] bg-[#4568FF]/[0.04] dark:border-[#93B0FF] dark:bg-[#93B0FF]/[0.08]"
+                  : "focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
               }`}
             >
               <span
                 aria-hidden
                 className={`shrink-0 transition-colors duration-150 ${
                   lifted
-                    ? "text-neutral-600 dark:text-neutral-300"
-                    : "text-neutral-400 dark:text-neutral-500"
+                    ? "text-stone-500 dark:text-stone-300"
+                    : "text-stone-300 dark:text-stone-600"
                 }`}
               >
                 {GRIP}

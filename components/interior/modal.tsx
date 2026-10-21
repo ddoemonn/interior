@@ -296,35 +296,6 @@ const CLOSE_ICON = (
   </svg>
 );
 
-const ACTION_TONES = {
-  neutral:
-    "bg-white text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110",
-  destructive:
-    "bg-[#dc2626] text-white shadow-[0_0_0_1px_#b91c1c,0_1px_2px_rgba(185,28,28,0.16)] hover:brightness-[1.04] dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)]",
-} as const;
-
-export type ModalActionTone = keyof typeof ACTION_TONES;
-
-export type ModalActionProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  tone?: ModalActionTone;
-  ref?: React.Ref<HTMLButtonElement>;
-};
-
-export function ModalAction({
-  tone = "neutral",
-  type = "button",
-  className = "",
-  ...rest
-}: ModalActionProps) {
-  return (
-    <button
-      type={type}
-      {...rest}
-      className={`inline-grid h-8 select-none place-items-center rounded-[8px] px-3 text-[12.5px] font-medium outline-none transition-[filter] duration-150 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] disabled:opacity-50 ${ACTION_TONES[tone]} ${className}`}
-    />
-  );
-}
-
 export type ModalProps = {
   open: boolean;
   onClose: () => void;
@@ -432,27 +403,27 @@ export function Modal({
             aria-hidden="true"
             variants={variants.backdrop}
             style={{ touchAction: "none" }}
-            className="absolute inset-0 bg-neutral-900/40 dark:bg-black/65"
+            className="absolute inset-0 bg-stone-900/40 dark:bg-black/65"
           />
           <motion.div
             {...panelProps}
             aria-describedby={description ? descriptionId : undefined}
             variants={variants.panel}
             style={{ maxWidth, maxHeight }}
-            className={`relative flex w-full flex-col overflow-hidden rounded-[14px] bg-white text-neutral-700 shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14),0_0_0_1px_rgba(0,0,0,0.12)] outline-none dark:bg-[#111111] dark:text-neutral-200 dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.10)] ${className}`}
+            className={`relative flex w-full flex-col overflow-hidden rounded-[14px] border border-stone-200 bg-white text-stone-700 shadow-[0_28px_56px_-24px_rgba(24,22,20,0.45)] outline-none dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200 ${className}`}
           >
             <div className="flex shrink-0 items-start gap-3 px-4 pb-3 pt-4">
               <div className="min-w-0 flex-1">
                 <h2
                   id={titleId}
-                  className="text-[15px] font-medium tracking-[-0.01em] text-neutral-900 dark:text-neutral-100"
+                  className="text-[15px] font-medium tracking-[-0.01em] text-stone-800 dark:text-stone-100"
                 >
                   {title}
                 </h2>
                 {description ? (
                   <p
                     id={descriptionId}
-                    className="mt-1 text-[12.5px] leading-relaxed text-neutral-600 dark:text-neutral-300"
+                    className="mt-1 text-[12.5px] leading-relaxed text-stone-500 dark:text-stone-400"
                   >
                     {description}
                   </p>
@@ -464,7 +435,7 @@ export function Modal({
                   type="button"
                   onClick={onClose}
                   aria-label={closeLabel}
-                  className="-mr-1 -mt-1 grid size-7 shrink-0 place-items-center rounded-[7px] text-neutral-500 outline-none transition-colors duration-150 hover:bg-neutral-100 hover:text-neutral-800 focus-visible:text-neutral-800 focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-neutral-400 dark:hover:bg-white/[0.08] dark:hover:text-neutral-100 dark:focus-visible:text-neutral-100 dark:focus-visible:shadow-[inset_0_0_0_1px_#4568FF]"
+                  className="-mr-1 -mt-1 grid size-7 shrink-0 place-items-center rounded-[7px] text-stone-400 outline-none transition-colors duration-150 hover:bg-stone-100 hover:text-stone-700 focus-visible:bg-[#4568FF]/[0.06] focus-visible:text-stone-700 focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-stone-500 dark:hover:bg-white/10 dark:hover:text-stone-100 dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:text-stone-100 dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
                 >
                   {CLOSE_ICON}
                 </button>
@@ -478,7 +449,7 @@ export function Modal({
             ) : null}
 
             {footer ? (
-              <div className="flex shrink-0 items-center justify-end gap-2 border-t border-black/[0.07] px-4 py-3 dark:border-white/[0.06]">
+              <div className="flex shrink-0 items-center justify-end gap-2 border-t border-stone-200 px-4 py-3 dark:border-white/[0.16]">
                 {footer}
               </div>
             ) : null}

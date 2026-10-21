@@ -237,16 +237,16 @@ export function CommandPalette({
   const surface = (
     <div
       ref={panelRef}
-      className={`overflow-hidden rounded-[14px] border border-black/[0.12] bg-white dark:border-white/10 dark:bg-[#111111] ${
+      className={`overflow-hidden rounded-[14px] border border-stone-200 bg-white dark:border-white/[0.16] dark:bg-[#1D1D1A] ${
         overlaid
-          ? "w-full max-w-[520px] shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14)] dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7)]"
+          ? "w-full max-w-[520px] shadow-[0_1px_2px_rgba(28,25,23,0.07),0_28px_56px_-24px_rgba(24,22,20,0.5)] dark:shadow-[0_3px_16px_rgba(0,0,0,0.65)]"
           : ""
       } ${className}`}
     >
-      <div className="flex h-11 items-center gap-2.5 border-b border-black/[0.07] px-3 dark:border-white/[0.06]">
+      <div className="flex h-11 items-center gap-2.5 border-b border-stone-200 px-3 dark:border-white/[0.16]">
         <svg
           viewBox="0 0 16 16"
-          className="size-[14px] shrink-0 text-neutral-500 dark:text-neutral-400"
+          className="size-[14px] shrink-0 text-stone-500 dark:text-stone-400"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.4"
@@ -271,9 +271,9 @@ export function CommandPalette({
           placeholder={placeholder}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={onKeyDown}
-          className="h-full min-w-0 flex-1 bg-transparent text-[13.5px] text-neutral-900 outline-none placeholder:text-neutral-400 dark:text-neutral-100 dark:placeholder:text-neutral-500"
+          className="h-full min-w-0 flex-1 bg-transparent text-[13.5px] text-stone-700 outline-none placeholder:text-stone-400 dark:text-stone-200 dark:placeholder:text-stone-500"
         />
-        <span className="min-w-[3ch] shrink-0 text-right font-mono text-[9.5px] tabular-nums text-neutral-500 dark:text-neutral-400">
+        <span className="min-w-[3ch] shrink-0 text-right font-mono text-[9.5px] tabular-nums text-stone-500 dark:text-stone-400">
           {count}
         </span>
       </div>
@@ -307,15 +307,15 @@ export function CommandPalette({
                   initial={false}
                   animate={{ opacity: active ? 1 : 0 }}
                   transition={reduced ? { duration: 0 } : CROSSFADE}
-                  className="absolute inset-0 rounded-[9px] bg-neutral-100 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.07),0_1px_2px_rgba(0,0,0,0.05)] dark:bg-[#222222] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_1px_2px_rgba(0,0,0,0.25)]"
+                  className="absolute inset-0 rounded-[9px] bg-stone-100 dark:bg-white/10"
                 />
                 <span className="relative flex min-w-0 flex-1 items-center gap-2.5">
-                  <span className="truncate text-[13px] font-medium text-neutral-800 dark:text-neutral-100">
+                  <span className="truncate text-[13px] font-medium text-stone-700 dark:text-stone-200">
                     {item.label}
                   </span>
 
                   {item.hint ? (
-                    <span className="hidden shrink-0 text-[11.5px] text-neutral-500 sm:inline dark:text-neutral-400">
+                    <span className="hidden shrink-0 text-[11.5px] text-stone-500 sm:inline dark:text-stone-400">
                       {item.hint}
                     </span>
                   ) : null}
@@ -325,7 +325,7 @@ export function CommandPalette({
                       {item.shortcut.map((key) => (
                         <span
                           key={key}
-                          className="flex h-[18px] min-w-[18px] items-center justify-center rounded-[4px] bg-neutral-50 px-1 font-mono text-[9.5px] tabular-nums text-neutral-500 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] dark:bg-[#191919] dark:text-neutral-400 dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]"
+                          className="flex h-[18px] min-w-[18px] items-center justify-center rounded-[5px] border border-stone-200 px-1 font-mono text-[9.5px] tabular-nums text-stone-500 dark:border-white/[0.16] dark:text-stone-400"
                         >
                           {key}
                         </span>
@@ -343,7 +343,7 @@ export function CommandPalette({
             initial={reduced ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={reduced ? { duration: 0 } : CROSSFADE}
-            className="pointer-events-none absolute inset-0 flex items-center justify-center px-3 text-center text-[12.5px] text-neutral-500 dark:text-neutral-400"
+            className="pointer-events-none absolute inset-0 flex items-center justify-center px-3 text-center text-[12.5px] text-stone-500 dark:text-stone-400"
           >
             {emptyLabel}
           </motion.p>
@@ -442,7 +442,7 @@ function PaletteLayer({
         >
           <motion.div
             aria-hidden
-            className="absolute inset-0 bg-neutral-900/40 dark:bg-black/65"
+            className="absolute inset-0 bg-stone-900/40 dark:bg-black/65"
             variants={{
               closed: { opacity: 0 },
               open: {

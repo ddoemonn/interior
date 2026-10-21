@@ -4,19 +4,10 @@ import { useState } from "react";
 import { Drawer } from "@/components/interior/drawer";
 
 const FIELD =
-  "h-10 w-full rounded-[10px] bg-white px-3 text-[13px] text-neutral-900 shadow-[0_0_0_1px_rgba(0,0,0,0.17),0_1px_2px_rgba(0,0,0,0.10)] outline-none transition-[box-shadow] duration-150 placeholder:text-neutral-400 focus:shadow-[0_0_0_2px_#4568FF,0_1px_2px_rgba(0,0,0,0.10)] dark:bg-[#111111] dark:text-neutral-100 dark:shadow-[0_0_0_1px_rgba(255,255,255,0.12),0_1px_2px_rgba(0,0,0,0.4)] dark:placeholder:text-neutral-500 dark:focus:shadow-[0_0_0_2px_#4568FF,0_1px_2px_rgba(0,0,0,0.4)]";
+  "h-10 w-full rounded-[10px] border-2 border-stone-200 bg-stone-100/70 px-3 text-[13px] text-stone-700 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] outline-none transition-[border-color,background-color,box-shadow] duration-150 placeholder:text-stone-400 focus:border-[#4568FF] focus:bg-white focus:shadow-none dark:border-white/[0.08] dark:bg-[#1D1D1A] dark:text-stone-200 dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)] dark:placeholder:text-stone-500 dark:focus:border-[#93B0FF] dark:focus:bg-[#252522]";
 
 const LABEL =
-  "block text-[11px] font-medium uppercase tracking-[0.06em] text-neutral-500 dark:text-neutral-400";
-
-const ACTION =
-  "h-8 rounded-[8px] px-3 text-[12.5px] font-medium outline-none transition-[filter] duration-150 focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4568FF]";
-
-const NEUTRAL =
-  "bg-white text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] hover:brightness-[0.98] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110";
-
-const PRIMARY =
-  "bg-[#4568FF] text-white shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(42,68,184,0.16)] hover:brightness-[1.04] dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)]";
+  "block text-[11px] font-medium uppercase tracking-[0.06em] text-stone-400 dark:text-stone-500";
 
 export function DrawerDemo() {
   const [open, setOpen] = useState(false);
@@ -41,14 +32,14 @@ export function DrawerDemo() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className={`${ACTION} ${NEUTRAL}`}
+              className="h-8 rounded-[8px] border border-stone-200 px-3 text-[12.5px] font-medium text-stone-700 outline-none transition-colors duration-150 hover:bg-stone-100 focus-visible:border-[#4568FF] dark:border-white/[0.16] dark:text-stone-200 dark:hover:bg-white/10 dark:focus-visible:border-[#93B0FF]"
             >
               Cancel
             </button>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className={`${ACTION} ${PRIMARY}`}
+              className="h-8 rounded-[8px] bg-stone-800 px-3 text-[12.5px] font-medium text-white outline-none transition-colors duration-150 hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-white"
             >
               Save changes
             </button>
@@ -98,7 +89,7 @@ export function DrawerDemo() {
               className={`${FIELD} h-auto resize-none py-2.5 leading-relaxed`}
             />
           </div>
-          <label className="flex cursor-pointer items-center gap-2.5 text-[12.5px] text-neutral-600 dark:text-neutral-300">
+          <label className="flex cursor-pointer items-center gap-2.5 text-[12.5px] text-stone-600 dark:text-stone-300">
             <input
               type="checkbox"
               defaultChecked

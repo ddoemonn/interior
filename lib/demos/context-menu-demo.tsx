@@ -23,7 +23,6 @@ export function ContextMenuDemo() {
     {
       id: "trash",
       label: "Move to trash",
-      tone: "destructive",
       shortcut: "⌫",
       onSelect: () => setFiles((prev) => prev.filter((file) => file.id !== id)),
     },

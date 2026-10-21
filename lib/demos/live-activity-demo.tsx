@@ -55,7 +55,7 @@ export function LiveActivityDemo() {
         {LINES.map((width) => (
           <div
             key={width}
-            className={`h-2.5 rounded-[2px] bg-neutral-800/[0.06] dark:bg-white/[0.05] ${width}`}
+            className={`h-2.5 rounded-[2px] bg-stone-800/[0.06] dark:bg-white/[0.05] ${width}`}
           />
         ))}
       </div>
@@ -64,7 +64,7 @@ export function LiveActivityDemo() {
         <button
           type="button"
           onClick={deploy}
-          className="inline-flex h-8 select-none items-center rounded-[8px] bg-[#4568FF] px-3 text-[12.5px] font-medium text-white shadow-[0_0_0_1px_#3655dc,0_1px_2px_rgba(42,68,184,0.16)] outline-none transition-[filter] duration-150 hover:brightness-105 focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] active:translate-y-px dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)]"
+          className="inline-flex h-8 select-none items-center rounded-[9px] border border-stone-200 bg-white px-3 text-[12.5px] font-medium text-stone-700 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(28,25,23,0.06),0_1px_2px_rgba(28,25,23,0.08)] outline-none transition-[background-color,border-color,box-shadow] duration-150 hover:bg-stone-50 focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] active:translate-y-px dark:border-white/[0.16] dark:bg-[#252522] dark:text-stone-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4)] dark:hover:bg-[#2A2A27] dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)]"
         >
           Deploy
         </button>

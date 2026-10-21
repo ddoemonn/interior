@@ -355,7 +355,7 @@ export function SnapCarousel({
   });
 
   const button =
-    "grid size-7 place-items-center rounded-[6px] border border-neutral-200 bg-white text-neutral-700 shadow-[0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter,box-shadow,transform] duration-150 hover:brightness-[0.98] active:translate-y-px active:shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:border-[#202020] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110";
+    "grid size-7 place-items-center rounded-[6px] border border-stone-200 bg-white text-stone-700 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(28,25,23,0.06),0_1px_2px_rgba(28,25,23,0.08)] outline-none transition-[background-color,border-color,box-shadow,transform] duration-150 hover:bg-stone-50 active:translate-y-px active:shadow-[inset_0_1px_2px_rgba(28,25,23,0.06)] focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] dark:border-white/[0.16] dark:bg-[#252522] dark:text-stone-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4)] dark:hover:bg-[#2A2A27] dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)]";
 
   return (
     <div className={`w-full ${className}`}>
@@ -373,7 +373,7 @@ export function SnapCarousel({
               }
             : {}),
         }}
-        className="relative overflow-hidden rounded-[14px] py-1.5 outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.1]"
+        className="relative overflow-hidden rounded-[14px] py-1.5 outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
         {...car.viewportProps}
       >
         <motion.div
@@ -412,7 +412,7 @@ export function SnapCarousel({
               onClick={() => car.goTo(i)}
               aria-label={`Go to slide ${i + 1}`}
               aria-current={i === car.index ? "true" : undefined}
-              className="grid h-[18px] w-[16px] place-items-center rounded-[5px] outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.12]"
+              className="grid h-[18px] w-[16px] place-items-center rounded-[5px] outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
             >
               <motion.span
                 initial={false}
@@ -422,7 +422,7 @@ export function SnapCarousel({
                     : { scaleX: 0.36, opacity: 0.26 }
                 }
                 transition={reduced ? { duration: 0 } : CELL}
-                className="block h-[5px] w-[14px] rounded-[1.5px] bg-neutral-800 dark:bg-neutral-100"
+                className="block h-[5px] w-[14px] rounded-[1.5px] bg-stone-800 dark:bg-stone-100"
               />
             </button>
           ))}

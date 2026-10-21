@@ -194,12 +194,12 @@ export function CollapsibleBanner({
         <div
           role="region"
           aria-labelledby={titleId}
-          className={`rounded-[11px] border border-black/10 bg-white dark:border-white/10 dark:bg-[#191919] ${className}`}
+          className={`rounded-[11px] border border-stone-200 bg-white shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_1px_6px_rgba(0,0,0,0.45)] ${className}`}
         >
           <div className="flex items-center gap-2.5 p-2.5">
             <span
               aria-hidden="true"
-              className="grid size-[26px] shrink-0 place-items-center rounded-[7px] bg-[#edf1ff] text-[#4568FF] dark:bg-[rgba(69,104,255,0.14)] dark:text-[#4568FF]"
+              className="grid size-[26px] shrink-0 place-items-center rounded-[7px] bg-stone-100/70 text-stone-500 shadow-[inset_0_1px_2px_rgba(28,25,23,0.06)] dark:bg-[#252522] dark:text-stone-400 dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4)]"
             >
               {icon ?? NOTICE_GLYPH}
             </span>
@@ -215,17 +215,17 @@ export function CollapsibleBanner({
                 }}
                 aria-expanded={open}
                 aria-controls={bodyId}
-                className="group flex min-w-0 flex-1 items-center gap-2 rounded-[7px] text-left outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.14]"
+                className="group flex min-w-0 flex-1 items-center gap-2 rounded-[7px] text-left outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
               >
                 <span
                   id={titleId}
-                  className="min-w-0 flex-1 truncate text-[13px] font-medium leading-5 text-neutral-800 dark:text-neutral-100"
+                  className="min-w-0 flex-1 truncate text-[13px] font-medium leading-5 text-stone-700 dark:text-stone-100"
                 >
                   {title}
                 </span>
                 <motion.span
                   aria-hidden="true"
-                  className="flex shrink-0 text-neutral-400 group-hover:text-neutral-600 dark:text-neutral-500 dark:group-hover:text-neutral-300"
+                  className="flex shrink-0 text-stone-400 group-hover:text-stone-600 dark:text-stone-500 dark:group-hover:text-stone-300"
                   initial={false}
                   animate={{ rotate: open ? 180 : 0 }}
                   transition={reduced ? INSTANT : NUDGE}
@@ -236,7 +236,7 @@ export function CollapsibleBanner({
             ) : (
               <span
                 id={titleId}
-                className="min-w-0 flex-1 truncate text-[13px] font-medium leading-5 text-neutral-800 dark:text-neutral-100"
+                className="min-w-0 flex-1 truncate text-[13px] font-medium leading-5 text-stone-700 dark:text-stone-100"
               >
                 {title}
               </span>
@@ -247,7 +247,7 @@ export function CollapsibleBanner({
                 type="button"
                 onClick={dismiss}
                 aria-label={dismissLabel}
-                className="grid size-[26px] shrink-0 place-items-center rounded-[7px] text-neutral-400 transition-colors duration-150 hover:bg-neutral-100 hover:text-neutral-700 focus-visible:outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-neutral-500 dark:hover:bg-white/10 dark:hover:text-neutral-100 dark:focus-visible:bg-[#4568FF]/[0.14]"
+                className="grid size-[26px] shrink-0 place-items-center rounded-[7px] text-stone-400 transition-colors duration-150 hover:bg-stone-100 hover:text-stone-700 focus-visible:outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:text-stone-500 dark:hover:bg-white/10 dark:hover:text-stone-100 dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
               >
                 {CLOSE}
               </button>
@@ -270,7 +270,7 @@ export function CollapsibleBanner({
                 className="pb-2.5 pl-[46px] pr-2.5"
               >
                 {description ? (
-                  <p className="text-[12.5px] leading-relaxed text-neutral-500 dark:text-neutral-400">
+                  <p className="text-[12.5px] leading-relaxed text-stone-500 dark:text-stone-400">
                     {description}
                   </p>
                 ) : null}

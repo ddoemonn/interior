@@ -108,7 +108,7 @@ export function SkeletonSwap({
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={scrollable ? 0 : undefined}
       style={{ height: box }}
-      className={`relative grid overflow-y-auto overscroll-contain text-neutral-700 dark:text-neutral-200 ${className}`}
+      className={`relative grid overflow-y-auto overscroll-contain text-stone-700 dark:text-stone-200 ${className}`}
     >
       <motion.div
         ref={body}
@@ -152,7 +152,7 @@ export function SkeletonSwap({
                     style={{ height: lineHeight }}
                   >
                     <div
-                      className="rounded-[5px] bg-neutral-200/80 dark:bg-white/10"
+                      className="rounded-[5px] bg-stone-200 dark:bg-white/15"
                       style={{
                         height: barHeight,
                         width: `${widthFor(i, lines)}%`,

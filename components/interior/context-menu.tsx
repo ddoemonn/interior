@@ -33,7 +33,6 @@ export type ContextMenuItem =
       label: string;
       shortcut?: string;
       icon?: ReactNode;
-      tone?: "neutral" | "destructive";
       disabled?: boolean;
       onSelect?: (id: string) => void;
     };
@@ -425,7 +424,7 @@ export function ContextMenu({
         {...triggerProps}
         aria-controls={isOpen ? menuId : undefined}
         aria-describedby={`${uid}-hint`}
-        className={`outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.1] ${className}`}
+        className={`outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.08] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] ${className}`}
       >
         {children}
         <span id={`${uid}-hint`} className="sr-only">
@@ -458,12 +457,12 @@ export function ContextMenu({
               transformOrigin: placement.transformOrigin,
               zIndex: 60,
             }}
-            className="overflow-y-auto overscroll-contain rounded-[14px] border border-black/[0.12] bg-white p-[5px] shadow-[0_2px_4px_rgba(0,0,0,0.06),0_12px_32px_-8px_rgba(0,0,0,0.14)] outline-none dark:border-white/10 dark:bg-[#111111] dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.7)]"
+            className="overflow-y-auto overscroll-contain rounded-[14px] border border-stone-200 bg-white p-[5px] shadow-[0_1px_2px_rgba(28,25,23,0.06),0_16px_36px_-18px_rgba(28,25,23,0.5)] outline-none dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_2px_12px_rgba(0,0,0,0.6)]"
           >
             {items.map((item, index) =>
               item.type === "separator" ? (
                 <div key={item.id} className="px-1 py-1">
-                  <hr className="h-px border-0 bg-black/[0.08] dark:bg-white/[0.08]" />
+                  <hr className="h-px border-0 bg-stone-200 dark:bg-white/10" />
                 </div>
               ) : (
                 <button
@@ -471,22 +470,16 @@ export function ContextMenu({
                   type="button"
                   aria-disabled={item.disabled || undefined}
                   {...getItemProps(index)}
-                  className={`flex h-[32px] w-full cursor-default select-none items-center gap-2 rounded-[8px] px-2.5 text-left text-[13px] outline-none ${
+                  className={`flex h-[32px] w-full cursor-default select-none items-center gap-2 rounded-[7px] px-2.5 text-left text-[13px] outline-none ${
                     item.disabled
-                      ? "text-neutral-400 dark:text-neutral-600"
-                      : item.tone === "destructive"
-                        ? "text-[#c0442f] dark:text-[#f5897f]"
-                        : "text-neutral-800 dark:text-neutral-100"
-                  } ${active === index ? "bg-neutral-100 dark:bg-[#222222]" : ""}`}
+                      ? "text-stone-400 dark:text-stone-500"
+                      : "text-stone-700 dark:text-stone-200"
+                  } ${active === index ? "bg-stone-100 dark:bg-white/10" : ""}`}
                 >
                   {hasIcons ? (
                     <span
                       aria-hidden
-                      className={`grid size-4 shrink-0 place-items-center ${
-                        item.tone === "destructive" && !item.disabled
-                          ? ""
-                          : "text-neutral-500 dark:text-neutral-400"
-                      }`}
+                      className="grid size-4 shrink-0 place-items-center text-stone-500 dark:text-stone-400"
                     >
                       {item.icon}
                     </span>
@@ -496,11 +489,7 @@ export function ContextMenu({
                   {item.shortcut ? (
                     <span
                       aria-hidden
-                      className={`shrink-0 font-mono text-[10.5px] tabular-nums ${
-                        item.tone === "destructive" && !item.disabled
-                          ? "opacity-70"
-                          : "text-neutral-500 dark:text-neutral-400"
-                      }`}
+                      className="shrink-0 font-mono text-[10.5px] tabular-nums text-stone-500 dark:text-stone-400"
                     >
                       {item.shortcut}
                     </span>

@@ -110,9 +110,9 @@ function HoldFilm({ playing }: { playing: boolean }) {
   );
   return (
     <div className="flex justify-center">
-      <button ref={button} {...bind} type="button" className="relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] bg-white px-[17px] text-[13px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)]">
+      <button ref={button} {...bind} type="button" className="relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] border border-stone-200 bg-white px-4 text-[13px] font-medium text-stone-700 dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200">
         {labels}
-        <motion.span style={{ clipPath }} className="absolute inset-0 grid place-items-center rounded-[9px] bg-[#dc2626] px-[17px] text-white shadow-[inset_0_0_0_1px_#b91c1c]">{labels}</motion.span>
+        <motion.span style={{ clipPath }} className="absolute inset-0 grid place-items-center bg-stone-800 px-4 text-white dark:bg-stone-100 dark:text-stone-900">{labels}</motion.span>
       </button>
     </div>
   );

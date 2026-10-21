@@ -181,7 +181,7 @@ export function InlineValidation({
     <div className={`w-full ${className}`}>
       <label
         htmlFor={fieldId}
-        className="block text-[13px] font-medium text-neutral-700 dark:text-neutral-200"
+        className="block text-[13px] font-medium text-stone-700 dark:text-stone-200"
       >
         {label}
       </label>
@@ -201,10 +201,10 @@ export function InlineValidation({
           aria-describedby={described || undefined}
           onChange={(e) => onChange(e.target.value)}
           {...fieldProps}
-          className={`h-10 w-full rounded-[10px] bg-white pl-3 pr-9 text-[13px] text-neutral-900 outline-none transition-[background-color,border-color,box-shadow] duration-150 placeholder:text-neutral-400 focus-visible:outline-none disabled:opacity-50 dark:bg-[#111111] dark:text-neutral-100 dark:placeholder:text-neutral-500 ${
+          className={`h-10 w-full rounded-[10px] border-2 pl-3 pr-9 text-[13px] text-stone-700 outline-none transition-[background-color,border-color,box-shadow] duration-150 placeholder:text-stone-400 focus-visible:outline-none disabled:opacity-50 dark:text-stone-200 dark:placeholder:text-stone-500 ${
             invalid
-              ? "shadow-[0_1px_2px_rgba(0,0,0,0.10),0_0_0_1px_#ef4444] focus:shadow-[0_1px_2px_rgba(0,0,0,0.10),0_0_0_2px_#ef4444] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_#f87171] dark:focus:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_2px_#f87171]"
-              : "shadow-[0_1px_2px_rgba(0,0,0,0.10),0_0_0_1px_rgba(0,0,0,0.17)] focus:shadow-[0_1px_2px_rgba(0,0,0,0.10),0_0_0_2px_#4568FF] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.12)] dark:focus:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_2px_#4568FF]"
+              ? "border-red-500 bg-white dark:border-red-400 dark:bg-[#1D1D1A]"
+              : "border-stone-200 bg-stone-100/70 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] focus:border-[#4568FF] focus:bg-white focus:shadow-none dark:border-white/[0.08] dark:bg-[#1D1D1A] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)] dark:focus:border-[#93B0FF] dark:focus:bg-[#252522]"
           }`}
         />
 
@@ -217,7 +217,7 @@ export function InlineValidation({
             width="14"
             height="14"
             fill="none"
-            className="col-start-1 row-start-1 text-neutral-500 dark:text-neutral-400"
+            className="col-start-1 row-start-1 text-stone-500 dark:text-stone-400"
             initial={false}
             animate={{ opacity: valid ? 1 : 0, scale: valid ? 1 : 0.7 }}
             transition={fade}
@@ -251,7 +251,7 @@ export function InlineValidation({
           <motion.p
             aria-hidden
             style={clamp}
-            className="col-start-1 row-start-1 text-[11.5px] leading-[16px] text-neutral-500 dark:text-neutral-400"
+            className="col-start-1 row-start-1 text-[11.5px] leading-[16px] text-stone-500 dark:text-stone-400"
             initial={false}
             animate={{ opacity: invalid ? 0 : 1, y: invalid ? 3 : 0 }}
             transition={fade}

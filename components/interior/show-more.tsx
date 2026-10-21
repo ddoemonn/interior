@@ -166,7 +166,7 @@ export function ShowMore({
 
   return (
     <div
-      className={`text-[13.5px] leading-relaxed text-neutral-700 dark:text-neutral-200 ${className}`}
+      className={`text-[13.5px] leading-relaxed text-stone-700 dark:text-stone-200 ${className}`}
     >
       <div className="relative">
         <motion.div
@@ -184,7 +184,7 @@ export function ShowMore({
 
             scrollbarGutter: capped ? "stable" : undefined,
           }}
-          className="overflow-hidden overscroll-contain rounded-[6px] outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#4568FF]/[0.12]"
+          className="overflow-hidden overscroll-contain rounded-[6px] outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.10] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
         >
           <div ref={contentRef}>{children}</div>
         </motion.div>
@@ -193,7 +193,7 @@ export function ShowMore({
           initial={false}
           animate={{ opacity: veiled ? 1 : 0 }}
           transition={reduced ? INSTANT : SMALL}
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-9 bg-gradient-to-t from-white to-white/0 dark:from-[#111111] dark:to-[#111111]/0"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-9 bg-gradient-to-t from-white to-white/0 dark:from-stone-900 dark:to-stone-900/0"
         />
       </div>
       <div className="mt-2 flex h-8 items-center">
@@ -203,7 +203,7 @@ export function ShowMore({
           onClick={press}
           aria-expanded={open}
           aria-controls={regionId}
-          className={`inline-flex h-8 select-none items-center gap-2 rounded-[8px] bg-white px-[11px] text-[12.5px] font-medium text-neutral-700 shadow-[0_0_0_1px_rgba(0,0,0,0.12),0_1px_2px_rgba(0,0,0,0.06)] outline-none transition-[filter] duration-150 hover:brightness-[0.98] focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-[#4568FF] dark:bg-[#282828] dark:text-neutral-200 dark:shadow-[0_0_0_1px_#333333,0_1px_2px_rgba(0,0,0,0.25)] dark:hover:brightness-110 ${
+          className={`inline-flex h-8 select-none items-center gap-2 rounded-[9px] border border-stone-200 bg-white px-2.5 text-[12.5px] font-medium text-stone-700 outline-none transition-[border-color,box-shadow] duration-150 hover:border-stone-300 focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200 dark:hover:border-white/20 dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)] ${
             expandable ? "" : "pointer-events-none invisible"
           }`}
         >
@@ -233,7 +233,7 @@ export function ShowMore({
             height="12"
             viewBox="0 0 256 256"
             fill="none"
-            className="text-neutral-500 dark:text-neutral-400"
+            className="text-stone-500 dark:text-stone-400"
             initial={false}
             animate={{ rotate: open ? 180 : 0 }}
             transition={reduced ? INSTANT : SMALL}

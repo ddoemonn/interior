@@ -27,10 +27,10 @@ export function ReorderListDemo() {
       >
         {(t) => (
           <div className="flex items-baseline justify-between gap-3">
-            <p className="truncate text-[13px] font-medium text-neutral-900 dark:text-neutral-100">
+            <p className="truncate text-[13px] font-medium text-stone-700 dark:text-stone-200">
               {t.title}
             </p>
-            <p className="shrink-0 font-mono text-[10.5px] tabular-nums text-neutral-500 dark:text-neutral-400">
+            <p className="shrink-0 font-mono text-[10.5px] tabular-nums text-stone-500 dark:text-stone-400">
               {t.length}
             </p>
           </div>

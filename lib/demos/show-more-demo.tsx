@@ -4,7 +4,7 @@ import { ShowMore } from "@/components/interior/show-more";
 
 export function ShowMoreDemo() {
   return (
-    <div className="mx-auto w-full max-w-[440px]">
+    <div className="mat-panel mx-auto w-full max-w-[440px] rounded-[14px] p-4">
       <ShowMore lines={3} maxHeight={168} label="Release notes">
         <p>
           The scheduler no longer re-queues a job that was cancelled while its

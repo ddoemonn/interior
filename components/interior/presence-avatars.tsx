@@ -95,9 +95,9 @@ export function usePresence({
 }
 
 const TILE =
-  "absolute left-0 top-0 select-none rounded-[10px] bg-[#fafafa] p-[3px] shadow-[0_1px_2px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.10)] dark:bg-[#1c1c1c] dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.10)]";
+  "absolute left-0 top-0 select-none rounded-[10px] bg-stone-200 p-[3px] dark:bg-stone-700";
 const WELL =
-  "relative grid size-full place-items-center overflow-hidden rounded-[7px] bg-neutral-100 font-medium leading-none text-neutral-500 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.06)] dark:bg-[#262626] dark:text-neutral-300 dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06)]";
+  "relative grid size-full place-items-center overflow-hidden rounded-[7px] bg-stone-100 font-medium leading-none text-stone-500 dark:bg-white/10 dark:text-stone-300";
 
 type TileProps = {
   person: PresencePerson;
@@ -243,7 +243,7 @@ export function PresenceAvatars({
     transition: reduced ? INSTANT : SLOT,
   };
   const chipClass =
-    "absolute left-0 top-0 grid place-items-center rounded-[10px] bg-[#fafafa] font-mono text-[10.5px] leading-none tabular-nums text-neutral-500 outline-none shadow-[0_1px_2px_rgba(0,0,0,0.06),0_0_0_1px_rgba(0,0,0,0.10)] dark:bg-[#1c1c1c] dark:text-neutral-400 dark:shadow-[0_1px_2px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.10)]";
+    "absolute left-0 top-0 grid place-items-center rounded-[9px] border border-stone-200 bg-white font-mono text-[10.5px] leading-none tabular-nums text-stone-500 outline-none ring-2 ring-white dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-400 dark:ring-stone-900";
 
   return (
     <div role="group" aria-label={label} className={`inline-flex items-center ${className}`}>
@@ -275,7 +275,7 @@ export function PresenceAvatars({
                 onClick={() => onOverflowSelect(hidden)}
                 aria-label={`Show ${overflow} more`}
                 style={{ width: chip, height: size, zIndex: 0 }}
-                className={`${chipClass} focus-visible:shadow-[0_0_0_2px_#4568FF] dark:focus-visible:shadow-[0_0_0_2px_#4568FF]`}
+                className={`${chipClass} focus-visible:border-[#4568FF] dark:focus-visible:border-[#93B0FF]`}
                 {...chipMotion}
               >
                 <span aria-hidden>{chipCount}</span>

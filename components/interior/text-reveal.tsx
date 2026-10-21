@@ -111,7 +111,7 @@ export function TextReveal({
   );
 
   return (
-    <span ref={ref} className={`text-neutral-700 dark:text-neutral-200 ${className}`}>
+    <span ref={ref} className={`text-stone-700 dark:text-stone-200 ${className}`}>
       <span className="sr-only">{text}</span>
 
       <span aria-hidden="true">
