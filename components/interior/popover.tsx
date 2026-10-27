@@ -28,13 +28,6 @@ const FLIP: Record<PopoverSide, PopoverSide> = {
   right: "left",
 };
 
-const ARROW_EDGE: Record<PopoverSide, string> = {
-  bottom: "border-t border-l",
-  top: "border-b border-r",
-  right: "border-b border-l",
-  left: "border-t border-r",
-};
-
 const FROM: Record<PopoverSide, { x?: number; y?: number }> = {
   top: { y: 6 },
   bottom: { y: -6 },
@@ -44,6 +37,27 @@ const FROM: Record<PopoverSide, { x?: number; y?: number }> = {
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), Math.max(min, max));
+}
+
+function outline(w: number, h: number, side: PopoverSide, point: number, reach: number) {
+  const [x0, y0, x1, y1, r] = [0.5, 0.5, w - 0.5, h - 0.5, RADIUS - 0.5];
+  const arc = (x: number, y: number) => `A${r} ${r} 0 0 1 ${x} ${y}`;
+  return [
+    `M${x0 + r} ${y0}`,
+    side === "bottom" ? `L${point - reach} ${y0}L${point} ${y0 - reach}L${point + reach} ${y0}` : "",
+    `L${x1 - r} ${y0}`,
+    arc(x1, y0 + r),
+    side === "left" ? `L${x1} ${point - reach}L${x1 + reach} ${point}L${x1} ${point + reach}` : "",
+    `L${x1} ${y1 - r}`,
+    arc(x1 - r, y1),
+    side === "top" ? `L${point + reach} ${y1}L${point} ${y1 + reach}L${point - reach} ${y1}` : "",
+    `L${x0 + r} ${y1}`,
+    arc(x0, y1 - r),
+    side === "right" ? `L${x0} ${point + reach}L${x0 - reach} ${point}L${x0} ${point - reach}` : "",
+    `L${x0} ${y0 + r}`,
+    arc(x0 + r, y0),
+    "Z",
+  ].join("");
 }
 
 export type UsePopoverOptions = {
@@ -61,7 +75,7 @@ export type UsePopoverResult<A extends HTMLElement = HTMLElement> = {
   floatingRef: React.RefObject<HTMLDivElement | null>;
   panelRef: React.RefObject<HTMLDivElement | null>;
   contentRef: React.RefObject<HTMLDivElement | null>;
-  arrowRef: React.RefObject<HTMLSpanElement | null>;
+  arrowRef: React.RefObject<SVGSVGElement | null>;
   side: PopoverSide;
   update: () => void;
 };
@@ -79,7 +93,7 @@ export function usePopover<A extends HTMLElement = HTMLElement>({
   const floatingRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const arrowRef = useRef<HTMLSpanElement>(null);
+  const arrowRef = useRef<SVGSVGElement>(null);
 
   const [resolved, setResolved] = useState<PopoverSide>(side);
 
@@ -158,10 +172,10 @@ export function usePopover<A extends HTMLElement = HTMLElement>({
     wrap.style.left = `${Math.round(x - originX)}px`;
     wrap.style.top = `${Math.round(y - originY)}px`;
 
-    const half = arrowSize / 2;
+    const reach = arrowSize * Math.SQRT1_2;
     const point = horizontal
-      ? clamp(a.left + a.width / 2 - x, RADIUS + half, w - RADIUS - half)
-      : clamp(a.top + a.height / 2 - y, RADIUS + half, h - RADIUS - half);
+      ? clamp(a.left + a.width / 2 - x, RADIUS + reach, w - RADIUS - reach)
+      : clamp(a.top + a.height / 2 - y, RADIUS + reach, h - RADIUS - reach);
 
     panel.style.transformOrigin = horizontal
       ? `${Math.round(point)}px ${next === "top" ? h : 0}px`
@@ -169,13 +183,9 @@ export function usePopover<A extends HTMLElement = HTMLElement>({
 
     const arrow = arrowRef.current;
     if (arrow) {
-      if (horizontal) {
-        arrow.style.left = `${Math.round(point - half)}px`;
-        arrow.style.top = `${Math.round(next === "top" ? h - half : -half)}px`;
-      } else {
-        arrow.style.top = `${Math.round(point - half)}px`;
-        arrow.style.left = `${Math.round(next === "left" ? w - half : -half)}px`;
-      }
+      arrow.setAttribute("width", String(w));
+      arrow.setAttribute("height", String(h));
+      arrow.firstElementChild?.setAttribute("d", outline(w, h, next, point, reach));
     }
 
     setResolved((prev) => (prev === next ? prev : next));
@@ -356,14 +366,15 @@ export function Popover({
                   ? { duration: 0 }
                   : { ...CROSSFADE, opacity: { duration: 0.14, ease: EASE } }
               }
-              className={`relative rounded-[11px] border border-stone-200 bg-white p-3 shadow-[0_18px_40px_-24px_rgba(28,25,23,0.5)] focus-visible:outline-none dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)] ${className}`}
+              className={`relative rounded-[11px] p-3 shadow-[0_18px_40px_-24px_rgba(28,25,23,0.5)] focus-visible:outline-none dark:shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)] ${className}`}
             >
-              <span
+              <svg
                 ref={arrowRef}
                 aria-hidden
-                style={{ width: arrowSize, height: arrowSize, transform: "rotate(45deg)" }}
-                className={`absolute block bg-white dark:bg-[#1D1D1A] border-stone-200 dark:border-white/[0.16] ${ARROW_EDGE[at]}`}
-              />
+                className="absolute left-0 top-0 overflow-visible fill-white stroke-stone-200 dark:fill-[#1D1D1A] dark:stroke-white/[0.16]"
+              >
+                <path strokeWidth={1} strokeLinejoin="round" />
+              </svg>
               <div ref={contentRef} className="relative overflow-y-auto overscroll-contain">
                 {children}
               </div>
