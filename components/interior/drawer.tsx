@@ -274,6 +274,7 @@ export type DrawerProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   title: string;
+  titleAlign?: "left" | "center";
   children: React.ReactNode;
   description?: string;
   footer?: React.ReactNode;
@@ -289,6 +290,7 @@ export function Drawer({
   open,
   onOpenChange,
   title,
+  titleAlign = "left",
   children,
   description,
   footer,
@@ -352,7 +354,9 @@ export function Drawer({
           <div className="min-w-0 flex-1">
             <h2
               id={titleId}
-              className="truncate text-[13px] font-medium text-stone-700 dark:text-stone-200"
+              className={`truncate text-[13px] font-medium text-stone-700 dark:text-stone-200 ${
+                titleAlign === "center" ? "pl-9 text-center" : ""
+              }`}
             >
               {title}
             </h2>
