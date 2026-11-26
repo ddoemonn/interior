@@ -1,10 +1,21 @@
-import { createHighlighter, type Highlighter } from "shiki";
+import {
+  createCssVariablesTheme,
+  createHighlighter,
+  type Highlighter,
+} from "shiki";
+
+const theme = createCssVariablesTheme({
+  name: "interior",
+  variablePrefix: "--code-",
+  variableDefaults: {},
+  fontStyle: false,
+});
 
 let highlighterPromise: Promise<Highlighter> | null = null;
 
 function getHighlighter() {
   highlighterPromise ??= createHighlighter({
-    themes: ["vitesse-light", "vitesse-dark"],
+    themes: [theme],
     langs: ["tsx", "ts", "bash", "css", "json"],
   });
   return highlighterPromise;
@@ -14,10 +25,5 @@ export type Lang = "tsx" | "ts" | "bash" | "css" | "json";
 
 export async function highlight(code: string, lang: Lang = "tsx") {
   const shiki = await getHighlighter();
-  return shiki.codeToHtml(code.trimEnd(), {
-    lang,
-    themes: { light: "vitesse-light", dark: "vitesse-dark" },
-    // emit CSS variables for both themes; globals.css picks the side
-    defaultColor: false,
-  });
+  return shiki.codeToHtml(code.trimEnd(), { lang, theme: "interior" });
 }

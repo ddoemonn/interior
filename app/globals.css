@@ -303,15 +303,25 @@ body {
 
 /* ── shiki ─────────────────────────────────────────────────── */
 
-.shiki,
-.shiki span {
-  color: var(--shiki-light);
+.shiki {
+  --code-foreground: var(--ink);
+  --code-token-constant: var(--ink);
+  --code-token-parameter: var(--ink);
+  --code-token-string: var(--ink);
+  --code-token-function: var(--accent);
+  --code-token-keyword: #7a3fe0;
+  --code-token-string-expression: #0a8a48;
+  --code-token-link: #0a8a48;
+  --code-token-punctuation: var(--ink-3);
+  --code-token-comment: var(--ink-3);
+  color: var(--code-foreground);
   background-color: transparent !important;
 }
 
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark);
+html.dark .shiki {
+  --code-token-keyword: #b18cff;
+  --code-token-string-expression: #5fd49a;
+  --code-token-link: #5fd49a;
 }
 
 .shiki code {
