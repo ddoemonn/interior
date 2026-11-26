@@ -6,6 +6,8 @@ import { Enter } from "@/components/docs/enter";
 import { Preview } from "@/components/docs/preview";
 import { NewBadge } from "@/components/site/new-badge";
 import { CodeBlock } from "@/components/docs/code-block";
+import { PageActions } from "@/components/docs/page-actions";
+import { componentReference } from "@/lib/component-reference";
 import { bleedDemos, demos } from "@/lib/demos";
 import { getCategoryOf, getEntry, readyEntries } from "@/lib/registry";
 import { GITHUB, SITE, SOCIAL_IMAGE } from "@/lib/site";
@@ -65,6 +67,7 @@ export default async function SheetPage({
     path.join(process.cwd(), "components/interior", `${slug}.tsx`),
     "utf8",
   );
+  const markdown = await componentReference(entry);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -97,7 +100,7 @@ export default async function SheetPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, breadcrumbs]).replace(/</g, "\\u003c") }}
       />
-      <Enter>
+      <Enter className="relative z-20">
         <header>
           <p className="flex items-center gap-1.5 text-[11px] text-ink-3">
             <span>{category?.name}</span>
@@ -105,10 +108,18 @@ export default async function SheetPage({
             <span className="tnum font-mono">{entry.id}</span>
           </p>
 
-          <h1 className="mt-3 flex items-center gap-2.5 text-[27px] font-medium leading-[1.15] tracking-[-0.03em] text-ink">
-            {entry.name}
-            {entry.isNew ? <NewBadge className="mt-0.5 scale-[1.15]" /> : null}
-          </h1>
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-3">
+            <h1 className="flex items-center gap-2.5 text-[27px] font-medium leading-[1.15] tracking-[-0.03em] text-ink">
+              {entry.name}
+              {entry.isNew ? <NewBadge className="mt-0.5 scale-[1.15]" /> : null}
+            </h1>
+            <PageActions
+              name={entry.name}
+              markdown={markdown}
+              install={`bunx shadcn@latest add ${SITE}/r/${slug}.json`}
+              reference={`${SITE}/reference/${slug}`}
+            />
+          </div>
           <p className="mt-2.5 max-w-[54ch] text-[14px] leading-relaxed text-ink-2">
             {entry.blurb}.
           </p>

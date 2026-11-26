@@ -229,7 +229,7 @@ export function QuotaRing({
         </span>
       </div>
 
-      <div className="min-w-0">
+      <div className="min-w-[140px]">
         <div className="text-[13.5px] font-medium text-neutral-900 dark:text-neutral-100">
           {label}
         </div>

@@ -155,7 +155,7 @@ export function SparkBars({
         <span className="relative inline-grid overflow-hidden text-[22px] font-medium leading-7 tracking-[-0.03em] text-neutral-900 dark:text-neutral-100">
           <AnimatePresence initial={false} mode="popLayout">
             <motion.span
-              key={point ? point.label : "total"}
+              key={point ? "point" : "total"}
               initial={reduced ? { opacity: 0 } : { opacity: 0, y: "0.5em", filter: "blur(4px)" }}
               animate={{ opacity: 1, y: "0em", filter: "blur(0px)" }}
               exit={

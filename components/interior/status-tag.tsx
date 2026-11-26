@@ -87,7 +87,7 @@ export function StatusTag<K extends string>({
   useLayoutEffect(() => {
     const node = sizer.current;
     if (!node) return;
-    const measure = () => setWidth(Math.ceil(node.getBoundingClientRect().width));
+    const measure = () => setWidth(node.offsetWidth + 1);
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(node);
