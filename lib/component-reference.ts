@@ -27,7 +27,7 @@ export async function componentReference(entry: Entry) {
     "",
     "Requires a React project. Install `motion`; the styled example uses Tailwind CSS utilities. The source file is copied into your project.",
     "",
-    `\`bunx shadcn@latest add ${SITE}/r/${entry.slug}.json\``,
+    `\`bunx shadcn@latest add @interior/${entry.slug}\``,
     "",
     "Or run `bun add motion` and copy the source below.",
     "",

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CodeBlock } from "@/components/docs/code-block";
 import { SHIPPED } from "@/lib/registry";
-import { GITHUB, SITE } from "@/lib/site";
+import { GITHUB } from "@/lib/site";
 import { LAUNCH_POST } from "@/lib/testimonials";
 import { LandingDemo, LandingShowcase, type LandingDemoSlug } from "./landing-demo";
 import { Logo } from "./logo";
@@ -26,7 +26,7 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 export function LandingSections() {
-  const install = `npx shadcn@latest add ${SITE}/r/copy-button.json`;
+  const install = `npx shadcn@latest add @interior/copy-button`;
 
   return (
     <>

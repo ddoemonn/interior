@@ -116,7 +116,7 @@ export default async function SheetPage({
             <PageActions
               name={entry.name}
               markdown={markdown}
-              install={`bunx shadcn@latest add ${SITE}/r/${slug}.json`}
+              install={`bunx shadcn@latest add @interior/${slug}`}
               reference={`${SITE}/reference/${slug}`}
             />
           </div>
@@ -146,7 +146,7 @@ export default async function SheetPage({
         components/interior.
       </p>
       <CodeBlock
-        code={`bunx shadcn@latest add ${SITE}/r/${slug}.json`}
+        code={`bunx shadcn@latest add @interior/${slug}`}
         lang="bash"
         filename="terminal"
       />
