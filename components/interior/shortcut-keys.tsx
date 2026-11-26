@@ -185,7 +185,7 @@ export function ShortcutKeys({
             }
             transition={reduced ? INSTANT : SWAP}
             className={`col-start-1 row-start-1 whitespace-nowrap transition-colors duration-150 ${
-              matched ? "font-medium text-[#0B5CD6] dark:text-[#7DB8FF]" : ""
+              matched ? "text-[#0B5CD6] dark:text-[#7DB8FF]" : ""
             }`}
           >
             {matched ? doneLabel : label}

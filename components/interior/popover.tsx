@@ -362,7 +362,7 @@ export function Popover({
                 ref={arrowRef}
                 aria-hidden
                 style={{ width: arrowSize, height: arrowSize, transform: "rotate(45deg)" }}
-                className={`absolute block bg-white dark:bg-[#141413] border-black/[0.13] dark:border-[#050505] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.055)] ${ARROW_EDGE[at]}`}
+                className={`absolute block border-inherit bg-inherit ${ARROW_EDGE[at]}`}
               />
               <div ref={contentRef} className="relative overflow-y-auto overscroll-contain">
                 {children}

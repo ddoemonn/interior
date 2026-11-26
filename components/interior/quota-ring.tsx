@@ -128,7 +128,28 @@ export function QuotaRing({
             strokeWidth="9"
             strokeLinecap="round"
             strokeDasharray={`${ARC} ${LENGTH}`}
-            className="stroke-neutral-200 dark:stroke-[#121211]"
+            transform="translate(-0.45 0.45)"
+            className="stroke-white dark:stroke-white/[0.09]"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r={RADIUS}
+            fill="none"
+            strokeWidth="9"
+            strokeLinecap="round"
+            strokeDasharray={`${ARC} ${LENGTH}`}
+            className="stroke-neutral-300 dark:stroke-black"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r={RADIUS}
+            fill="none"
+            strokeWidth="7.6"
+            strokeLinecap="round"
+            strokeDasharray={`${ARC} ${LENGTH}`}
+            className="stroke-neutral-200 dark:stroke-[#1C1C1B]"
           />
           <motion.circle
             cx="50"
@@ -140,6 +161,41 @@ export function QuotaRing({
             strokeDasharray={`${ARC} ${LENGTH}`}
             style={{ strokeDashoffset: offset }}
             className={`transition-[stroke] duration-300 ${STROKE[tone]}`}
+          />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r={RADIUS}
+            fill="none"
+            strokeWidth="6.4"
+            strokeLinecap="round"
+            strokeDasharray={`${ARC} ${LENGTH}`}
+            style={{ strokeDashoffset: offset }}
+            className="stroke-black/20"
+          />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r={RADIUS}
+            fill="none"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeDasharray={`${ARC} ${LENGTH}`}
+            transform="translate(0.75 -0.75)"
+            style={{ strokeDashoffset: offset }}
+            className={`transition-[stroke] duration-300 ${STROKE[tone]}`}
+          />
+          <motion.circle
+            cx="50"
+            cy="50"
+            r={RADIUS}
+            fill="none"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeDasharray={`${ARC} ${LENGTH}`}
+            transform="translate(1.55 -1.55)"
+            style={{ strokeDashoffset: offset }}
+            className="stroke-white/45"
           />
           {TICKS.map((angle, i) => (
             <line
@@ -157,7 +213,8 @@ export function QuotaRing({
               }
             />
           ))}
-          <motion.circle cx={knobX} cy={knobY} r="2.2" className="fill-white" />
+          <motion.circle cx={knobX} cy={knobY} r="3.1" className="fill-black/35" />
+          <motion.circle cx={knobX} cy={knobY} r="2.5" className="fill-white" />
         </svg>
         <span className="absolute inset-0 grid place-items-center">
           <span className="flex items-baseline text-neutral-900 tabular-nums dark:text-neutral-100">

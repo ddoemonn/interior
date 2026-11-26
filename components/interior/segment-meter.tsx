@@ -141,7 +141,7 @@ export function SegmentMeter({
         aria-valuemax={max}
         aria-valuenow={value}
         aria-valuetext={`${format(value)} of ${format(max)}${unit ? ` ${unit}` : ""}, ${Math.round(ratio * 100)} percent`}
-        className="grid h-7 gap-[3px] rounded-[9px] bg-neutral-100 p-[5px] shadow-[inset_0_1px_2px_rgba(0,0,0,0.09),inset_0_0_0_1px_rgba(0,0,0,0.07),0_1px_0_rgba(255,255,255,0.95)] dark:bg-[#121211] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(0,0,0,0.5),0_1px_0_rgba(255,255,255,0.055)]"
+        className="grid h-7 gap-[3px] rounded-[9px] bg-neutral-100 p-[5px] shadow-[inset_0_1px_2px_rgba(0,0,0,0.09),inset_0_0_0_1px_rgba(0,0,0,0.07),0_1px_0_rgba(255,255,255,0.95)] dark:bg-[#1C1C1B] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.7),inset_0_0_0_1px_rgba(255,255,255,0.08),0_1px_0_rgba(255,255,255,0.04)]"
         style={{ gridTemplateColumns: `repeat(${segments}, minmax(0, 1fr))` }}
       >
         {tones.map((segmentTone, i) => {

@@ -703,8 +703,7 @@ html:has(.landing-panel)::-webkit-scrollbar {
     mask-image: none;
     background:
       linear-gradient(to bottom, transparent 92px, var(--accent) 112px, var(--accent) 160px, transparent 180px) right 1px top / 3px 100% no-repeat,
-      linear-gradient(90deg, transparent calc(100% - 5px), var(--bevel-hi) calc(100% - 5px) calc(100% - 4px), var(--groove-1) calc(100% - 4px), var(--groove-2) calc(100% - 1px), var(--bevel-hi) calc(100% - 1px)),
-      linear-gradient(90deg, transparent, color-mix(in oklab, var(--edge-shade) 12%, transparent) 30%, color-mix(in oklab, var(--edge-shade) 45%, transparent) 62%, var(--edge-shade));
+      linear-gradient(90deg, transparent calc(100% - 5px), var(--bevel-hi) calc(100% - 5px) calc(100% - 4px), var(--groove-1) calc(100% - 4px), var(--groove-2) calc(100% - 1px), var(--bevel-hi) calc(100% - 1px));
   }
 }
 :root {
@@ -735,4 +734,13 @@ html:not(.dark) .docs-filter:not(:focus-within) {
 }
 html:not(.dark) .docs-filter:focus-within {
   background: #ffffff;
+}
+
+/* the index list is opaque and only as tall as its rows, so the ring shows in the empty space under it and never behind the names */
+.docs-side .docs-nav-scroll {
+  flex: 0 1 auto;
+  margin: 0 -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background: var(--slab);
 }

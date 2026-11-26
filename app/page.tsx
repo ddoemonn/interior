@@ -79,13 +79,13 @@ export default async function Home() {
               <span aria-hidden className="hero-floor" />
               <div className="relative z-[1]">
 
-              <h1 className="mx-auto max-w-[22ch] text-balance text-[clamp(26px,7.6vw,32px)] font-medium leading-[1.08] tracking-[-0.04em] text-ink sm:text-[clamp(34px,5.6vw,58px)]">
+              <h1 className="mx-auto max-w-[22ch] text-balance text-[clamp(30px,8.6vw,38px)] font-medium leading-[1.06] tracking-[-0.045em] text-ink sm:text-[clamp(40px,6.2vw,72px)]">
                 Software feels cheap in the{" "}
                 <span className="whitespace-nowrap">half-second</span> after a
                 click.
               </h1>
 
-              <div className="mx-auto mt-6 grid max-w-[46ch] gap-3 text-[13.5px] leading-[1.7] text-ink-2 sm:mt-9 sm:gap-4 sm:text-[15px]">
+              <div className="mx-auto mt-7 grid max-w-[46ch] gap-3 text-[15px] leading-[1.65] text-ink-2 sm:mt-10 sm:gap-4 sm:text-[17px]">
                 <p>
                   The fade a beat too slow. The spinner outliving the request. The
                   row that jumps as it loads.
@@ -99,7 +99,7 @@ export default async function Home() {
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-12">
                 <Link
                   href="/docs"
-                  className="mat-ink press inline-flex h-8 items-center rounded-[9px] px-3 text-[12.5px] font-medium sm:h-9 sm:px-3.5 sm:text-[13px]"
+                  className="mat-ink press inline-flex h-9 items-center rounded-[9px] px-3.5 text-[13.5px] font-medium sm:h-10 sm:px-4 sm:text-[14.5px]"
                 >
                   See the components
                 </Link>
@@ -108,7 +108,7 @@ export default async function Home() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={stars === null ? "View interior.dev on GitHub" : `View interior.dev on GitHub, ${stars} stars`}
-                  className="group mat-cap press inline-flex h-8 items-center gap-1.5 rounded-[9px] px-3 text-[12.5px] font-medium text-ink sm:h-9 sm:px-3.5 sm:text-[13px]"
+                  className="group mat-cap press inline-flex h-9 items-center gap-1.5 rounded-[9px] px-3.5 text-[13.5px] font-medium text-ink sm:h-10 sm:px-4 sm:text-[14.5px]"
                 >
                   <svg
                     className="shrink-0"
@@ -151,7 +151,7 @@ export default async function Home() {
                   </svg>
                 </a>
               </div>
-              <div className="mt-5 flex flex-col items-center text-[11.5px] leading-relaxed text-ink-3">
+              <div className="mt-6 flex flex-col items-center text-[12.5px] leading-relaxed text-ink-3">
                 <a href={LIBRARY_FEATURE} target="_blank" rel="noreferrer" className="inline-flex min-h-8 items-center gap-1.5 hover:text-ink">
                   Library of the Month on <span className="font-medium text-ink-2">21st.dev</span><span aria-hidden="true">↗</span>
                 </a>

@@ -3,16 +3,16 @@
 import { useCallback, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
-const PLACE = { type: "spring", stiffness: 460, damping: 36, mass: 0.8 } as const;
-const POP = { type: "spring", stiffness: 620, damping: 16, mass: 0.6 } as const;
-const ROLL = { type: "spring", stiffness: 460, damping: 32, mass: 0.55 } as const;
+const PLACE = { type: "spring", stiffness: 300, damping: 27, mass: 0.9 } as const;
+const POP = { duration: 0.55, ease: [0.23, 1, 0.32, 1] } as const;
+const ROLL = { type: "spring", stiffness: 340, damping: 26, mass: 0.6 } as const;
 const DROP = { duration: 0.14, ease: [0.4, 0, 1, 1] } as const;
 const INSTANT = { duration: 0 } as const;
-const FLY = { duration: 0.46, ease: [0.23, 1, 0.32, 1] } as const;
+const FLY = { duration: 0.7, ease: [0.16, 1, 0.3, 1] } as const;
 
-const SPARKS = [-150, -95, -35, 30, 85, 145].map((degrees, i) => {
+const SPARKS = [-158, -112, -68, -22, 24, 70, 114, 160].map((degrees, i) => {
   const angle = (degrees * Math.PI) / 180;
-  const reach = 15 + (i % 2) * 5;
+  const reach = 17 + (i % 2) * 7;
   return { x: Math.round(Math.cos(angle) * reach), y: Math.round(Math.sin(angle) * reach), size: 3 + (i % 2) };
 });
 
@@ -117,17 +117,16 @@ export function ReactionBar({
             touched.current = true;
             toggle(item.id);
           }}
-          whileTap={reduced ? undefined : { scale: 0.95 }}
+          whileTap={reduced ? undefined : { scale: 0.93 }}
           style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
-          className={`relative inline-flex h-8 select-none items-center gap-1.5 rounded-full border pl-2 pr-2.5 text-[12.5px] font-medium outline-none transition-[background-color,color,box-shadow,border-color] duration-150 focus-visible:shadow-[0_0_0_2px_#0F6FFF] dark:focus-visible:shadow-[0_0_0_2px_#2E8BFF] ${
+          className={`relative inline-flex h-8 select-none items-center gap-1.5 rounded-full border pl-2 pr-2.5 text-[12.5px] font-medium outline-none transition-[background-color,color,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] focus-visible:shadow-[0_0_0_2px_#0F6FFF] dark:focus-visible:shadow-[0_0_0_2px_#2E8BFF] ${
             item.mine ? `border-transparent ${TINT[item.tone ?? "blue"]}` : REST
           }`}
         >
           <motion.span
-            key={item.mine ? "on" : "off"}
             aria-hidden
-            initial={reduced || !item.mine ? false : { scale: 0.5, rotate: -18 }}
-            animate={{ scale: 1, rotate: 0 }}
+            initial={false}
+            animate={reduced || !item.mine || !touched.current ? { scale: 1, rotate: 0 } : { scale: [0.6, 1.32, 1], rotate: [-16, 10, 0] }}
             transition={reduced ? INSTANT : POP}
             className="block text-[15px] leading-none"
           >
@@ -138,8 +137,8 @@ export function ReactionBar({
               {SPARKS.map((spark) => (
                 <motion.span
                   key={`${spark.x}-${spark.y}`}
-                  initial={{ x: 0, y: 0, scale: 0.4, opacity: 0.9 }}
-                  animate={{ x: spark.x, y: spark.y, scale: 1, opacity: 0 }}
+                  initial={{ x: 0, y: 0, scale: 0.3, opacity: 1 }}
+                  animate={{ x: spark.x, y: spark.y, scale: [0.3, 1, 0.5], opacity: [1, 1, 0] }}
                   transition={FLY}
                   className="absolute block rounded-full bg-current"
                   style={{ width: spark.size, height: spark.size, marginLeft: -spark.size / 2, marginTop: -spark.size / 2 }}
@@ -152,13 +151,13 @@ export function ReactionBar({
               <motion.span
                 key={item.shown}
                 initial={
-                  reduced ? { opacity: 0 } : { y: item.mine ? "0.9em" : "-0.9em", opacity: 0 }
+                  reduced ? { opacity: 0 } : { y: item.mine ? "0.9em" : "-0.9em", opacity: 0, filter: "blur(3px)" }
                 }
-                animate={{ y: "0em", opacity: 1 }}
+                animate={{ y: "0em", opacity: 1, filter: "blur(0px)" }}
                 exit={
                   reduced
                     ? { opacity: 0, transition: INSTANT }
-                    : { y: item.mine ? "-0.9em" : "0.9em", opacity: 0, transition: DROP }
+                    : { y: item.mine ? "-0.9em" : "0.9em", opacity: 0, filter: "blur(3px)", transition: DROP }
                 }
                 transition={reduced ? INSTANT : ROLL}
                 className="col-start-1 row-start-1"

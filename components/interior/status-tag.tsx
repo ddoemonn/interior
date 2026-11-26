@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 const SWAP = { type: "spring", stiffness: 460, damping: 34, mass: 0.6 } as const;
@@ -81,6 +81,18 @@ export function StatusTag<K extends string>({
   const marked = (Object.values(states) as TagState[]).some(
     (entry) => entry.kind && entry.kind !== "idle",
   );
+  const sizer = useRef<HTMLSpanElement>(null);
+  const [width, setWidth] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    const node = sizer.current;
+    if (!node) return;
+    const measure = () => setWidth(Math.ceil(node.getBoundingClientRect().width));
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [current.label]);
 
   return (
     <motion.span
@@ -174,12 +186,18 @@ export function StatusTag<K extends string>({
         </span>
       ) : null}
 
-      <span className="relative inline-grid overflow-hidden">
-        {labels.map((label) => (
-          <span key={label} aria-hidden className="invisible col-start-1 row-start-1 whitespace-nowrap">
-            {label}
-          </span>
-        ))}
+      <motion.span
+        initial={false}
+        animate={width === null ? undefined : { width }}
+        transition={reduced ? INSTANT : SWAP}
+        className="relative inline-grid justify-items-start overflow-hidden"
+      >
+        <span ref={sizer} aria-hidden className="invisible absolute left-0 top-0 whitespace-nowrap">
+          {current.label}
+        </span>
+        <span aria-hidden className="invisible col-start-1 row-start-1 w-0 whitespace-nowrap">
+          {labels[0]}
+        </span>
         <AnimatePresence initial={false} mode="popLayout">
           <motion.span
             key={key}
@@ -197,7 +215,7 @@ export function StatusTag<K extends string>({
             {current.label}
           </motion.span>
         </AnimatePresence>
-      </span>
+      </motion.span>
 
       <span className="sr-only" role="status" aria-live="polite">
         {settled}

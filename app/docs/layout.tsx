@@ -5,7 +5,7 @@ import { Breadcrumb } from "@/components/site/breadcrumb";
 import { ThemeToggle } from "@/components/site/theme-toggle";
 import { LauncherButton } from "@/components/site/launcher";
 import { Logo } from "@/components/site/logo";
-import { Ring } from "@/components/site/ring";
+import { SideRing } from "@/components/site/side-ring";
 
 export default function DocsLayout({
   children,
@@ -17,7 +17,7 @@ export default function DocsLayout({
        two panes inside it do */
     <div className="docs-page fixed inset-0 flex overflow-hidden">
       <aside className="docs-side z-30 hidden h-full w-[256px] shrink-0 px-2 pt-2 lg:block">
-        <Ring size={430} className="docs-ring absolute -bottom-[170px] -left-[130px] text-ink" />
+        <SideRing />
         <div className="relative z-[1] h-full">
           <Sidebar />
         </div>
