@@ -149,8 +149,7 @@ export default function DocsIndexPage() {
       <div className="mt-12 flex flex-wrap items-center gap-2.5">
         <Link
           href="/docs/poll-results"
-          className="press inline-flex h-9 items-center rounded-[9px] px-3.5 text-[13px] font-medium"
-          style={{ background: "var(--ink)", color: "var(--panel)" }}
+          className="mat-ink press inline-flex h-9 items-center rounded-[9px] px-3.5 text-[13px] font-medium"
         >
           Start with Poll Results
         </Link>

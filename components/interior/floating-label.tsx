@@ -178,12 +178,12 @@ export function FloatingLabelInput({
     <div className={`w-full ${className}`}>
       <div className="relative pt-[20px]">
         <div
-          className={`relative h-10 rounded-[10px] border-2 transition-[background-color,border-color,box-shadow] duration-150 ${
+          className={`relative h-10 rounded-[10px] border transition-[background-color,border-color,box-shadow] duration-150 ${
             invalid
-              ? "border-red-500 bg-white dark:border-red-400 dark:bg-[#252522]"
+              ? "border-[#F2303F] bg-white shadow-[0_0_0_3px_rgba(242,48,63,0.12)] dark:border-[#FF4658] dark:bg-[#1C1C1B] dark:shadow-[0_0_0_3px_rgba(255,70,88,0.18)]"
               : focused
-                ? "border-[#4568FF] bg-white dark:border-[#93B0FF] dark:bg-[#252522]"
-                : "border-stone-200 bg-stone-100/70 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] dark:border-white/[0.08] dark:bg-[#1D1D1A] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)]"
+                ? "border-[#0F6FFF] bg-white shadow-[0_0_0_3px_rgba(15,111,255,0.14)] dark:border-[#2E8BFF] dark:bg-[#1C1C1B] dark:shadow-[0_0_0_3px_rgba(46,139,255,0.22)]"
+                : "border-black/[0.12] bg-white shadow-[inset_0_1px_2px_rgba(0,0,0,0.07)] dark:border-white/[0.1] dark:bg-[#1C1C1B] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.55)]"
           } ${disabled ? "opacity-55" : ""}`}
         >
           <input
@@ -214,7 +214,7 @@ export function FloatingLabelInput({
             fieldProps.onChange(event);
             onChange?.(event.currentTarget.value, event);
           }}
-            className="absolute inset-0 h-full w-full rounded-[9px] bg-transparent px-3 py-0 text-[13px] leading-[20px] text-stone-700 outline-none focus-visible:outline-none disabled:cursor-not-allowed dark:text-stone-200"
+            className="absolute inset-0 h-full w-full rounded-[9px] bg-transparent px-3 py-0 text-[13px] leading-[20px] text-neutral-900 outline-none focus-visible:outline-none disabled:cursor-not-allowed dark:text-neutral-100"
           />
         </div>
 
@@ -230,15 +230,15 @@ export function FloatingLabelInput({
           style={{ originX: 0, originY: 0, willChange: "transform" }}
           className={`absolute left-3 top-[32px] block cursor-text select-none text-[13px] leading-[16px] ${
             invalid
-              ? "text-red-600 dark:text-red-400"
+              ? "text-[#F2303F] dark:text-[#FF4658]"
               : raised
-                ? "text-stone-600 dark:text-stone-300"
-                : "text-stone-400 dark:text-stone-500"
+                ? "text-neutral-600 dark:text-neutral-300"
+                : "text-neutral-400 dark:text-neutral-500"
           }`}
         >
           {label}
           {required ? (
-            <span aria-hidden className="ml-0.5 text-stone-400 dark:text-stone-500">
+            <span aria-hidden className="ml-0.5 text-neutral-400 dark:text-neutral-500">
               *
             </span>
           ) : null}
@@ -250,8 +250,8 @@ export function FloatingLabelInput({
           aria-hidden
           className={`min-w-0 flex-1 truncate text-[11.5px] leading-[16px] ${
             invalid
-              ? "text-red-600 dark:text-red-400"
-              : "text-stone-500 dark:text-stone-400"
+              ? "text-[#F2303F] dark:text-[#FF4658]"
+              : "text-neutral-500 dark:text-neutral-400"
           }`}
         >
           {hint}
@@ -260,7 +260,7 @@ export function FloatingLabelInput({
         {maxLength !== undefined ? (
           <span
             aria-hidden
-            className="grid shrink-0 justify-items-end font-mono text-[10.5px] leading-[16px] tabular-nums text-stone-400 dark:text-stone-500"
+            className="grid shrink-0 justify-items-end tabular-nums text-[10.5px] leading-[16px] tabular-nums text-neutral-400 dark:text-neutral-500"
           >
             <span className="invisible col-start-1 row-start-1">
               {maxLength} / {maxLength}

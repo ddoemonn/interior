@@ -46,14 +46,14 @@ export function ProgressBar({
       <div className="flex items-baseline justify-between gap-3">
         <span
           id={labelId}
-          className="truncate text-[13px] font-medium text-stone-700 dark:text-stone-200"
+          className="truncate text-[13px] font-medium text-neutral-900 dark:text-neutral-100"
         >
           {label}
         </span>
 
         <span
           aria-hidden
-          className="grid shrink-0 justify-items-end text-stone-500 dark:text-stone-400"
+          className="grid shrink-0 justify-items-end text-neutral-500 dark:text-neutral-400"
         >
           <motion.span
             className="col-start-1 row-start-1 whitespace-nowrap text-[12px] font-medium leading-5"
@@ -65,7 +65,7 @@ export function ProgressBar({
           </motion.span>
 
           <motion.span
-            className="col-start-1 row-start-1 whitespace-nowrap font-mono text-[12px] font-medium leading-5 tabular-nums"
+            className="col-start-1 row-start-1 whitespace-nowrap tabular-nums text-[12px] font-medium leading-5 tabular-nums"
             initial={false}
             animate={{ opacity: indeterminate ? 0 : 1 }}
             transition={reduced ? INSTANT : CROSSFADE}
@@ -81,12 +81,12 @@ export function ProgressBar({
         aria-valuemin={0}
         aria-valuemax={max}
         {...measured}
-        className="mt-2 rounded-[4px] bg-stone-200/60 p-[2px] shadow-[inset_0_1px_2px_rgba(28,25,23,0.1),inset_0_0_0_1px_rgba(28,25,23,0.06)] dark:bg-[#1D1D1A] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)]"
+        className="mt-2 rounded-[4px] bg-neutral-200/60 p-[2px] shadow-[inset_0_1px_2px_rgba(0,0,0,0.09),inset_0_0_0_1px_rgba(0,0,0,0.07),0_1px_0_rgba(255,255,255,0.95)] dark:bg-[#121211] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(0,0,0,0.5),0_1px_0_rgba(255,255,255,0.055)]"
       >
         <div className="relative h-[8px] overflow-hidden rounded-[2px]">
           <motion.span
             aria-hidden
-            className="absolute inset-0 block origin-left rounded-[2px] bg-[#4568FF] shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(28,25,23,0.2)] dark:bg-[#93B0FF] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-1px_0_rgba(0,0,0,0.25)]"
+            className="absolute inset-0 block origin-left rounded-[2px] bg-[linear-gradient(90deg,#0F6FFF,#00B3A1)] shadow-[inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-1px_0_rgba(0,0,0,0.18)] dark:bg-[linear-gradient(90deg,#2E8BFF,#14E3C5)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(0,0,0,0.25)]"
             initial={false}
             animate={{ scaleX: indeterminate ? 0 : fraction }}
             transition={reduced ? INSTANT : FILL}
@@ -95,7 +95,7 @@ export function ProgressBar({
           {indeterminate && !reduced ? (
             <motion.span
               aria-hidden
-              className="absolute inset-y-0 left-0 block w-2/5 rounded-[2px] bg-[#4568FF] shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(28,25,23,0.2)] dark:bg-[#93B0FF] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),inset_0_-1px_0_rgba(0,0,0,0.25)]"
+              className="absolute inset-y-0 left-0 block w-2/5 rounded-[2px] bg-[linear-gradient(90deg,#0F6FFF,#00B3A1)] shadow-[inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-1px_0_rgba(0,0,0,0.18)] dark:bg-[linear-gradient(90deg,#2E8BFF,#14E3C5)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(0,0,0,0.25)]"
               initial={{ x: "-100%", opacity: 0 }}
               animate={{ x: "250%", opacity: 1 }}
               exit={{ opacity: 0 }}

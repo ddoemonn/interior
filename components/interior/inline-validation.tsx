@@ -181,7 +181,7 @@ export function InlineValidation({
     <div className={`w-full ${className}`}>
       <label
         htmlFor={fieldId}
-        className="block text-[13px] font-medium text-stone-700 dark:text-stone-200"
+        className="block text-[13px] font-medium text-neutral-900 dark:text-neutral-100"
       >
         {label}
       </label>
@@ -201,10 +201,10 @@ export function InlineValidation({
           aria-describedby={described || undefined}
           onChange={(e) => onChange(e.target.value)}
           {...fieldProps}
-          className={`h-10 w-full rounded-[10px] border-2 pl-3 pr-9 text-[13px] text-stone-700 outline-none transition-[background-color,border-color,box-shadow] duration-150 placeholder:text-stone-400 focus-visible:outline-none disabled:opacity-50 dark:text-stone-200 dark:placeholder:text-stone-500 ${
+          className={`h-10 w-full rounded-[10px] border pl-3 pr-9 text-[13px] text-neutral-900 outline-none transition-[background-color,border-color,box-shadow] duration-150 placeholder:text-neutral-400 focus-visible:outline-none disabled:opacity-50 dark:text-neutral-100 dark:placeholder:text-neutral-500 ${
             invalid
-              ? "border-red-500 bg-white dark:border-red-400 dark:bg-[#1D1D1A]"
-              : "border-stone-200 bg-stone-100/70 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] focus:border-[#4568FF] focus:bg-white focus:shadow-none dark:border-white/[0.08] dark:bg-[#1D1D1A] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)] dark:focus:border-[#93B0FF] dark:focus:bg-[#252522]"
+              ? "border-[#F2303F] bg-white shadow-[0_0_0_3px_rgba(242,48,63,0.12)] dark:border-[#FF4658] dark:bg-[#1C1C1B] dark:shadow-[0_0_0_3px_rgba(255,70,88,0.18)]"
+              : "border-black/[0.12] bg-white shadow-[inset_0_1px_2px_rgba(0,0,0,0.07)] focus:border-[#0F6FFF] focus:shadow-[0_0_0_3px_rgba(15,111,255,0.14)] dark:border-white/[0.1] dark:bg-[#1C1C1B] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.55)] dark:focus:border-[#2E8BFF] dark:focus:shadow-[0_0_0_3px_rgba(46,139,255,0.22)]"
           }`}
         />
 
@@ -217,7 +217,7 @@ export function InlineValidation({
             width="14"
             height="14"
             fill="none"
-            className="col-start-1 row-start-1 text-stone-500 dark:text-stone-400"
+            className="col-start-1 row-start-1 text-neutral-500 dark:text-neutral-400"
             initial={false}
             animate={{ opacity: valid ? 1 : 0, scale: valid ? 1 : 0.7 }}
             transition={fade}
@@ -235,7 +235,7 @@ export function InlineValidation({
             width="14"
             height="14"
             fill="none"
-            className="col-start-1 row-start-1 text-red-700 dark:text-red-400"
+            className="col-start-1 row-start-1 text-[#F2303F] dark:text-[#FF4658]"
             initial={false}
             animate={{ opacity: invalid ? 1 : 0, scale: invalid ? 1 : 0.7 }}
             transition={fade}
@@ -246,24 +246,20 @@ export function InlineValidation({
         </span>
       </div>
 
-      <div className="relative mt-1.5 grid" style={{ height: reserveLines * LINE }}>
-        {hint ? (
-          <motion.p
-            aria-hidden
-            style={clamp}
-            className="col-start-1 row-start-1 text-[11.5px] leading-[16px] text-stone-500 dark:text-stone-400"
-            initial={false}
-            animate={{ opacity: invalid ? 0 : 1, y: invalid ? 3 : 0 }}
-            transition={fade}
-          >
-            {hint}
-          </motion.p>
-        ) : null}
+      {hint ? (
+        <p
+          aria-hidden
+          className="mt-1.5 text-[11.5px] leading-[16px] text-neutral-500 dark:text-neutral-400"
+        >
+          {hint}
+        </p>
+      ) : null}
 
+      <div className="relative mt-1 grid" style={{ height: reserveLines * LINE }}>
         <motion.p
           aria-hidden
           style={clamp}
-          className="col-start-1 row-start-1 text-[11.5px] leading-[16px] text-red-700 dark:text-red-400"
+          className="col-start-1 row-start-1 text-[11.5px] leading-[16px] text-[#F2303F] dark:text-[#FF4658]"
           initial={false}
           animate={{ opacity: invalid ? 1 : 0, y: invalid ? 0 : -3 }}
           transition={fade}

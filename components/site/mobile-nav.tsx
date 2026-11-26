@@ -59,7 +59,7 @@ export function MobileNav() {
             exit={{ opacity: 0, transition: reduced ? STILL : LEAVE }}
             transition={reduced ? STILL : { duration: 0.2 }}
             onClick={() => setOpen(false)}
-            className="fixed inset-0 z-40 bg-stone-900/25 dark:bg-black/55"
+            className="fixed inset-0 z-40 bg-neutral-900/25 dark:bg-black/55"
           />
           <motion.aside
             key="sheet"

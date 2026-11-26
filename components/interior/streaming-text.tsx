@@ -188,7 +188,7 @@ export function StreamingText({
       className="relative inline-block h-[1.1em] w-0 align-[-0.22em]"
     >
       <motion.span
-        className="absolute inset-y-0 left-px block w-[2px] bg-stone-800 dark:bg-stone-100"
+        className="absolute inset-y-0 left-px block w-[2px] bg-[#0F6FFF] dark:bg-[#2E8BFF]"
         initial={false}
         animate={blink ? { opacity: [1, 1, 0, 0] } : { opacity: done ? 0 : 1 }}
         transition={
@@ -210,7 +210,7 @@ export function StreamingText({
       role="group"
       aria-label={label}
       aria-busy={status === "streaming"}
-      className={`text-[13.5px] leading-relaxed text-stone-700 dark:text-stone-200 ${className}`}
+      className={`text-[13.5px] leading-relaxed text-neutral-900 dark:text-neutral-100 ${className}`}
     >
       <p aria-hidden className="relative whitespace-pre-line">
         <span className="invisible">{text}</span>
@@ -242,7 +242,7 @@ export function StreamingText({
                 ? `Replay ${label}`
                 : "Skip to the end"
             }
-            className="inline-grid h-7 place-items-center rounded-[6px] border border-stone-200 px-2.5 text-[11.5px] font-medium text-stone-500 transition-colors duration-150 hover:text-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 dark:border-white/[0.16] dark:text-stone-400 dark:hover:text-stone-200 dark:focus-visible:ring-stone-500"
+            className="inline-grid h-7 place-items-center rounded-[6px] border border-black/[0.09] px-2.5 text-[11.5px] font-medium text-neutral-500 transition-colors duration-150 hover:text-neutral-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 dark:border-white/[0.08] dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus-visible:ring-neutral-500"
           >
             <motion.span
               aria-hidden

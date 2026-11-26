@@ -6,6 +6,7 @@ import { LAUNCH_POST } from "@/lib/testimonials";
 import { LandingDemo, LandingShowcase, type LandingDemoSlug } from "./landing-demo";
 import { Logo } from "./logo";
 import { ReactionWall } from "./reaction-wall";
+import { Ring } from "./ring";
 
 const selection: { slug: LandingDemoSlug; name: string; note: string }[] = [
   { slug: "loading-button", name: "Loading Button", note: "The label changes. The button stays put." },
@@ -91,13 +92,19 @@ export function LandingSections() {
             <h2 id="closing-title" className="text-[27px] font-medium leading-[1.15] tracking-[-0.03em] text-ink">Finish the small things.</h2>
             <p className="mt-3 text-[13.5px] leading-relaxed text-ink-2">{SHIPPED} components. The style is still yours.</p>
           </div>
-          <Link href="/docs" className="press inline-flex h-8 items-center gap-2 rounded-[9px] px-3 text-[12.5px] font-medium sm:h-9 sm:px-3.5 sm:text-[13px]" style={{ background: "var(--ink)", color: "var(--panel)" }}>Explore the components <Arrow /></Link>
+          <Link href="/docs" className="mat-ink press inline-flex h-8 items-center gap-2 rounded-[9px] px-3 text-[12.5px] font-medium sm:h-9 sm:px-3.5 sm:text-[13px]">Explore the components <Arrow /></Link>
         </div>
       </section>
 
-      <footer className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 landing-divider py-5 text-[11.5px] leading-relaxed text-ink-3">
-        <Logo />
-        <div className="flex items-center gap-5">
+      <footer className="landing-footer relative flex flex-wrap items-end justify-between gap-x-6 gap-y-4 pb-9 pt-16 text-[12.5px] leading-relaxed text-ink-3">
+        <Ring size={400} className="absolute -right-[440px] -top-[70px] z-[1] text-ink" />
+        <div className="relative z-[1]">
+          <Logo size={22} />
+          <p className="mt-3 max-w-[34ch] text-[13.5px] leading-relaxed text-ink-2">
+            Free React micro-interactions. The behaviour is finished; the style is yours.
+          </p>
+        </div>
+        <div className="relative z-[1] flex items-center gap-5">
           <a href={`${GITHUB}/blob/main/LICENSE`} className="inline-flex min-h-11 items-center hover:text-ink">MIT license</a>
           <a href="https://x.com/ozzyxs1a" target="_blank" rel="noreferrer" className="inline-flex min-h-11 items-center hover:text-ink">Made by Ozzy</a>
         </div>

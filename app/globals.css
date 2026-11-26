@@ -16,64 +16,90 @@
    ───────────────────────────────────────────────────────────── */
 
 :root {
-  --bezel: #ffffff;
+  --bezel: #f0f0f0;
   --panel: #ffffff;
-  --well: #ffffff;
-  --sub: #fafafa;
+  --panel-2: #fafafa;
+  --well: #f3f3f3;
+  --stage: #fcfcfc;
+  --sub: #f6f6f6;
 
-  --hairline: rgba(0, 0, 0, 0.14);
-  --hairline-strong: rgba(0, 0, 0, 0.26);
+  --hairline: rgba(0, 0, 0, 0.08);
+  --hairline-strong: rgba(0, 0, 0, 0.14);
 
-  --ink: #131313;
-  --ink-2: #454545;
-  --ink-3: #6e6e6e;
+  --ink: #1a1a1a;
+  --ink-2: #5f5f5f;
+  --ink-3: #8c8c8c;
 
-  --accent: #4568ff;
-  --accent-soft: #edf1ff;
-  --moss: #3d7a4e;
-  --flag: #c0442f;
+  --accent: #0f6fff;
+  --accent-soft: #e6f0ff;
+  --moss: #06b457;
+  --flag: #f2303f;
 
-  --shadow-float: 0 28px 56px -24px rgba(0, 0, 0, 0.22),
-    0 0 0 1px rgba(0, 0, 0, 0.06);
-  --shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.04),
-    0 0 0 1px rgba(0, 0, 0, 0.11);
-  --shadow-well: inset 0 1px 2px rgba(0, 0, 0, 0.05),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.1);
-  --shadow-cap: 0 1.5px 0 rgba(0, 0, 0, 0.09),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.11);
-  --shadow-row: inset 0 0 0 1px rgba(0, 0, 0, 0.07),
-    0 1px 2px rgba(0, 0, 0, 0.05);
+  /* light on edges: a ring, a lit top edge, a shaded bottom edge */
+  --ring: rgba(0, 0, 0, 0.11);
+  --ring-2: rgba(0, 0, 0, 0.14);
+  --hi: rgba(255, 255, 255, 0.95);
+  --lo: rgba(0, 0, 0, 0.05);
+  --well-shade: rgba(0, 0, 0, 0.09);
+  --well-ring: rgba(0, 0, 0, 0.07);
+  --groove-hi: rgba(255, 255, 255, 0.95);
+  --btn-1: #ffffff;
+  --btn-2: #f4f4f4;
+  --key-1: #4a4a4a;
+  --key-2: #161616;
+  --key-ring: #0c0c0c;
+  --key-hi: rgba(255, 255, 255, 0.28);
+  --on-key: #ffffff;
+
+  --shadow-float: 0 0 0 1px var(--ring-2), inset 0 1px 0 var(--hi),
+    0 14px 28px -14px rgba(0, 0, 0, 0.3);
+  --shadow-lift: 0 0 0 1px var(--ring), inset 0 1px 0 var(--hi),
+    inset 0 -1px 0 var(--lo);
+  --shadow-well: inset 0 1px 2px var(--well-shade),
+    inset 0 0 0 1px var(--well-ring), 0 1px 0 var(--groove-hi);
+  --shadow-cap: 0 0 0 1px var(--ring-2), inset 0 1px 0 var(--hi),
+    inset 0 -1px 0 var(--lo);
+  --shadow-row: 0 0 0 1px var(--ring), inset 0 1px 0 var(--hi),
+    inset 0 -1px 0 var(--lo);
 }
 
 .dark {
-  --bezel: #141312;
-  --panel: #1d1d1a;
-  --well: #252522;
-  --sub: #1a1a17;
+  --bezel: #0b0b0b;
+  --panel: #232322;
+  --panel-2: #1a1a19;
+  --well: #121211;
+  --stage: #1e1e1d;
+  --sub: #161615;
 
-  --hairline: rgba(255, 255, 255, 0.16);
-  --hairline-strong: rgba(255, 255, 255, 0.28);
+  --hairline: rgba(255, 255, 255, 0.07);
+  --hairline-strong: rgba(255, 255, 255, 0.12);
 
-  --ink: #f8f8f4;
-  --ink-2: #c2c2ba;
-  --ink-3: #93938b;
+  --ink: #f0f0ee;
+  --ink-2: #a2a29e;
+  --ink-3: #72726e;
 
-  --accent: #93b0ff;
-  --accent-soft: rgba(147, 176, 255, 0.14);
-  --moss: #5bd79c;
-  --flag: #f5897f;
+  --accent: #2e8bff;
+  --accent-soft: rgba(46, 139, 255, 0.18);
+  --moss: #2fe582;
+  --flag: #ff4658;
 
-  --shadow-float: 0 28px 56px -22px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-  --shadow-lift: 0 1px 2px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-  --shadow-well: inset 0 1px 3px rgba(0, 0, 0, 0.4),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
-  --shadow-cap: 0 1.5px 0 rgba(0, 0, 0, 0.5),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  --shadow-row: inset 0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 1px 2px rgba(0, 0, 0, 0.25);
+  --ring: #050505;
+  --ring-2: #050505;
+  --hi: rgba(255, 255, 255, 0.09);
+  --lo: rgba(0, 0, 0, 0.35);
+  --well-shade: rgba(0, 0, 0, 0.6);
+  --well-ring: rgba(0, 0, 0, 0.5);
+  --groove-hi: rgba(255, 255, 255, 0.055);
+  --btn-1: #323231;
+  --btn-2: #262625;
+  --key-1: #ffffff;
+  --key-2: #d6d6d2;
+  --key-ring: #000000;
+  --key-hi: rgba(255, 255, 255, 1);
+  --on-key: #141414;
+
+  --shadow-float: 0 0 0 1px #000, inset 0 1px 0 var(--hi),
+    0 16px 30px -12px rgba(0, 0, 0, 0.9);
 }
 
 @theme inline {
@@ -91,7 +117,7 @@
   --color-moss: var(--moss);
   --color-flag: var(--flag);
 
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -118,44 +144,62 @@ body {
 
 /* ── the three materials ───────────────────────────────────── */
 
-/* lifted out of the bezel */
+/* the slab: one piece, lit from above */
 .mat-panel {
-  background: var(--panel);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
   box-shadow: var(--shadow-lift);
 }
 
-/* lifted far out — floating over everything */
+/* lifted far out: the only material that casts a shadow */
 .mat-float {
-  background: var(--panel);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
   box-shadow: var(--shadow-float);
 }
 
-/* cut into the panel */
+/* a slot cut into the slab */
 .mat-well {
   background: var(--well);
   box-shadow: var(--shadow-well);
 }
 
-/* a key you could press: bottom lip, hairline all round */
+/* where a component is shown: the face of the slab itself, so wells read as cut in and keys as standing out */
+.mat-stage {
+  background: var(--stage);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+
+/* a key standing on the slab */
 .mat-cap {
-  background: var(--panel);
+  background: linear-gradient(180deg, var(--btn-1), var(--btn-2));
   box-shadow: var(--shadow-cap);
+}
+
+/* the one dark (or bright) key */
+.mat-ink {
+  background: linear-gradient(180deg, var(--key-1), var(--key-2));
+  color: var(--on-key);
+  box-shadow: 0 0 0 1px var(--key-ring), inset 0 1px 0 var(--key-hi),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.22);
 }
 
 /* a row that has been picked out of a list */
 .mat-row {
-  background: var(--well);
+  background: linear-gradient(180deg, var(--btn-1), var(--btn-2));
   box-shadow: var(--shadow-row);
+}
+
+/* a groove: a dark line with light caught on its far edge */
+.groove-b {
+  box-shadow: inset 0 -1px 0 var(--groove-hi), inset 0 -2px 0 var(--well-shade);
 }
 
 /* ── typography ────────────────────────────────────────────── */
 
-/* the instrument voice. used for metadata only, never for prose. */
+/* small labels. Set in the text face; mono is for code only. */
 .meta {
-  font-family: var(--font-mono), ui-monospace, monospace;
-  font-size: 10.5px;
+  font-size: 11.5px;
   line-height: 1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   font-variant-numeric: tabular-nums;
 }
 
@@ -319,9 +363,12 @@ html.dark .shiki span {
   inset-block-start: 0;
   left: 50%;
   width: 100cqw;
+  height: 10px;
   transform: translateX(-50%);
-  border-top: 1px solid var(--hairline);
+  background: linear-gradient(180deg, var(--band-1), var(--band-2));
+  box-shadow: inset 0 1px 0 var(--hi), inset 0 -1px 0 var(--ring), 0 -1px 0 var(--ring);
   pointer-events: none;
+  z-index: 1;
 }
 
 .reaction-stream {
@@ -343,4 +390,349 @@ html.dark .shiki span {
   .reaction-group { flex-wrap: wrap; padding-right: 0; }
   .reaction-repeat { display: none; }
   .reaction-group p { white-space: normal; height: auto; min-height: 36px; padding-block: 8px; line-height: 1.5; }
+}
+
+/* The landing scrolls the document; its scrollbar stays out of sight. */
+html:has(.landing-panel) {
+  scrollbar-width: none;
+}
+html:has(.landing-panel)::-webkit-scrollbar {
+  display: none;
+}
+
+/* A demo on the landing stands in a room: a darker recess with a floor of boards running to the back, one of them in the accent.
+   The floor is the same one the mark has inside it. */
+.stage-room {
+  background: var(--room);
+  box-shadow: inset 0 1px 3px var(--well-shade), inset 0 0 0 1px var(--well-ring), 0 1px 0 var(--groove-hi);
+}
+.stage-floor {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.stage-floor::before,
+.stage-floor::after {
+  content: "";
+  position: absolute;
+  inset: auto -30% 0 -30%;
+  height: min(46%, 112px);
+  transform: perspective(240px) rotateX(62deg);
+  transform-origin: bottom;
+  -webkit-mask-image: linear-gradient(to top, black 10%, transparent 92%);
+  mask-image: linear-gradient(to top, black 10%, transparent 92%);
+}
+.stage-floor::before {
+  background: repeating-linear-gradient(90deg, var(--room-line) 0 1.5px, transparent 1.5px 34px);
+}
+.stage-floor::after {
+  background: linear-gradient(90deg, transparent calc(58% - 1.5px), var(--accent) calc(58% - 1.5px) calc(58% + 1.5px), transparent calc(58% + 1.5px));
+  opacity: 0.85;
+}
+
+/* The docs: a black page, and beside it the index as a grey slab. Where the two meet runs a seam of three fine lines,
+   the same lines the mark uses for the edges you cannot see. The slab stands on the same floor as the demos. */
+.docs-page {
+  background: var(--page);
+}
+.docs-side {
+  position: relative;
+  background: var(--slab);
+}
+.docs-side::after {
+  content: "";
+  position: absolute;
+  inset: 48px 0 0 auto;
+  width: 9px;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, transparent 0 40px, var(--accent) 40px 108px, transparent 108px) 5px 0 / 1px 100% no-repeat,
+    repeating-linear-gradient(90deg, transparent 0 2px, var(--room-line) 2px 3px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 62%, transparent 82%);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 62%, transparent 82%);
+}
+/* The index has its own object: a ring of fine strokes, half out of the frame at the foot of the slab. */
+.docs-side {
+  overflow: hidden;
+}
+.docs-head,
+.nav-slab {
+  /* on the grey bar the quiet ink is one step brighter, or the links and the ".dev" sink into it */
+  --ink-3: var(--ink-quiet-on-slab);
+  background: var(--slab);
+  box-shadow: inset 0 -1px 0 var(--ring), 0 1px 0 var(--groove-hi);
+}
+
+:root {
+  /* the bands and rails on the landing: on a white page the panel white would vanish, so they are a real grey there */
+  --band-flat: #e4e4e4;
+  --band-1: #e9e9e9;
+  --band-2: #dedede;
+  --ink-quiet-on-slab: #5f5f5f;
+  --rim: rgba(0, 0, 0, 0.1);
+  --ring-ink: rgba(0, 0, 0, 0.55);
+  --dot: rgba(0, 0, 0, 0.2);
+  --page: #ffffff;
+  --room: #f1f1f1;
+  --room-line: rgba(0, 0, 0, 0.13);
+}
+.dark {
+  --band-flat: #1e1e1d;
+  --band-1: #232322;
+  --band-2: #1a1a19;
+  --ink-quiet-on-slab: #b4b4b0;
+  --rim: rgba(255, 255, 255, 0.1);
+  --ring-ink: rgba(255, 255, 255, 0.75);
+  --dot: rgba(255, 255, 255, 0.2);
+  --page: #000000;
+  --room: #0a0a0a;
+  --room-line: rgba(255, 255, 255, 0.13);
+}
+
+/* The one blue key, for the few things that should stand out of a neutral row. */
+.mat-blue {
+  background: linear-gradient(180deg, #3a8bff, #0f6fff);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px #0a4fbf, inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(0, 0, 0, 0.16);
+}
+
+/* The landing ends on a full-bleed grey slab, the same material as the index in the docs, with the same hatched ring leaving the frame. */
+.landing-footer::before,
+.landing-footer::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 100cqw;
+  inset-block: 0;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.landing-footer::before {
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  box-shadow: inset 0 1px 0 var(--hi), 0 -1px 0 var(--ring);
+}
+.landing-footer::after {
+  display: none;
+}
+
+/* a neutral key whose colour lives at its edge and fades toward the middle, so it never sits behind the words: set --c */
+.mat-edge {
+  border: 1.5px solid transparent;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 150% at var(--x) var(--y), color-mix(in oklab, var(--c) 36%, transparent), color-mix(in oklab, var(--c) 9%, transparent) 30%, transparent 50%) padding-box,
+    linear-gradient(180deg, var(--btn-1), var(--btn-2)) padding-box,
+    conic-gradient(from var(--a), var(--c), color-mix(in oklab, var(--c) 40%, var(--rim)) 40deg, var(--rim) 95deg, var(--rim) 265deg, color-mix(in oklab, var(--c) 40%, var(--rim)) 320deg, var(--c)) border-box;
+  box-shadow: 0 0 0 1px var(--ring-2), inset 0 1px 0 var(--hi), inset 0 -1px 0 var(--lo);
+}
+
+/* Two rails run down the page from the bar to the footer, the left one starting where the wordmark ends. They are the same grey
+   band as the section rules. In every section, halfway down, the band turns the accent colour and fades back to grey above and below. */
+@media (min-width: 1280px) {
+  .landing-divider::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    width: 100cqw;
+    transform: translateX(-50%);
+    pointer-events: none;
+    --rail-blue: linear-gradient(to bottom, transparent 22%, color-mix(in oklab, var(--accent) 45%, transparent) 38%, var(--accent) 50%, color-mix(in oklab, var(--accent) 45%, transparent) 62%, transparent 78%);
+    --rail-grey: linear-gradient(90deg, var(--ring) 0 1px, var(--hi) 1px 2px, var(--band-1) 2px, var(--band-2) 9px, var(--ring) 9px 10px);
+    background:
+      var(--rail-blue) left 124px top / 10px 100% no-repeat,
+      var(--rail-blue) right 124px top / 10px 100% no-repeat,
+      var(--rail-grey) left 124px top / 10px 100% no-repeat,
+      var(--rail-grey) right 124px top / 10px 100% no-repeat;
+  }
+  section.landing-divider:last-of-type::after {
+    -webkit-mask-image: linear-gradient(black, black), linear-gradient(to bottom, black 30%, rgba(0, 0, 0, 0.4) 62%, transparent 92%);
+    mask-image: linear-gradient(black, black), linear-gradient(to bottom, black 30%, rgba(0, 0, 0, 0.4) 62%, transparent 92%);
+    -webkit-mask-size: 50% 100%, 50% 100%;
+    mask-size: 50% 100%, 50% 100%;
+    -webkit-mask-position: left top, right top;
+    mask-position: left top, right top;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+}
+
+/* The hero stands on one thing: a floor. The lower part of the section is a floor of planks running away from you to the horizon
+   behind the words, each plank a raised strip with a lit edge and a dark seam, one of them the accent colour. It is the same floor the
+   demos stand on and the mark has inside it, at the size of the page. It dissolves upward and never leaves its section. */
+.landing-hero {
+  clip-path: inset(0 -100vw);
+}
+.hero-floor {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100cqw;
+  height: 70%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  pointer-events: none;
+}
+/* the planks lie on a plane tipped away from you; the fade is on the plane itself, so it thins out with distance rather than being cut off */
+.hero-floor::before,
+.hero-floor::after {
+  content: "";
+  position: absolute;
+  inset: -40% -70% 0 -70%;
+  transform: perspective(900px) rotateX(71deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, black 0, rgba(0, 0, 0, 0.7) 22%, rgba(0, 0, 0, 0.28) 48%, rgba(0, 0, 0, 0.07) 70%, transparent 88%);
+  mask-image: linear-gradient(to top, black 0, rgba(0, 0, 0, 0.7) 22%, rgba(0, 0, 0, 0.28) 48%, rgba(0, 0, 0, 0.07) 70%, transparent 88%);
+}
+/* the accent plank is laid on the same 128px grid as the others, counted from the same edge, so its seams fall exactly on theirs */
+.hero-floor::before {
+  background:
+    linear-gradient(90deg, #0a3d99 0 3px, #6aabff 3px 5px, #2e8bff 5px, #0f6fff 126px, #0a4fbf 126px 128px) round(down, 120cqw + 250px, 128px) 0 / 128px 100% no-repeat,
+    repeating-linear-gradient(90deg, var(--plank-seam) 0 3px, var(--plank-hi) 3px 5px, var(--plank-1) 5px, var(--plank-2) 126px, var(--plank-lo) 126px 128px);
+}
+.hero-floor::after {
+  display: none;
+}
+:root {
+  --slab: #f2f2f1;
+  --plank-1: #f4f4f4;
+  --plank-2: #e6e6e6;
+  --plank-hi: #ffffff;
+  --plank-lo: #d2d2d2;
+  --plank-seam: #b9b9b9;
+}
+.dark {
+  --slab: #1c1c1b;
+  --plank-1: #262625;
+  --plank-2: #161615;
+  --plank-hi: #3a3a39;
+  --plank-lo: #0c0c0c;
+  --plank-seam: #000000;
+}
+/* a large piece standing on the page: lit top edge, shaded foot, and the one soft shadow that tells you it has height */
+.sk-raised {
+  background: linear-gradient(180deg, var(--btn-1), var(--btn-2));
+  box-shadow: 0 0 0 1px var(--ring-2), inset 0 2px 0 var(--hi), inset 0 -3px 0 var(--lo), 0 14px 22px -14px var(--sk-drop);
+}
+.sk-lip {
+  background: var(--sk-lip);
+  box-shadow: 0 0 0 1px var(--ring-2);
+}
+.sk-well {
+  background: var(--room);
+  box-shadow: inset 0 3px 7px var(--well-shade), inset 0 0 0 1px var(--well-ring), 0 1px 0 var(--groove-hi), 0 2px 0 var(--groove-hi);
+}
+.sk-blue {
+  background: linear-gradient(180deg, #4d97ff, #0f6fff);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px #0a4fbf, inset 0 2px 0 rgba(255, 255, 255, 0.45), inset 0 -3px 0 rgba(0, 0, 0, 0.16), 0 14px 22px -14px var(--sk-drop);
+}
+.sk-ticks {
+  background: var(--sk-tick);
+  -webkit-mask-image: repeating-conic-gradient(from 229deg, black 0 1.4deg, transparent 1.4deg 6.55deg), radial-gradient(closest-side, transparent 82%, black 83%), conic-gradient(from 229deg, black 0 263deg, transparent 263deg);
+  mask-image: repeating-conic-gradient(from 229deg, black 0 1.4deg, transparent 1.4deg 6.55deg), radial-gradient(closest-side, transparent 82%, black 83%), conic-gradient(from 229deg, black 0 263deg, transparent 263deg);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.sk-segs {
+  background: repeating-linear-gradient(to bottom, var(--sk-tick) 0 13px, transparent 13px 18px);
+}
+.sk-segs-lit {
+  background: linear-gradient(to bottom, #f2303f 0 14%, #f29d00 14% 34%, #06b457 34%);
+  -webkit-mask-image: repeating-linear-gradient(to bottom, black 0 13px, transparent 13px 18px);
+  mask-image: repeating-linear-gradient(to bottom, black 0 13px, transparent 13px 18px);
+}
+:root {
+  --sk-lip: #c9c9c9;
+  --sk-tick: rgba(0, 0, 0, 0.22);
+  --sk-drop: rgba(0, 0, 0, 0.35);
+}
+.dark {
+  --sk-lip: #101010;
+  --sk-tick: rgba(255, 255, 255, 0.22);
+  --sk-drop: rgba(0, 0, 0, 0.9);
+}
+
+/* in the index the ring dissolves before it reaches the seam on the right, so the two never touch */
+.docs-ring {
+  -webkit-mask-image: linear-gradient(to right, black 52%, rgba(0, 0, 0, 0.3) 72%, transparent 88%);
+  mask-image: linear-gradient(to right, black 52%, rgba(0, 0, 0, 0.3) 72%, transparent 88%);
+}
+
+/* In the docs the grey bar and the grey index are the bezel of a screen, and the black page is the screen set into it.
+   The screen's top-left corner is rounded and cut in: a dark bevel follows the curve and a hair of light sits on the bezel side.
+   In the bar itself the index and the page are told apart by an engraved notch, not a border. */
+@media (min-width: 1024px) {
+  .docs-head {
+    box-shadow: none;
+  }
+  /* the bezel fills the outside of the screen's rounded corner */
+  .docs-head::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 26px;
+    height: 26px;
+    pointer-events: none;
+    background: radial-gradient(circle at 100% 100%, transparent 25.4px, var(--slab) 26.2px);
+  }
+  /* the screen's edge is one real rounded box, so the line along the top and the curve are a single stroke of one width;
+     it thins to nothing as it turns down into the channel */
+  .docs-head::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 60px;
+    pointer-events: none;
+    z-index: 1;
+    border-top: 2px solid var(--bevel);
+    border-top-left-radius: 26px;
+    box-shadow: 0 -1px 0 var(--bevel-hi);
+  }
+  /* the index is its own panel: a channel exactly three pixels wide with a hair of light on each side runs the whole height,
+     the panel falls into shade as it nears it, and a stretch of the channel is filled with the accent, fading out at both ends */
+  .docs-side::after {
+    inset: 0 0 0 auto;
+    width: 96px;
+    -webkit-mask-image: none;
+    mask-image: none;
+    background:
+      linear-gradient(to bottom, transparent 92px, var(--accent) 112px, var(--accent) 160px, transparent 180px) right 1px top / 3px 100% no-repeat,
+      linear-gradient(90deg, transparent calc(100% - 5px), var(--bevel-hi) calc(100% - 5px) calc(100% - 4px), var(--groove-1) calc(100% - 4px), var(--groove-2) calc(100% - 1px), var(--bevel-hi) calc(100% - 1px)),
+      linear-gradient(90deg, transparent, color-mix(in oklab, var(--edge-shade) 12%, transparent) 30%, color-mix(in oklab, var(--edge-shade) 45%, transparent) 62%, var(--edge-shade));
+  }
+}
+:root {
+  /* in light the frame is a pale grey and its channel and bevel are soft: a dark line on white reads as dirt, not depth */
+  --edge-shade: rgba(0, 0, 0, 0.028);
+  --bevel: #dddddb;
+  --bevel-hi: #ffffff;
+  --groove-1: #d2d2d0;
+  --groove-2: #e2e2e0;
+}
+.dark {
+  --edge-shade: rgba(0, 0, 0, 0.42);
+  --bevel: #000000;
+  --bevel-hi: #303030;
+  --groove-1: #000000;
+  --groove-2: #0a0a0a;
+}
+
+/* the filter's focus ring is drawn inside the field, so nothing around it can cut it off */
+.docs-filter:focus-within {
+  box-shadow: inset 0 0 0 1.5px var(--accent), inset 0 1px 2px var(--well-shade);
+}
+
+/* on the pale index the filter is a white field with a drawn edge, or it is the same grey as what it sits on */
+html:not(.dark) .docs-filter:not(:focus-within) {
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.11), inset 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 0 #ffffff;
+}
+html:not(.dark) .docs-filter:focus-within {
+  background: #ffffff;
 }

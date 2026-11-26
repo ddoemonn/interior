@@ -12,6 +12,8 @@ export type Entry = {
   /** the UX problem it solves — one line */
   blurb: string;
   status: Status;
+  /** added in the latest release */
+  isNew?: boolean;
   /** path to the copy-paste source, relative to repo root */
   src?: string;
   export?: string;
@@ -28,6 +30,19 @@ export type Category = {
 
 type Seed = [id: string, slug: string, name: string, blurb: string];
 
+/** Slugs added in the latest release; they carry a "New" badge in the menu and on their page. */
+const FRESH = new Set([
+  "segment-meter",
+  "spark-bars",
+  "quota-ring",
+  "spring-switch",
+  "reaction-bar",
+  "number-stepper",
+  "heat-cells",
+  "status-tag",
+  "shortcut-keys",
+]);
+
 const seeds: Array<[id: string, name: string, rows: Seed[]]> = [
   [
     "01",
@@ -40,6 +55,8 @@ const seeds: Array<[id: string, name: string, rows: Seed[]]> = [
       ["01.5", "ripple", "Ripple", "Touch feedback from the pointer origin"],
       ["01.6", "icon-morph", "Icon Morph", "Play/pause, menu/close as one mechanism"],
       ["01.7", "press-depth", "Press Depth", "The feeling that the press landed"],
+      ["01.8", "reaction-bar", "Reaction Bar", "Counts roll and the order follows the vote"],
+      ["01.9", "status-tag", "Status Tag", "The label changes tense in place"],
     ],
   ],
   [
@@ -52,6 +69,9 @@ const seeds: Array<[id: string, name: string, rows: Seed[]]> = [
       ["02.4", "otp-input", "OTP Input", "Auto advance, paste, error recovery"],
       ["02.5", "tag-input", "Tag Input", "Enter adds, backspace highlights then removes"],
       ["02.6", "expanding-search", "Expanding Search", "Icon to field with focus handled"],
+      ["02.7", "spring-switch", "Spring Switch", "A switch you can drag, flick and let go"],
+      ["02.8", "number-stepper", "Number Stepper", "Hold to run, and a wall you can feel"],
+      ["02.9", "shortcut-keys", "Shortcut Keys", "Keycaps that go down when you press them"],
     ],
   ],
   [
@@ -120,6 +140,10 @@ const seeds: Array<[id: string, name: string, rows: Seed[]]> = [
       ["08.2", "filter-grid", "Filter Grid", "Filtering rearranges, it does not blink"],
       ["08.3", "value-flash", "Value Flash", "Marks what just changed"],
       ["08.4", "poll-results", "Poll Results", "The winner lands last"],
+      ["08.5", "segment-meter", "Segment Meter", "A level read segment by segment"],
+      ["08.6", "spark-bars", "Spark Bars", "A small chart whose legend is the readout"],
+      ["08.7", "quota-ring", "Quota Ring", "A dial that settles, and says how much is left"],
+      ["08.8", "heat-cells", "Heat Cells", "A season of activity, one cell a day"],
     ],
   ],
   [
@@ -157,6 +181,7 @@ export const categories: Category[] = seeds.map(([id, name, rows]) => ({
           name: entryName,
           blurb,
           status: "ready" as const,
+          isNew: FRESH.has(slug),
           src: `components/interior/${slug}.tsx`,
           export: m.export,
           usage: m.usage,

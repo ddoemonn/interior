@@ -210,7 +210,7 @@ export function WizardSteps({
       </p>
       <span
         aria-hidden
-        className="mb-2 grid select-none text-[13px] font-medium text-stone-700 dark:text-stone-200"
+        className="mb-2 grid select-none text-[13px] font-medium text-neutral-900 dark:text-neutral-100"
       >
         {steps.map((s, i) => (
           <motion.span
@@ -236,12 +236,12 @@ export function WizardSteps({
           const tile = (
             <motion.span
               aria-hidden
-              className={`grid size-7 place-items-center rounded-[8px] border text-[11.5px] font-medium tabular-nums shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] transition-colors duration-150 dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)] ${
+              className={`grid size-7 place-items-center rounded-[8px] border text-[11.5px] font-medium tabular-nums shadow-[0_1px_2px_rgba(0,0,0,0.06),0_4px_10px_-8px_rgba(0,0,0,0.45)] transition-colors duration-150 dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)] ${
                 done
-                  ? "border-stone-800 bg-stone-800 text-white dark:border-stone-100 dark:bg-stone-100 dark:text-stone-900"
+                  ? "border-[#058A43] bg-[#06B457] bg-[linear-gradient(180deg,rgba(255,255,255,0.3),rgba(255,255,255,0))] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] dark:border-[#0B6B3A] dark:bg-[#19C96A] dark:text-white"
                   : here
-                    ? "border-stone-200 bg-white text-stone-700 dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-100"
-                    : "border-stone-200 bg-white text-stone-400 dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-500"
+                    ? "border-black/[0.13] bg-white text-neutral-900 dark:border-[#050505] dark:bg-[#141413] dark:text-neutral-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.055)]"
+                    : "border-black/[0.13] bg-white text-neutral-400 dark:border-[#050505] dark:bg-[#141413] dark:text-neutral-500 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.055)]"
               }`}
               initial={false}
               animate={{ scale: here ? 1 : 0.92 }}
@@ -285,7 +285,7 @@ export function WizardSteps({
                     intent.current = "list";
                     goTo(i);
                   }}
-                  className="rounded-[8px] outline-none focus-visible:shadow-[0_0_0_1.5px_#4568FF] dark:focus-visible:shadow-[0_0_0_1.5px_#93B0FF]"
+                  className="rounded-[8px] outline-none focus-visible:shadow-[0_0_0_1.5px_#0F6FFF] dark:focus-visible:shadow-[0_0_0_1.5px_#2E8BFF]"
                 >
                   {tile}
                 </button>
@@ -299,10 +299,10 @@ export function WizardSteps({
               {i < total - 1 ? (
                 <span
                   aria-hidden
-                  className="relative h-[3px] flex-1 overflow-hidden rounded-[2px] bg-stone-100 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] dark:bg-white/[0.06] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.4)]"
+                  className="relative h-[3px] flex-1 overflow-hidden rounded-[2px] bg-neutral-100 shadow-[inset_0_1px_2px_rgba(0,0,0,0.09),inset_0_0_0_1px_rgba(0,0,0,0.07),0_1px_0_rgba(255,255,255,0.95)] dark:bg-white/[0.06] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(0,0,0,0.5),0_1px_0_rgba(255,255,255,0.055)]"
                 >
                   <motion.span
-                    className="absolute inset-0 origin-left rounded-[2px] bg-stone-800 dark:bg-stone-100"
+                    className="absolute inset-0 origin-left rounded-[2px] bg-[linear-gradient(90deg,#0F6FFF,#00B3A1)] shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] dark:bg-[linear-gradient(90deg,#2E8BFF,#14E3C5)]"
                     initial={false}
                     animate={{ scaleX: complete || i < at ? 1 : 0 }}
                     transition={reduced ? { duration: 0 } : RAIL}
@@ -319,7 +319,7 @@ export function WizardSteps({
         role="group"
         aria-label={position}
         style={{ height }}
-        className="relative overflow-hidden rounded-[11px] border border-stone-200 bg-white shadow-[0_1px_2px_rgba(28,25,23,0.06),0_4px_10px_-8px_rgba(28,25,23,0.45)] outline-none transition-[border-color,box-shadow] duration-150 focus-visible:border-[#4568FF] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_1px_6px_rgba(0,0,0,0.45)] dark:focus-visible:border-[#93B0FF]"
+        className="relative overflow-hidden rounded-[11px] border border-black/[0.13] bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.06),0_4px_10px_-8px_rgba(0,0,0,0.45)] outline-none transition-[border-color,box-shadow] duration-150 focus-visible:border-[#0F6FFF] dark:border-[#050505] dark:bg-[#141413] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.055)] dark:focus-visible:border-[#2E8BFF]"
       >
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
@@ -331,15 +331,15 @@ export function WizardSteps({
             exit="exit"
             transition={panelTransition}
             style={{ scrollbarGutter: "stable" }}
-            className="absolute inset-0 overflow-y-auto overscroll-contain p-4 text-[13.5px] leading-relaxed text-stone-700 dark:text-stone-200"
+            className="absolute inset-0 overflow-y-auto overscroll-contain p-4 text-[13.5px] leading-relaxed text-neutral-900 dark:text-neutral-100"
           >
 
             {complete ? (
               <div className="flex h-full flex-col items-center justify-center gap-1.5">
-                <p className="text-[13px] font-medium text-stone-700 dark:text-stone-100">
+                <p className="text-[13px] font-medium text-neutral-900 dark:text-neutral-100">
                   {completeLabel}
                 </p>
-                <p className="text-[12.5px] text-stone-400 dark:text-stone-500">
+                <p className="text-[12.5px] text-neutral-400 dark:text-neutral-500">
                   {completeHint}
                 </p>
               </div>
@@ -366,7 +366,7 @@ export function WizardSteps({
                 intent.current = "panel";
                 back();
               }}
-              className="h-9 rounded-[9px] border border-stone-200 bg-white px-3 text-[13px] font-medium text-stone-700 outline-none transition-[border-color,box-shadow] duration-150 hover:border-stone-300 focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200 dark:hover:border-white/20 dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)]"
+              className="h-9 rounded-[9px] border border-black/[0.13] bg-white px-3 text-[13px] font-medium text-neutral-900 outline-none transition-[border-color,box-shadow] duration-150 hover:border-neutral-300 focus-visible:border-[#0F6FFF] focus-visible:shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_20px_-14px_rgba(15,111,255,0.6)] dark:border-[#050505] dark:bg-[#2A2A29] dark:text-neutral-100 dark:hover:border-black dark:focus-visible:border-[#2E8BFF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(46,139,255,0.5)] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)] bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.035))] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))]"
             >
               {backLabel}
             </motion.button>
@@ -392,7 +392,7 @@ export function WizardSteps({
                   : { duration: 0.14, ease: EXIT_EASE },
               }}
               transition={reduced ? { duration: 0 } : CROSSFADE}
-              className="ml-auto grid h-9 place-items-center rounded-[9px] bg-stone-800 px-3.5 text-[13px] font-medium text-white outline-none focus-visible:shadow-[inset_0_0_0_1.5px_#93B0FF] dark:bg-stone-100 dark:text-stone-900 dark:focus-visible:shadow-[inset_0_0_0_1.5px_#4568FF]"
+              className="ml-auto grid h-9 place-items-center rounded-[9px] bg-neutral-800 px-3.5 text-[13px] font-medium text-white outline-none focus-visible:shadow-[inset_0_0_0_1.5px_#2E8BFF] dark:bg-neutral-100 dark:text-neutral-900 dark:focus-visible:shadow-[inset_0_0_0_1.5px_#0F6FFF] shadow-[0_0_0_1px_#0c0c0c,inset_0_1px_0_rgba(255,255,255,0.28),inset_0_-1px_0_rgba(0,0,0,0.22)] dark:shadow-[0_0_0_1px_#000,inset_0_1px_0_#fff,inset_0_-1px_0_rgba(0,0,0,0.22)] bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0))] dark:bg-[linear-gradient(180deg,#fff,rgba(214,214,210,0.9))]"
             >
               <span aria-hidden className="invisible col-start-1 row-start-1">
                 {finishLabel.length > nextLabel.length ? finishLabel : nextLabel}

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Enter } from "@/components/docs/enter";
 import { Preview } from "@/components/docs/preview";
+import { NewBadge } from "@/components/site/new-badge";
 import { CodeBlock } from "@/components/docs/code-block";
 import { bleedDemos, demos } from "@/lib/demos";
 import { getCategoryOf, getEntry, readyEntries } from "@/lib/registry";
@@ -104,8 +105,9 @@ export default async function SheetPage({
             <span className="tnum font-mono">{entry.id}</span>
           </p>
 
-          <h1 className="mt-3 text-[27px] font-medium leading-[1.15] tracking-[-0.03em] text-ink">
+          <h1 className="mt-3 flex items-center gap-2.5 text-[27px] font-medium leading-[1.15] tracking-[-0.03em] text-ink">
             {entry.name}
+            {entry.isNew ? <NewBadge className="mt-0.5 scale-[1.15]" /> : null}
           </h1>
           <p className="mt-2.5 max-w-[54ch] text-[14px] leading-relaxed text-ink-2">
             {entry.blurb}.

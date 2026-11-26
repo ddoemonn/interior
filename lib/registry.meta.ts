@@ -23,6 +23,185 @@ export type ComponentMeta = {
  * builds a component ever has to touch a file another component also touches.
  */
 const handAuthored: Record<string, ComponentMeta> = {
+  "segment-meter": {
+    export: "SegmentMeter",
+    usage: "import { SegmentMeter } from \"@/components/interior/segment-meter\";\n\nexport function BuildMinutes({ used }: { used: number }) {\n  return <SegmentMeter value={used} max={1000} label=\"Build minutes\" unit=\"min\" />;\n}\n",
+    props: [
+      { name: "value", type: "number", note: "The current amount." },
+      { name: "max", type: "number", note: "The amount the full meter stands for.", default: "100" },
+      { name: "segments", type: "number", note: "How many segments the track is cut into.", default: "28" },
+      { name: "warnAt", type: "number", note: "Share of the track after which segments are amber.", default: "0.7" },
+      { name: "overAt", type: "number", note: "Share of the track after which segments are red.", default: "0.9" },
+      { name: "label", type: "string", note: "Names the meter, on screen and for assistive tech." },
+      { name: "unit", type: "string", note: "Printed after the totals." },
+      { name: "format", type: "(value: number) => string", note: "Formats the two totals.", default: "toLocaleString(\"en-US\")" },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "A segment's colour comes from where it sits on the track, not from the current value, so the meter reads like a level meter: green, then amber, then red.",
+      "Unfilled segments are hatched rather than empty. Solid means measured; hatched means still available.",
+      "A change fills outward from the previous level and drains back toward it, one segment after another, using transform and opacity only.",
+      "It is a real meter for assistive tech: role, range, value and a sentence with the percentage.",
+      "With reduced motion the segments change at once.",
+    ],
+  },
+  "spark-bars": {
+    export: "SparkBars",
+    usage: "import { SparkBars } from \"@/components/interior/spark-bars\";\n\nexport function RequestsToday({ hours }: { hours: { label: string; value: number }[] }) {\n  return <SparkBars data={hours} label=\"Requests today\" unit=\"requests\" mark=\"bar = 1 hour\" />;\n}\n",
+    props: [
+      { name: "data", type: "{ label: string; value: number }[]", note: "One bar per point, in order." },
+      { name: "label", type: "string", note: "Names the chart and labels the total." },
+      { name: "unit", type: "string", note: "Printed after the figure." },
+      { name: "mark", type: "string", note: "Says what one bar stands for, top right." },
+      { name: "format", type: "(value: number) => string", note: "Formats the figure.", default: "toLocaleString(\"en-US\")" },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "The legend is the readout: at rest it shows the total, under the pointer it shows that bar's label and value.",
+      "One plate follows the pointer on a spring and the other bars dim to 45 percent; nothing appears or disappears.",
+      "The chart says what one mark is, and the tallest bar is tagged at rest.",
+      "The plot is a slider for the keyboard: arrows move bar to bar, Home and End jump to the ends, Escape lets go.",
+      "Bars grow in from the baseline once on arrival, staggered, with a transform only.",
+    ],
+  },
+  "quota-ring": {
+    export: "QuotaRing",
+    usage: "import { QuotaRing } from \"@/components/interior/quota-ring\";\n\nexport function Storage({ usedGb }: { usedGb: number }) {\n  return <QuotaRing value={usedGb} max={100} label=\"Storage\" unit=\"GB\" />;\n}\n",
+    props: [
+      { name: "value", type: "number", note: "The amount used." },
+      { name: "max", type: "number", note: "The full quota." },
+      { name: "warnAt", type: "number", note: "Share at which the dial turns amber.", default: "0.7" },
+      { name: "overAt", type: "number", note: "Share at which the dial turns red.", default: "0.9" },
+      { name: "label", type: "string", note: "Names the quota." },
+      { name: "unit", type: "string", note: "Printed after the totals." },
+      { name: "format", type: "(value: number) => string", note: "Formats the totals.", default: "toLocaleString(\"en-US\")" },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "The arc is driven by a spring and settles with a small overshoot; a second change redirects it mid-flight instead of waiting.",
+      "The percentage counts with the arc by writing to the DOM directly, so a moving dial does not re-render the component every frame.",
+      "Colour is the state: green, amber, then red, and the tag under the label says the same thing in words with how much is left.",
+      "It is a meter for assistive tech, with the totals and percentage in one sentence.",
+      "With reduced motion the arc and the figure jump to their values.",
+    ],
+  },
+  "spring-switch": {
+    export: "SpringSwitch",
+    usage: "\"use client\";\n\nimport { useState } from \"react\";\nimport { SpringSwitch } from \"@/components/interior/spring-switch\";\n\nexport function DeployPreviews() {\n  const [on, setOn] = useState(true);\n  return <SpringSwitch label=\"Deploy previews\" checked={on} onCheckedChange={setOn} />;\n}\n",
+    props: [
+      { name: "checked", type: "boolean", note: "Whether the switch is on. Controlled." },
+      { name: "onCheckedChange", type: "(checked: boolean) => void", note: "Called with the next state on a click, a key press, or a drag that ends on the other side." },
+      { name: "disabled", type: "boolean", note: "Blocks input and dims the switch.", default: "false" },
+      { name: "label", type: "string", note: "The accessible name." },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "The thumb can be dragged. On release it goes to the nearer side, unless it was flicked, in which case the direction of the flick wins.",
+      "The spring that settles the thumb starts with the velocity the finger left it with, so a throw keeps moving and a careful drag eases in.",
+      "Past either end the thumb rubber-bands and stretches slightly instead of stopping dead.",
+      "The green fill follows the thumb's position, so a half-dragged switch looks half on.",
+      "A drag that ends where it started does not also fire the click, and the left and right arrow keys set the state directly.",
+    ],
+  },
+  "reaction-bar": {
+    export: "ReactionBar",
+    usage: "import { ReactionBar, type Reaction } from \"@/components/interior/reaction-bar\";\n\nconst reactions: Reaction[] = [\n  { id: \"love\", emoji: \"❤️\", label: \"Love\", count: 48, tone: \"pink\" },\n  { id: \"fire\", emoji: \"🔥\", label: \"Fire\", count: 47, tone: \"orange\" },\n  { id: \"clap\", emoji: \"👏\", label: \"Applause\", count: 31, tone: \"amber\" },\n];\n\nexport function ReleaseReactions({ onReact }: { onReact: (id: string | null) => void }) {\n  return <ReactionBar reactions={reactions} onValueChange={onReact} />;\n}\n",
+    props: [
+      { name: "reactions", type: "Reaction[]", note: "id, emoji, label, count, and an optional tone for the selected state." },
+      { name: "value", type: "string | null", note: "The selected reaction. Controlled." },
+      { name: "defaultValue", type: "string | null", note: "The initial selection when uncontrolled.", default: "null" },
+      { name: "onValueChange", type: "(id: string | null) => void", note: "Called with the new selection, or null when it is cleared." },
+      { name: "sort", type: "boolean", note: "Keeps the row ordered by count.", default: "true" },
+      { name: "label", type: "string", note: "Names the group.", default: "\"Reactions\"" },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "Your reaction is added to the count you were given, so the server total stays the source of truth and the bar never double counts.",
+      "When a vote changes the order the chips travel to their new places; ties keep their original order so nothing swaps for no reason.",
+      "The count rolls up when you add and down when you take back, and the emoji lands with a small overshoot.",
+      "A selected chip takes a pale tint of its own tone; the rest stay neutral keys.",
+      "Each chip is a toggle button with its label and count as the accessible name.",
+    ],
+  },
+  "number-stepper": {
+    export: "NumberStepper",
+    usage: "\"use client\";\n\nimport { useState } from \"react\";\nimport { NumberStepper } from \"@/components/interior/number-stepper\";\n\nexport function Seats() {\n  const [seats, setSeats] = useState(4);\n  return <NumberStepper label=\"Seats\" value={seats} onValueChange={setSeats} min={1} max={12} />;\n}\n",
+    props: [
+      { name: "value", type: "number", note: "The current value. Controlled." },
+      { name: "onValueChange", type: "(value: number) => void", note: "Called with each new value." },
+      { name: "min", type: "number", note: "Lower limit." },
+      { name: "max", type: "number", note: "Upper limit." },
+      { name: "step", type: "number", note: "Amount added or removed per step.", default: "1" },
+      { name: "disabled", type: "boolean", note: "Blocks input and dims the control.", default: "false" },
+      { name: "label", type: "string", note: "The accessible name." },
+      { name: "format", type: "(value: number) => string", note: "Formats the displayed value.", default: "toLocaleString(\"en-US\")" },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "Holding a key steps once, waits, then repeats and speeds up; letting go, leaving the key, losing the pointer, or the window losing focus all stop it.",
+      "At a limit the value is knocked sideways and springs back, and turns amber for a moment, so the wall is felt rather than silently ignored.",
+      "The number rolls up for an increase and down for a decrease, and the field reserves the width of its widest value so nothing shifts.",
+      "The value is one spinbutton for the keyboard: arrows step, Home and End go to the limits. The two keys are for the pointer and stay out of the tab order.",
+      "Every timer is cleared on unmount.",
+    ],
+  },
+  "heat-cells": {
+    export: "HeatCells",
+    usage: "import { HeatCells } from \"@/components/interior/heat-cells\";\n\nexport function Activity({ days }: { days: { label: string; value: number }[] }) {\n  return <HeatCells data={days} label=\"Commits, last 17 weeks\" unit=\"commits\" tone=\"green\" />;\n}\n",
+    props: [
+      { name: "data", type: "{ label: string; value: number }[]", note: "One cell per day, oldest first. Seven cells make a column." },
+      { name: "levels", type: "number", note: "How many steps of the tone are used.", default: "4" },
+      { name: "label", type: "string", note: "Names the grid and labels the total." },
+      { name: "unit", type: "string", note: "Printed after the figure." },
+      { name: "tone", type: "\"green\" | \"blue\" | \"violet\" | \"orange\" | \"pink\"", note: "The colour of the cells.", default: "\"green\"" },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "Levels are steps of one tone measured against the busiest day, and a day with nothing stays neutral, so the scale never invents activity.",
+      "The readout above the grid is the legend: the total at rest, the day under the pointer otherwise.",
+      "Cells arrive once in a diagonal wave using a CSS transition with a per-cell delay; there is no animation loop and no per-cell script.",
+      "The grid takes focus as one stop and the arrow keys walk it a day or a week at a time; each cell announces its date and count.",
+      "A scale from less to more sits under the grid so the colours can be read without hovering.",
+    ],
+  },
+  "status-tag": {
+    export: "StatusTag",
+    usage: "import { StatusTag, type TagState } from \"@/components/interior/status-tag\";\n\ntype Step = \"queued\" | \"building\" | \"live\" | \"failed\";\n\nconst states: Record<Step, TagState> = {\n  queued: { label: \"Queued\", tone: \"neutral\", kind: \"idle\" },\n  building: { label: \"Building\", tone: \"blue\", kind: \"busy\" },\n  live: { label: \"Live\", tone: \"green\", kind: \"done\" },\n  failed: { label: \"Failed\", tone: \"red\", kind: \"failed\" },\n};\n\nexport function DeployStatus({ step }: { step: Step }) {\n  return <StatusTag state={step} states={states} />;\n}\n",
+    props: [
+      { name: "state", type: "keyof states", note: "Which state is showing." },
+      { name: "states", type: "Record<string, TagState>", note: "Every state the tag can be in: its label, tone, and kind (idle, busy, done or failed)." },
+      { name: "announceAfter", type: "number", note: "Quiet period before the new label is announced.", default: "400" },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "The tag reserves the width of its longest label up front, so Queued becoming Building never moves what sits next to it.",
+      "The label swaps in place with a short blur and the tint moves from one tone to the next; the tag itself never remounts.",
+      "The mark in front changes with the kind: a turning arc while busy, a check that draws itself when done, a cross when failed. There is no pulsing dot.",
+      "A fast run of states is announced once it settles rather than read out step by step.",
+      "With reduced motion the label cross-fades, the marks appear drawn, and the arc does not turn.",
+    ],
+  },
+  "shortcut-keys": {
+    export: "ShortcutKeys",
+    usage: "import { ShortcutKeys } from \"@/components/interior/shortcut-keys\";\n\nexport function SaveHint({ onSave }: { onSave: () => void }) {\n  return <ShortcutKeys keys={[\"meta\", \"s\"]} label=\"Save draft\" doneLabel=\"Saved\" onTrigger={onSave} />;\n}\n",
+    props: [
+      { name: "keys", type: "string[]", note: "The keys of the chord, as KeyboardEvent.key names: meta, control, shift, alt, enter, or a letter." },
+      { name: "onTrigger", type: "() => void", note: "Called once each time the whole chord is down." },
+      { name: "hold", type: "number", note: "Milliseconds the matched state stays lit.", default: "900" },
+      { name: "preventDefault", type: "boolean", note: "Stops the browser's own handling of the chord.", default: "true" },
+      { name: "disabled", type: "boolean", note: "Stops listening.", default: "false" },
+      { name: "label", type: "string", note: "What the shortcut does." },
+      { name: "doneLabel", type: "string", note: "Swapped in for the label while the chord is matched.", default: "\"Done\"" },
+      { name: "className", type: "string", note: "Appended to the root.", default: "\"\"" },
+    ],
+    notes: [
+      "Each keycap goes down when its key is physically held and comes back when it is released, so the hint doubles as proof the key was heard.",
+      "When the whole chord is down the caps turn blue and the label changes tense in place; the width is reserved for both labels so nothing moves.",
+      "The chord fires once per press. Holding the keys does not repeat it; one of them has to come up first.",
+      "macOS does not send keyup for other keys while Command is held, so releasing Command releases everything. Losing window focus does the same.",
+      "The caps are one kbd element with the chord spelled out for assistive tech, and the result is announced from a polite live region.",
+    ],
+  },
   "long-press": {
     export: "LongPressButton",
     usage: `import { LongPressButton, useLongPress } from "@/components/interior/long-press";
@@ -120,7 +299,7 @@ export function DeployCard({ runId }: { runId: string }) {
   });
 
   return (
-    <div className="rounded-[14px] border border-stone-200 bg-white p-4 dark:border-white/[0.16] dark:bg-[#1D1D1A]">
+    <div className="rounded-[14px] border border-neutral-200 bg-white p-4 dark:border-white/[0.16] dark:bg-[#1C1C1C]">
       <h3 className="mb-3 text-[13px] font-medium">Deploy {runId}</h3>
       <TaskSteps steps={STEPS} current={current} failed={failed} label="Deploy progress" />
     </div>

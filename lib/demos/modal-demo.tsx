@@ -48,14 +48,14 @@ export function ModalDemo() {
               ref={cancelRef}
               type="button"
               onClick={() => setOpen(false)}
-              className="h-8 rounded-[8px] border border-stone-200 px-3 text-[12.5px] font-medium text-stone-700 outline-none transition-colors duration-150 hover:bg-stone-100 focus-visible:border-[#4568FF] dark:border-white/[0.16] dark:text-stone-200 dark:hover:bg-white/10 dark:focus-visible:border-[#93B0FF]"
+              className="h-8 rounded-[8px] border border-black/[0.09] px-3 text-[12.5px] font-medium text-neutral-900 outline-none transition-colors duration-150 hover:bg-neutral-100 focus-visible:border-[#0F6FFF] dark:border-white/[0.08] dark:text-neutral-100 dark:hover:bg-white/10 dark:focus-visible:border-[#2E8BFF]"
             >
               Cancel
             </button>
             <button
               type="button"
               onClick={confirm}
-              className="grid h-8 place-items-center rounded-[8px] bg-stone-800 px-3 text-[12.5px] font-medium text-white outline-none transition-colors duration-150 hover:bg-stone-700 focus-visible:shadow-[inset_0_0_0_1px_#93B0FF] dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-white focus-visible:dark:shadow-[inset_0_0_0_1px_#4568FF]"
+              className="grid h-8 place-items-center rounded-[8px] bg-[#F2303F] bg-[linear-gradient(180deg,rgba(255,255,255,0.22),rgba(255,255,255,0))] px-3 text-[12.5px] font-medium text-white shadow-[0_0_0_1px_#B81826,inset_0_1px_0_rgba(255,255,255,0.4)] outline-none transition-[filter] duration-150 hover:brightness-110 focus-visible:shadow-[0_0_0_1px_#B81826,0_0_0_3px_rgba(242,48,63,0.35)] disabled:opacity-60"
             >
               <span aria-hidden className="invisible col-start-1 row-start-1">
                 Deleting
@@ -83,7 +83,7 @@ export function ModalDemo() {
           </>
         }
       >
-        <p className="text-stone-500 dark:text-stone-400">
+        <p className="text-neutral-500 dark:text-neutral-400">
           Four deployments and one custom domain are attached.
         </p>
       </Modal>

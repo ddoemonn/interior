@@ -1,18 +1,15 @@
+import { Mark } from "./mark";
 
 export function Logo({ size = 14 }: { size?: number }) {
   return (
     <span
-      className="inline-block whitespace-nowrap tracking-[-0.02em]"
-      style={{ fontSize: size }}
+      className="inline-flex items-center whitespace-nowrap text-ink"
+      style={{ fontSize: size, gap: size * 0.45 }}
     >
-      <span className="font-semibold text-ink">interior</span>
-      <span
-        className="mx-[2.5px] font-semibold tracking-[0.04em]"
-        style={{ color: "var(--accent)" }}
-      >
-        [.]
+      <Mark size={size * 1.4} />
+      <span className="font-semibold tracking-[-0.035em]">
+        interior<span className="font-medium text-ink-3">.dev</span>
       </span>
-      <span className="font-medium text-ink-3">dev</span>
     </span>
   );
 }

@@ -128,12 +128,12 @@ export function TaskSteps({
         {rows.map((row) => {
           const tone =
             row.status === "done"
-              ? "text-stone-600 dark:text-stone-300"
+              ? "text-neutral-600 dark:text-neutral-300"
               : row.status === "active"
-                ? "font-medium text-stone-800 dark:text-stone-100"
+                ? "font-medium text-neutral-900 dark:text-neutral-100"
                 : row.status === "error"
-                  ? "font-medium text-red-600 dark:text-red-400"
-                  : "text-stone-400 dark:text-stone-500";
+                  ? "font-medium text-[#F2303F] dark:text-[#FF4658]"
+                  : "text-neutral-400 dark:text-neutral-500";
 
           return (
             <li
@@ -146,7 +146,7 @@ export function TaskSteps({
                   {row.status === "done" ? (
                     <motion.span
                       key="done"
-                      className="col-start-1 row-start-1 grid size-4 place-items-center rounded-[5px] bg-emerald-500/[0.14] text-emerald-600 dark:bg-emerald-400/[0.16] dark:text-emerald-400"
+                      className="col-start-1 row-start-1 grid size-4 place-items-center rounded-[5px] bg-[#06B457]/[0.14] text-[#06B457] dark:bg-[#2FE582]/[0.16] dark:text-[#2FE582]"
                       initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.4 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, transition: STILL }}
@@ -157,7 +157,7 @@ export function TaskSteps({
                   ) : row.status === "error" ? (
                     <motion.span
                       key="error"
-                      className="col-start-1 row-start-1 grid size-4 place-items-center rounded-[5px] bg-red-500/[0.12] text-red-600 dark:bg-red-400/[0.14] dark:text-red-400"
+                      className="col-start-1 row-start-1 grid size-4 place-items-center rounded-[5px] bg-[#F2303F]/[0.12] text-[#F2303F] dark:bg-[#FF4658]/[0.14] dark:text-[#FF4658]"
                       initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.4 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, transition: STILL }}
@@ -168,7 +168,7 @@ export function TaskSteps({
                   ) : row.status === "active" ? (
                     <motion.span
                       key="active"
-                      className="col-start-1 row-start-1 text-stone-500 dark:text-stone-400"
+                      className="col-start-1 row-start-1 text-[#0F6FFF] dark:text-[#2E8BFF]"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0, transition: STILL }}
@@ -179,7 +179,7 @@ export function TaskSteps({
                   ) : (
                     <motion.span
                       key="pending"
-                      className="col-start-1 row-start-1 size-[5px] rounded-[2px] bg-stone-300 dark:bg-white/20"
+                      className="col-start-1 row-start-1 size-[5px] rounded-[2px] bg-neutral-300 dark:bg-white/20"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0, transition: STILL }}
@@ -207,9 +207,9 @@ export function TaskSteps({
 
               {row.meta ? (
                 <span
-                  className={`shrink-0 font-mono text-[10.5px] tabular-nums transition-opacity duration-200 ${
+                  className={`shrink-0 tabular-nums text-[10.5px] tabular-nums transition-opacity duration-200 ${
                     row.status === "done"
-                      ? "text-stone-400 opacity-100 dark:text-stone-500"
+                      ? "text-neutral-400 opacity-100 dark:text-neutral-500"
                       : "opacity-0"
                   }`}
                   aria-hidden={row.status !== "done"}

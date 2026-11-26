@@ -110,9 +110,9 @@ function HoldFilm({ playing }: { playing: boolean }) {
   );
   return (
     <div className="flex justify-center">
-      <button ref={button} {...bind} type="button" className="relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] border border-stone-200 bg-white px-4 text-[13px] font-medium text-stone-700 dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200">
+      <button ref={button} {...bind} type="button" className="relative isolate inline-grid h-10 select-none place-items-center overflow-hidden rounded-[9px] border border-black/[0.13] bg-white px-4 text-[13px] font-medium text-neutral-900 dark:border-[#050505] dark:bg-[#2A2A29] dark:text-neutral-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)] bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.035))] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))]">
         {labels}
-        <motion.span style={{ clipPath }} className="absolute inset-0 grid place-items-center bg-stone-800 px-4 text-white dark:bg-stone-100 dark:text-stone-900">{labels}</motion.span>
+        <motion.span style={{ clipPath }} className="absolute inset-0 grid place-items-center bg-neutral-800 px-4 text-white dark:bg-neutral-100 dark:text-neutral-900 shadow-[0_0_0_1px_#0c0c0c,inset_0_1px_0_rgba(255,255,255,0.28),inset_0_-1px_0_rgba(0,0,0,0.22)] dark:shadow-[0_0_0_1px_#000,inset_0_1px_0_#fff,inset_0_-1px_0_rgba(0,0,0,0.22)] bg-[linear-gradient(180deg,rgba(255,255,255,0.16),rgba(255,255,255,0))] dark:bg-[linear-gradient(180deg,#fff,rgba(214,214,210,0.9))]">{labels}</motion.span>
       </button>
     </div>
   );
@@ -196,8 +196,9 @@ export function LandingDemo({ name, slug }: { name: string; slug: LandingDemoSlu
   }, []);
   const playing = visible && pageVisible && reduced === false && !paused;
   return (
-    <div ref={frame} role="img" aria-label={`${name} preview. Interactive example available in the documentation.`} className="@container mat-well relative flex h-[224px] items-center rounded-[11px] px-5 sm:h-[240px] sm:px-6">
-      <div key={playing ? "playing" : "still"} inert aria-hidden="true" className="pointer-events-none w-full min-w-0 select-none">
+    <div ref={frame} role="img" aria-label={`${name} preview. Interactive example available in the documentation.`} className="@container stage-room relative flex h-[224px] items-center rounded-[11px] px-5 sm:h-[240px] sm:px-6">
+      <span aria-hidden className="stage-floor" />
+      <div key={playing ? "playing" : "still"} inert aria-hidden="true" className="pointer-events-none relative z-[1] w-full min-w-0 select-none">
         {slug === "loading-button" ? <LoadingFilm playing={playing} /> : slug === "hold-to-confirm" ? <HoldFilm playing={playing} /> : slug === "like-burst" ? <LikeFilm playing={playing} /> : slug === "tooltip-group" ? <TooltipFilm playing={playing} /> : <SelectionFilm slug={slug} playing={playing} />}
       </div>
     </div>

@@ -22,7 +22,7 @@ export function TooltipGroupDemo() {
               label={
                 <span className="flex items-center gap-2">
                   {tool.label}
-                  <span className="font-mono text-[9.5px] opacity-60">
+                  <span className="tabular-nums text-[9.5px] opacity-60">
                     {tool.hint}
                   </span>
                 </span>
@@ -30,7 +30,7 @@ export function TooltipGroupDemo() {
             >
               <button
                 type="button"
-                className="mat-cap press flex h-9 w-10 items-center justify-center rounded-[7px] font-mono text-[12.5px] text-ink-2 hover:text-ink"
+                className="mat-cap press flex h-9 w-10 items-center justify-center rounded-[7px] tabular-nums text-[12.5px] text-ink-2 hover:text-ink"
               >
                 {tool.glyph}
               </button>

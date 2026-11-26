@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/site/theme-toggle";
-import { BrandMark } from "@/components/site/brand-mark";
 import { Logo } from "@/components/site/logo";
 import { LandingSections } from "@/components/site/landing-sections";
-import { LIBRARY_FEATURE } from "@/lib/testimonials";
+import { LIBRARY_FEATURE, VIDEO_FEATURE } from "@/lib/testimonials";
 import { GITHUB, SEO_DESCRIPTION, SITE, TITLE } from "@/lib/site";
 
 const STAR_BADGE = /^\d+(\.\d+)?[kKmM]?$/;
@@ -56,16 +55,18 @@ export default async function Home() {
   };
 
   return (
-    <div className="flex min-h-screen flex-1 p-3 sm:p-5">
+    <div className="flex min-h-screen flex-1">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(website).replace(/</g, "\\u003c") }}
       />
-      <div className="landing-panel mat-panel flex min-h-0 flex-1 flex-col overflow-hidden rounded-[20px]">
-        <header className="flex h-12 shrink-0 items-center gap-4 border-b border-hairline px-5">
-          <Logo />
+      <div className="landing-panel relative flex min-h-0 flex-1 flex-col overflow-hidden bg-white dark:bg-black">
+        <header className="nav-slab flex h-12 shrink-0 items-center gap-4 px-5">
+          <span className="landing-rail-from relative">
+            <Logo />
+          </span>
           <span className="flex-1" />
-          <nav aria-label="Main" className="mr-2 hidden items-center gap-5 text-[12.5px] text-ink-3 sm:flex">
+          <nav aria-label="Main" className="mr-2 hidden items-center gap-5 text-[13px] font-medium text-ink-3 sm:flex">
             <a href="#components" className="inline-flex min-h-11 items-center hover:text-ink">Components</a>
             <a href="#install" className="inline-flex min-h-11 items-center hover:text-ink">Get started</a>
           </nav>
@@ -74,18 +75,17 @@ export default async function Home() {
 
         <main className="flex-1 px-6 sm:px-12">
           <div className="mx-auto w-full max-w-[900px]">
-            <section aria-label="Introduction" className="py-10 sm:py-24">
-              <div className="w-fit origin-left scale-[1.3] sm:scale-[1.6]">
-                <BrandMark />
-              </div>
+            <section aria-label="Introduction" className="landing-hero relative py-24 text-center sm:py-56">
+              <span aria-hidden className="hero-floor" />
+              <div className="relative z-[1]">
 
-              <h1 className="mt-8 max-w-[22ch] text-balance text-[clamp(26px,7.6vw,32px)] font-medium leading-[1.08] tracking-[-0.04em] text-ink sm:mt-16 sm:text-[clamp(32px,5.6vw,52px)]">
+              <h1 className="mx-auto max-w-[22ch] text-balance text-[clamp(26px,7.6vw,32px)] font-medium leading-[1.08] tracking-[-0.04em] text-ink sm:text-[clamp(34px,5.6vw,58px)]">
                 Software feels cheap in the{" "}
                 <span className="whitespace-nowrap">half-second</span> after a
                 click.
               </h1>
 
-              <div className="mt-6 grid max-w-[44ch] gap-3 text-[13.5px] leading-[1.7] text-ink-2 sm:mt-9 sm:gap-4 sm:text-[15px]">
+              <div className="mx-auto mt-6 grid max-w-[46ch] gap-3 text-[13.5px] leading-[1.7] text-ink-2 sm:mt-9 sm:gap-4 sm:text-[15px]">
                 <p>
                   The fade a beat too slow. The spinner outliving the request. The
                   row that jumps as it loads.
@@ -96,11 +96,10 @@ export default async function Home() {
                 </p>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3 sm:mt-12">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:mt-12">
                 <Link
                   href="/docs"
-                  className="press inline-flex h-8 items-center rounded-[9px] px-3 text-[12.5px] font-medium sm:h-9 sm:px-3.5 sm:text-[13px]"
-                  style={{ background: "var(--ink)", color: "var(--panel)" }}
+                  className="mat-ink press inline-flex h-8 items-center rounded-[9px] px-3 text-[12.5px] font-medium sm:h-9 sm:px-3.5 sm:text-[13px]"
                 >
                   See the components
                 </Link>
@@ -109,8 +108,7 @@ export default async function Home() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={stars === null ? "View interior.dev on GitHub" : `View interior.dev on GitHub, ${stars} stars`}
-                  className="group press inline-flex h-8 items-center gap-1.5 rounded-[9px] px-3 text-[12.5px] font-medium text-ink ring-1 ring-hairline-strong sm:h-9 sm:px-3.5 sm:text-[13px]"
-                  style={{ background: "var(--well)" }}
+                  className="group mat-cap press inline-flex h-8 items-center gap-1.5 rounded-[9px] px-3 text-[12.5px] font-medium text-ink sm:h-9 sm:px-3.5 sm:text-[13px]"
                 >
                   <svg
                     className="shrink-0"
@@ -153,9 +151,15 @@ export default async function Home() {
                   </svg>
                 </a>
               </div>
-              <a href={LIBRARY_FEATURE} target="_blank" rel="noreferrer" className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-[11.5px] leading-relaxed text-ink-3 hover:text-ink">
-                Library of the Month on <span className="font-medium text-ink-2">21st.dev</span><span aria-hidden="true">↗</span>
-              </a>
+              <div className="mt-5 flex flex-col items-center text-[11.5px] leading-relaxed text-ink-3">
+                <a href={LIBRARY_FEATURE} target="_blank" rel="noreferrer" className="inline-flex min-h-8 items-center gap-1.5 hover:text-ink">
+                  Library of the Month on <span className="font-medium text-ink-2">21st.dev</span><span aria-hidden="true">↗</span>
+                </a>
+                <a href={VIDEO_FEATURE} target="_blank" rel="noreferrer" className="inline-flex min-h-8 items-center gap-1.5 hover:text-ink">
+                  Featured by <span className="font-medium text-ink-2">OrcDev</span> on YouTube<span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              </div>
             </section>
             <LandingSections />
           </div>

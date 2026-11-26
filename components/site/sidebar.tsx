@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { CaretRightIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
 import { categories, getCategoryOf, type Entry } from "@/lib/registry";
+import { NewBadge } from "./new-badge";
 import { Logo } from "./logo";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
@@ -69,7 +70,7 @@ export function Sidebar() {
             <Logo size={15} />
           </Link>
         </div>
-        <div className="mat-well flex h-[34px] items-center gap-2 rounded-[9px] px-2.5">
+        <div className="docs-filter mat-well flex h-[34px] items-center gap-2 rounded-[9px] px-2.5">
           <MagnifyingGlassIcon
             size={13}
             weight="bold"
@@ -84,7 +85,7 @@ export function Sidebar() {
             onKeyDown={(e) => e.key === "Escape" && setQ("")}
             placeholder="Filter"
             aria-label="Filter components"
-            className="min-w-0 flex-1 bg-transparent text-[13px] text-ink outline-none placeholder:text-ink-3"
+            className="min-w-0 flex-1 bg-transparent text-[13px] text-ink !outline-none placeholder:text-ink-3"
           />
           {query ? (
             <span className="tnum shrink-0 font-mono text-[9.5px] text-ink-3">
@@ -213,6 +214,7 @@ function Row({ entry, active }: { entry: Entry; active: boolean }) {
         >
           {entry.name}
         </span>
+        {entry.isNew ? <NewBadge className="ml-auto" /> : null}
       </Link>
     </li>
   );
@@ -236,7 +238,9 @@ function Strip({
             style={{
               background: here
                 ? "var(--accent)"
-                : e.status === "ready"
+                : e.isNew
+                  ? "linear-gradient(100deg, #f02d92, #ff5a12)"
+                  : e.status === "ready"
                   ? "color-mix(in oklab, var(--ink) 42%, transparent)"
                   : "color-mix(in oklab, var(--ink) 13%, transparent)",
             }}

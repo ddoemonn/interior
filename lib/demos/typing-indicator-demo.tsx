@@ -99,8 +99,8 @@ export function TypingIndicatorDemo() {
                   style={{ transformOrigin: mine ? "100% 100%" : "0% 100%" }}
                   className={`max-w-[76%] rounded-[14px] px-3 py-2 text-[12.5px] leading-snug ${
                     mine
-                      ? "self-end bg-[#4568FF] text-white"
-                      : "self-start bg-stone-200 text-ink dark:bg-white/[0.09]"
+                      ? "self-end bg-[#0F6FFF] text-white"
+                      : "self-start bg-neutral-200 text-ink dark:bg-white/[0.09]"
                   }`}
                 >
                   {message.text}

@@ -17,7 +17,7 @@ export function CollapsibleBannerDemo() {
         action={
           <button
             type="button"
-            className="h-7 rounded-[7px] border border-stone-200 bg-stone-50 px-2.5 text-[11.5px] font-medium text-stone-700 transition-colors duration-150 hover:bg-stone-100 dark:border-white/[0.16] dark:bg-white/[0.06] dark:text-stone-100 dark:hover:bg-white/10"
+            className="h-7 rounded-[7px] border border-black/[0.09] bg-neutral-50 px-2.5 text-[11.5px] font-medium text-neutral-900 transition-colors duration-150 hover:bg-neutral-100 dark:border-white/[0.08] dark:bg-white/[0.06] dark:text-neutral-100 dark:hover:bg-white/10"
           >
             Upgrade plan
           </button>

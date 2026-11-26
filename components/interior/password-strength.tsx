@@ -32,6 +32,7 @@ export type PasswordStrengthState = {
   label: string;
   rules: EvaluatedRule[];
   guessable: boolean;
+  reason: string;
   announcement: string;
 };
 
@@ -59,8 +60,17 @@ export function usePasswordStrength(
   const state = useMemo(() => {
     const evaluated = rules.map((rule) => ({ ...rule, met: rule.test(value) }));
     const passed = evaluated.reduce((n, r) => n + (r.met ? 1 : 0), 0);
-    const guessable =
-      value.length > 0 && (COMMON.test(value) || RUN.test(value) || RUN_UP.test(value));
+    const reason =
+      value.length === 0
+        ? ""
+        : COMMON.test(value)
+          ? "A common password"
+          : RUN.test(value)
+            ? "Repeated characters"
+            : RUN_UP.test(value)
+              ? "A sequence like 1234"
+              : "";
+    const guessable = reason !== "";
 
     const score =
       value.length === 0 ? 0 : guessable ? 1 : Math.min(rules.length, Math.max(1, passed));
@@ -73,7 +83,7 @@ export function usePasswordStrength(
         ? ""
         : [
             `Password strength ${label.toLowerCase()}.`,
-            guessable ? "This is a commonly guessed pattern." : "",
+            guessable ? `${reason}, which is easy to guess.` : "",
             unmet.length === 0
               ? "All requirements met."
               : `Still needed: ${unmet.map((r) => r.label.toLowerCase()).join(", ")}.`,
@@ -81,7 +91,7 @@ export function usePasswordStrength(
             .filter(Boolean)
             .join(" ");
 
-    return { score, max: rules.length, label, rules: evaluated, guessable, announcement };
+    return { score, max: rules.length, label, rules: evaluated, guessable, reason, announcement };
   }, [value, rules, labels]);
 
   const [settled, setSettled] = useState("");
@@ -108,10 +118,10 @@ export type PasswordStrengthProps = {
 };
 
 const TONES = {
-  none: { bar: "bg-stone-300 dark:bg-white/20", text: "text-stone-500 dark:text-stone-400" },
-  danger: { bar: "bg-red-500", text: "text-red-600 dark:text-red-400" },
-  caution: { bar: "bg-amber-500", text: "text-amber-600 dark:text-amber-400" },
-  safe: { bar: "bg-emerald-500", text: "text-emerald-600 dark:text-emerald-400" },
+  none: { bar: "bg-neutral-300 dark:bg-white/20", text: "text-neutral-500 dark:text-neutral-400" },
+  danger: { bar: "bg-[#F2303F] shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:bg-[#FF4658]", text: "text-[#F2303F] dark:text-[#FF4658]" },
+  caution: { bar: "bg-[#F29D00] shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:bg-[#FFC21F]", text: "text-[#F29D00] dark:text-[#FFC21F]" },
+  safe: { bar: "bg-[#06B457] shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:bg-[#2FE582]", text: "text-[#06B457] dark:text-[#2FE582]" },
 } as const;
 
 function toneFor(score: number, max: number) {
@@ -136,6 +146,7 @@ export function PasswordStrength({
     label,
     rules: evaluated,
     guessable,
+    reason,
     announcement,
   } = usePasswordStrength(value, { rules, labels, announceDelay });
   const reduced = useReducedMotion();
@@ -156,7 +167,7 @@ export function PasswordStrength({
         {Array.from({ length: max }, (_, i) => (
           <div
             key={i}
-            className="relative h-1.5 overflow-hidden rounded-[2px] bg-stone-200 dark:bg-white/12"
+            className="relative h-1.5 overflow-hidden rounded-[2px] bg-neutral-200 dark:bg-white/12"
           >
             <motion.span
               className={`absolute inset-0 origin-left rounded-[2px] transition-colors duration-200 ${tone.bar}`}
@@ -188,12 +199,12 @@ export function PasswordStrength({
 
         <motion.span
           aria-hidden
-          className="whitespace-nowrap text-[11.5px] leading-5 text-amber-600 dark:text-amber-400"
+          className="whitespace-nowrap text-[11.5px] leading-5 text-[#F29D00] dark:text-[#FFC21F]"
           initial={false}
-          animate={{ opacity: guessable ? 1 : 0 }}
+          animate={{ opacity: guessable ? 1 : 0, y: guessable ? 0 : 2 }}
           transition={reduced ? INSTANT : CROSSFADE}
         >
-          Commonly guessed
+          {reason || "Easy to guess"}
         </motion.span>
       </div>
 
@@ -201,9 +212,9 @@ export function PasswordStrength({
         <ul className="mt-3 grid gap-1.5">
           {evaluated.map((rule) => (
             <li key={rule.id} className="flex items-center gap-2">
-              <span className="relative grid size-[14px] shrink-0 place-items-center rounded-[4px] border border-stone-200 text-white dark:border-white/[0.16] dark:text-stone-900">
+              <span className="relative grid size-[14px] shrink-0 place-items-center rounded-[4px] border border-black/[0.09] text-white dark:border-white/[0.08] dark:text-neutral-900">
                 <motion.span
-                  className="absolute inset-0 rounded-[3px] bg-emerald-500"
+                  className="absolute inset-0 rounded-[3px] bg-[#06B457]"
                   initial={false}
                   animate={{ opacity: rule.met ? 1 : 0 }}
                   transition={reduced ? INSTANT : CROSSFADE}
@@ -229,8 +240,8 @@ export function PasswordStrength({
               <span
                 className={`text-[12.5px] leading-5 transition-colors duration-200 ${
                   rule.met
-                    ? "text-stone-700 dark:text-stone-200"
-                    : "text-stone-500 dark:text-stone-400"
+                    ? "text-neutral-900 dark:text-neutral-100"
+                    : "text-neutral-500 dark:text-neutral-400"
                 }`}
               >
                 {rule.label}

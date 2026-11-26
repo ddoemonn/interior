@@ -361,10 +361,10 @@ export function OtpInput({
 
   const message = error ? errorMessage : success ? successMessage : hint;
   const messageTone = error
-    ? "text-red-600 dark:text-red-400"
+    ? "text-[#F2303F] dark:text-[#FF4658]"
     : success
-      ? "text-emerald-600 dark:text-emerald-400"
-      : "text-stone-500 dark:text-stone-400";
+      ? "text-[#06B457] dark:text-[#2FE582]"
+      : "text-neutral-500 dark:text-neutral-400";
 
   return (
     <div className={`inline-flex flex-col ${className}`}>
@@ -392,16 +392,16 @@ export function OtpInput({
                 aria-label={`${label}, character ${i + 1} of ${length}`}
                 aria-invalid={error || undefined}
                 aria-describedby={hasStatus ? statusId : undefined}
-                className={`h-12 w-10 rounded-[10px] border-2 text-center text-[15px] text-transparent caret-transparent outline-none transition-[background-color,border-color,box-shadow] duration-150 selection:bg-transparent focus-visible:outline-none disabled:opacity-50 ${
+                className={`h-12 w-10 rounded-[10px] border text-center text-[15px] text-transparent caret-transparent outline-none transition-[background-color,border-color,box-shadow] duration-150 selection:bg-transparent focus-visible:outline-none disabled:opacity-50 ${
                   error
-                    ? "border-red-500 bg-white dark:border-red-400 dark:bg-[#252522]"
+                    ? "border-[#F2303F] bg-white shadow-[0_0_0_3px_rgba(242,48,63,0.12)] dark:border-[#FF4658] dark:bg-[#1C1C1B] dark:shadow-[0_0_0_3px_rgba(255,70,88,0.18)]"
                     : success
-                      ? "border-emerald-500 bg-white dark:border-emerald-400 dark:bg-[#252522]"
+                      ? "border-[#06B457] bg-white dark:border-[#2FE582] dark:bg-[#1C1C1B]"
                       : active
-                        ? "border-[#4568FF] bg-white dark:border-[#93B0FF] dark:bg-[#252522]"
+                        ? "border-[#0F6FFF] bg-white shadow-[0_0_0_3px_rgba(15,111,255,0.14)] dark:border-[#2E8BFF] dark:bg-[#1C1C1B] dark:shadow-[0_0_0_3px_rgba(46,139,255,0.22)]"
                         : char
-                          ? "border-stone-300 bg-white dark:border-white/20 dark:bg-[#252522]"
-                          : "border-stone-200 bg-stone-100/70 shadow-[inset_0_1px_2px_rgba(28,25,23,0.07)] dark:border-white/[0.08] dark:bg-[#1D1D1A] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.45)]"
+                          ? "border-black/[0.2] bg-white dark:border-white/[0.14] dark:bg-[#1C1C1B]"
+                          : "border-black/[0.12] bg-white shadow-[inset_0_1px_2px_rgba(0,0,0,0.07)] dark:border-white/[0.1] dark:bg-[#1C1C1B] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.55)]"
                 }`}
               />
 
@@ -425,7 +425,7 @@ export function OtpInput({
                           : { opacity: 0, scale: 0.98, y: -6, filter: "blur(3px)" }
                       }
                       transition={enter}
-                      className="col-start-1 row-start-1 font-mono text-[15px] tabular-nums text-stone-700 dark:text-stone-200"
+                      className="col-start-1 row-start-1 tabular-nums text-[15px] tabular-nums text-neutral-900 dark:text-neutral-100"
                     >
                       {char}
                     </motion.span>
@@ -434,7 +434,7 @@ export function OtpInput({
 
                 {active && !char && !disabled ? (
                   <motion.span
-                    className="col-start-1 row-start-1 block h-[17px] w-[1.5px] rounded-[1px] bg-stone-700 dark:bg-stone-200"
+                    className="col-start-1 row-start-1 block h-[17px] w-[1.5px] rounded-[1px] bg-neutral-700 dark:bg-neutral-200"
                     initial={{ opacity: 1 }}
                     animate={reduced ? { opacity: 1 } : { opacity: [1, 1, 0, 0] }}
                     transition={

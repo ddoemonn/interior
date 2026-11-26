@@ -3,6 +3,8 @@
 // Images are local snapshots so the landing doesn't depend on X at render time.
 export const LAUNCH_POST = "https://x.com/ozzyxs1a/status/2082917975141613811";
 export const LIBRARY_FEATURE = "https://21st.dev/@ddoemonn/library/interior-dev";
+// OrcDev, "4 Open Source Tools That Feel Illegal To Be Free"; the link opens at the part about interior.
+export const VIDEO_FEATURE = "https://www.youtube.com/watch?v=ZeXz1CHnCFg&t=368s";
 
 export const testimonials = [
   {

@@ -53,6 +53,15 @@ import { TreeViewDemo } from "./tree-view-demo";
 import { TypingIndicatorDemo } from "./typing-indicator-demo";
 import { ValueFlashDemo } from "./value-flash-demo";
 import { WizardStepsDemo } from "./wizard-steps-demo";
+import { SegmentMeterDemo } from "./segment-meter-demo";
+import { SparkBarsDemo } from "./spark-bars-demo";
+import { QuotaRingDemo } from "./quota-ring-demo";
+import { SpringSwitchDemo } from "./spring-switch-demo";
+import { ReactionBarDemo } from "./reaction-bar-demo";
+import { NumberStepperDemo } from "./number-stepper-demo";
+import { HeatCellsDemo } from "./heat-cells-demo";
+import { StatusTagDemo } from "./status-tag-demo";
+import { ShortcutKeysDemo } from "./shortcut-keys-demo";
 
 export const bleedDemos = new Set<string>([
   "live-activity",
@@ -117,4 +126,13 @@ export const demos: Record<string, ComponentType> = {
   "typing-indicator": TypingIndicatorDemo,
   "value-flash": ValueFlashDemo,
   "wizard-steps": WizardStepsDemo,
+  "segment-meter": SegmentMeterDemo,
+  "spark-bars": SparkBarsDemo,
+  "quota-ring": QuotaRingDemo,
+  "spring-switch": SpringSwitchDemo,
+  "reaction-bar": ReactionBarDemo,
+  "number-stepper": NumberStepperDemo,
+  "heat-cells": HeatCellsDemo,
+  "status-tag": StatusTagDemo,
+  "shortcut-keys": ShortcutKeysDemo,
 };

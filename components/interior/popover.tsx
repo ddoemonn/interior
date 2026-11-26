@@ -315,7 +315,7 @@ export function Popover({
         aria-expanded={open}
         aria-controls={open ? id : undefined}
         onClick={() => setOpen(!open)}
-        className={`inline-flex h-9 select-none items-center gap-2 rounded-[9px] border border-stone-200 bg-white px-3 text-[13px] font-medium text-stone-700 outline-none transition-[border-color,box-shadow] duration-150 hover:border-stone-300 focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-200 dark:hover:border-white/20 dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)] ${triggerClassName}`}
+        className={`inline-flex h-9 select-none items-center gap-2 rounded-[9px] border border-black/[0.13] bg-white px-3 text-[13px] text-neutral-900 outline-none transition-[border-color,box-shadow] duration-150 hover:border-neutral-300 focus-visible:border-[#0F6FFF] focus-visible:shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_20px_-14px_rgba(15,111,255,0.6)] dark:border-[#050505] dark:bg-[#2A2A29] dark:text-neutral-100 dark:hover:border-black dark:focus-visible:border-[#2E8BFF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(46,139,255,0.5)] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)] bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.035))] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))] ${triggerClassName}`}
       >
         {trigger}
       </button>
@@ -356,13 +356,13 @@ export function Popover({
                   ? { duration: 0 }
                   : { ...CROSSFADE, opacity: { duration: 0.14, ease: EASE } }
               }
-              className={`relative rounded-[11px] border border-stone-200 bg-white p-3 shadow-[0_18px_40px_-24px_rgba(28,25,23,0.5)] focus-visible:outline-none dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)] ${className}`}
+              className={`relative rounded-[11px] border border-black/[0.13] bg-white p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_18px_40px_-24px_rgba(0,0,0,0.5)] focus-visible:outline-none dark:border-[#050505] dark:bg-[#141413] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),0_18px_40px_-24px_rgba(0,0,0,0.9)] ${className}`}
             >
               <span
                 ref={arrowRef}
                 aria-hidden
                 style={{ width: arrowSize, height: arrowSize, transform: "rotate(45deg)" }}
-                className={`absolute block bg-white dark:bg-[#1D1D1A] border-stone-200 dark:border-white/[0.16] ${ARROW_EDGE[at]}`}
+                className={`absolute block bg-white dark:bg-[#141413] border-black/[0.13] dark:border-[#050505] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),0_1px_0_rgba(255,255,255,0.055)] ${ARROW_EDGE[at]}`}
               />
               <div ref={contentRef} className="relative overflow-y-auto overscroll-contain">
                 {children}

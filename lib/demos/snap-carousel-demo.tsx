@@ -21,7 +21,7 @@ export function SnapCarouselDemo() {
                 <p className="text-[15px] font-medium text-ink">{room.name}</p>
                 <p className="mt-1 text-[11.5px] text-ink-3">{room.line}</p>
               </div>
-              <span className="absolute bottom-1.5 right-2.5 font-mono text-[9.5px] tabular-nums text-ink-3">
+              <span className="absolute bottom-1.5 right-2.5 tabular-nums text-[9.5px] tabular-nums text-ink-3">
                 {String(i + 1).padStart(2, "0")} · {String(ROOMS.length).padStart(2, "0")}
               </span>
             </div>

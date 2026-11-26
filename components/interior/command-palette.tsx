@@ -237,16 +237,16 @@ export function CommandPalette({
   const surface = (
     <div
       ref={panelRef}
-      className={`overflow-hidden rounded-[14px] border border-stone-200 bg-white dark:border-white/[0.16] dark:bg-[#1D1D1A] ${
+      className={`overflow-hidden rounded-[20px] border border-black/[0.13] bg-white bg-[linear-gradient(180deg,#fff,#fafafa)] p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:border-[#050505] dark:bg-[#1e1e1d] dark:bg-[linear-gradient(180deg,#232322,#1a1a19)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)] ${
         overlaid
-          ? "w-full max-w-[520px] shadow-[0_1px_2px_rgba(28,25,23,0.07),0_28px_56px_-24px_rgba(24,22,20,0.5)] dark:shadow-[0_3px_16px_rgba(0,0,0,0.65)]"
+          ? "w-full max-w-[540px] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.07),0_28px_56px_-24px_rgba(24,22,20,0.5)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),0_24px_48px_-16px_rgba(0,0,0,0.9)]"
           : ""
       } ${className}`}
     >
-      <div className="flex h-11 items-center gap-2.5 border-b border-stone-200 px-3 dark:border-white/[0.16]">
+      <div className="flex h-11 items-center gap-2.5 px-2.5 pb-1">
         <svg
           viewBox="0 0 16 16"
-          className="size-[14px] shrink-0 text-stone-500 dark:text-stone-400"
+          className="size-[14px] shrink-0 text-neutral-500 dark:text-neutral-400"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.4"
@@ -271,13 +271,16 @@ export function CommandPalette({
           placeholder={placeholder}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={onKeyDown}
-          className="h-full min-w-0 flex-1 bg-transparent text-[13.5px] text-stone-700 outline-none placeholder:text-stone-400 dark:text-stone-200 dark:placeholder:text-stone-500"
+          className="h-full min-w-0 flex-1 bg-transparent text-[13.5px] text-neutral-900 outline-none placeholder:text-neutral-400 dark:text-neutral-100 dark:placeholder:text-neutral-500"
         />
-        <span className="min-w-[3ch] shrink-0 text-right font-mono text-[9.5px] tabular-nums text-stone-500 dark:text-stone-400">
+        <span className="inline-flex h-[22px] shrink-0 items-center rounded-full bg-[#0F6FFF]/[0.1] px-2 text-[11.5px] font-medium tabular-nums text-[#0B5CD6] dark:bg-[#2E8BFF]/[0.18] dark:text-[#7DB8FF]">
           {count}
         </span>
       </div>
-      <div className="relative" style={{ height }}>
+      <div
+        className="relative rounded-[14px] bg-neutral-100 shadow-[inset_0_1px_2px_rgba(0,0,0,0.09),inset_0_0_0_1px_rgba(0,0,0,0.07),0_1px_0_rgba(255,255,255,0.95)] dark:bg-[#121211] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.6),inset_0_0_0_1px_rgba(0,0,0,0.5),0_1px_0_rgba(255,255,255,0.055)]"
+        style={{ height }}
+      >
         <ul
           ref={listRef}
           id={`${uid}-list`}
@@ -307,15 +310,15 @@ export function CommandPalette({
                   initial={false}
                   animate={{ opacity: active ? 1 : 0 }}
                   transition={reduced ? { duration: 0 } : CROSSFADE}
-                  className="absolute inset-0 rounded-[9px] bg-stone-100 dark:bg-white/10"
+                  className="absolute inset-0 rounded-[9px] border border-black/[0.13] bg-white bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.035))] shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:border-[#050505] dark:bg-[#2E2E2D] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)]"
                 />
                 <span className="relative flex min-w-0 flex-1 items-center gap-2.5">
-                  <span className="truncate text-[13px] font-medium text-stone-700 dark:text-stone-200">
+                  <span className="truncate text-[13px] font-medium text-neutral-900 dark:text-neutral-100">
                     {item.label}
                   </span>
 
                   {item.hint ? (
-                    <span className="hidden shrink-0 text-[11.5px] text-stone-500 sm:inline dark:text-stone-400">
+                    <span className="hidden shrink-0 text-[12px] text-neutral-500 sm:inline dark:text-neutral-400">
                       {item.hint}
                     </span>
                   ) : null}
@@ -325,13 +328,25 @@ export function CommandPalette({
                       {item.shortcut.map((key) => (
                         <span
                           key={key}
-                          className="flex h-[18px] min-w-[18px] items-center justify-center rounded-[5px] border border-stone-200 px-1 font-mono text-[9.5px] tabular-nums text-stone-500 dark:border-white/[0.16] dark:text-stone-400"
+                          className="flex h-[18px] min-w-[18px] items-center justify-center rounded-[5px] border border-black/[0.09] px-1 tabular-nums text-[9.5px] tabular-nums text-neutral-500 dark:border-white/[0.08] dark:text-neutral-400"
                         >
                           {key}
                         </span>
                       ))}
                     </span>
                   ) : null}
+
+                  <motion.span
+                    aria-hidden
+                    initial={false}
+                    animate={{ opacity: active ? 1 : 0, x: active ? 0 : -4 }}
+                    transition={reduced ? { duration: 0 } : CROSSFADE}
+                    className={`${item.shortcut ? "" : "ml-auto"} grid h-[20px] min-w-[20px] shrink-0 place-items-center rounded-[6px] bg-[#0F6FFF] px-1 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] dark:bg-[#2E8BFF]`}
+                  >
+                    <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12.5 3.5v4a2 2 0 0 1-2 2h-7M6 7 3.5 9.5 6 12" />
+                    </svg>
+                  </motion.span>
                 </span>
               </motion.li>
             );
@@ -343,11 +358,33 @@ export function CommandPalette({
             initial={reduced ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={reduced ? { duration: 0 } : CROSSFADE}
-            className="pointer-events-none absolute inset-0 flex items-center justify-center px-3 text-center text-[12.5px] text-stone-500 dark:text-stone-400"
+            className="pointer-events-none absolute inset-0 flex items-center justify-center px-3 text-center text-[12.5px] text-neutral-500 dark:text-neutral-400"
           >
             {emptyLabel}
           </motion.p>
         ) : null}
+      </div>
+      <div
+        aria-hidden
+        className="flex h-9 items-center gap-3 px-2.5 pt-1 text-[11.5px] text-neutral-500 dark:text-neutral-400"
+      >
+        {[
+          { keys: ["↑", "↓"], text: "move" },
+          { keys: ["↵"], text: "open" },
+          { keys: ["esc"], text: "close" },
+        ].map((hint) => (
+          <span key={hint.text} className="inline-flex items-center gap-1.5">
+            {hint.keys.map((key) => (
+              <span
+                key={key}
+                className="grid h-[18px] min-w-[18px] place-items-center rounded-[5px] border border-black/[0.13] bg-white px-1 text-[10.5px] font-medium text-neutral-700 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] dark:border-[#050505] dark:bg-[#2E2E2D] dark:text-neutral-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)]"
+              >
+                {key}
+              </span>
+            ))}
+            {hint.text}
+          </span>
+        ))}
       </div>
       <span ref={liveRef} role="status" aria-live="polite" className="sr-only" />
     </div>
@@ -442,7 +479,7 @@ function PaletteLayer({
         >
           <motion.div
             aria-hidden
-            className="absolute inset-0 bg-stone-900/40 dark:bg-black/65"
+            className="absolute inset-0 bg-neutral-900/40 dark:bg-black/65"
             variants={{
               closed: { opacity: 0 },
               open: {

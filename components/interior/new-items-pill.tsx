@@ -183,7 +183,7 @@ export function NewItemsPill({
                 ? INSTANT
                 : { ...ARRIVE, opacity: { duration: 0.16, ease: EASE } }
             }
-            className="pointer-events-auto inline-flex h-8 select-none items-center gap-1.5 rounded-[9px] border border-stone-200 bg-white pl-2 pr-2.5 text-[12.5px] font-medium text-stone-700 shadow-[0_1px_2px_rgba(28,25,23,0.08),0_6px_14px_-10px_rgba(28,25,23,0.45)] outline-none transition-[border-color,box-shadow] duration-150 focus-visible:border-[#4568FF] focus-visible:shadow-[0_2px_4px_rgba(28,25,23,0.1),0_12px_22px_-12px_rgba(69,104,255,0.55)] dark:border-white/[0.16] dark:bg-[#1D1D1A] dark:text-stone-100 dark:shadow-[0_2px_8px_rgba(0,0,0,0.5)] dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_2px_10px_rgba(0,0,0,0.6),0_12px_22px_-12px_rgba(147,176,255,0.4)]"
+            className="pointer-events-auto inline-flex h-8 select-none items-center gap-1.5 rounded-[9px] border border-black/[0.13] bg-white pl-2 pr-2.5 text-[12.5px] text-neutral-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_1px_2px_rgba(0,0,0,0.08),0_6px_14px_-10px_rgba(0,0,0,0.45)] outline-none transition-[border-color,box-shadow] duration-150 focus-visible:border-[#0F6FFF] focus-visible:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_12px_22px_-12px_rgba(15,111,255,0.55)] dark:border-[#050505] dark:bg-[#2A2A29] dark:text-neutral-100 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)] dark:focus-visible:border-[#2E8BFF] dark:focus-visible:shadow-[0_2px_10px_rgba(0,0,0,0.6),0_12px_22px_-12px_rgba(46,139,255,0.4)] bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.035))] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))]"
           >
             <svg
               width="14"
@@ -191,7 +191,7 @@ export function NewItemsPill({
               viewBox="0 0 256 256"
               fill="none"
               aria-hidden="true"
-              className={anchor === "bottom" ? "rotate-180" : ""}
+              className={`text-[#0F6FFF] dark:text-[#2E8BFF] ${anchor === "bottom" ? "rotate-180" : ""}`}
             >
               <line
                 x1="128"

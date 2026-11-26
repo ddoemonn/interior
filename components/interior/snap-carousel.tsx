@@ -355,7 +355,7 @@ export function SnapCarousel({
   });
 
   const button =
-    "grid size-7 place-items-center rounded-[6px] border border-stone-200 bg-white text-stone-700 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(28,25,23,0.06),0_1px_2px_rgba(28,25,23,0.08)] outline-none transition-[background-color,border-color,box-shadow,transform] duration-150 hover:bg-stone-50 active:translate-y-px active:shadow-[inset_0_1px_2px_rgba(28,25,23,0.06)] focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] dark:border-white/[0.16] dark:bg-[#252522] dark:text-stone-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4)] dark:hover:bg-[#2A2A27] dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)]";
+    "grid size-7 place-items-center rounded-[6px] border border-black/[0.13] bg-white text-neutral-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] outline-none transition-[background-color,border-color,box-shadow,transform] duration-150 hover:bg-neutral-50 active:translate-y-px active:shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)] focus-visible:border-[#0F6FFF] focus-visible:shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_20px_-14px_rgba(15,111,255,0.6)] dark:border-[#050505] dark:bg-[#2E2E2D] dark:text-neutral-100 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)] dark:hover:bg-[#363635] dark:focus-visible:border-[#2E8BFF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(46,139,255,0.5)] bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.035))] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))]";
 
   return (
     <div className={`w-full ${className}`}>
@@ -373,7 +373,7 @@ export function SnapCarousel({
               }
             : {}),
         }}
-        className="relative overflow-hidden rounded-[14px] py-1.5 outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
+        className="relative overflow-hidden rounded-[14px] py-1.5 outline-none focus-visible:bg-[#0F6FFF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#0F6FFF] dark:focus-visible:bg-[#2E8BFF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#2E8BFF]"
         {...car.viewportProps}
       >
         <motion.div
@@ -412,7 +412,7 @@ export function SnapCarousel({
               onClick={() => car.goTo(i)}
               aria-label={`Go to slide ${i + 1}`}
               aria-current={i === car.index ? "true" : undefined}
-              className="grid h-[18px] w-[16px] place-items-center rounded-[5px] outline-none focus-visible:bg-[#4568FF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#4568FF] dark:focus-visible:bg-[#93B0FF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#93B0FF]"
+              className="grid h-[18px] w-[16px] place-items-center rounded-[5px] outline-none focus-visible:bg-[#0F6FFF]/[0.06] focus-visible:shadow-[inset_0_0_0_1px_#0F6FFF] dark:focus-visible:bg-[#2E8BFF]/[0.1] dark:focus-visible:shadow-[inset_0_0_0_1px_#2E8BFF]"
             >
               <motion.span
                 initial={false}
@@ -422,7 +422,7 @@ export function SnapCarousel({
                     : { scaleX: 0.36, opacity: 0.26 }
                 }
                 transition={reduced ? { duration: 0 } : CELL}
-                className="block h-[5px] w-[14px] rounded-[1.5px] bg-stone-800 dark:bg-stone-100"
+                className="block h-[5px] w-[14px] rounded-[1.5px] bg-[#0F6FFF] bg-[linear-gradient(180deg,rgba(255,255,255,0.3),rgba(255,255,255,0))] shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] dark:bg-[#2E8BFF]"
               />
             </button>
           ))}

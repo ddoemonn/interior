@@ -161,7 +161,7 @@ export function CopyButton({
       whileTap={disabled || reduced ? undefined : { y: 1 }}
       transition={CELL}
       style={{ borderRadius: 9, touchAction: "manipulation" }}
-      className={`inline-flex h-9 select-none items-center gap-2 rounded-[9px] border border-stone-200 bg-white px-3 text-[13px] font-medium text-stone-700 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(28,25,23,0.06),0_1px_2px_rgba(28,25,23,0.08)] outline-none transition-[border-color,box-shadow,background-color] duration-150 hover:bg-stone-50 focus-visible:border-[#4568FF] focus-visible:shadow-[0_1px_2px_rgba(28,25,23,0.08),0_10px_20px_-14px_rgba(69,104,255,0.6)] disabled:opacity-50 dark:border-white/[0.16] dark:bg-[#252522] dark:text-stone-200 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_1px_2px_rgba(0,0,0,0.4)] dark:hover:bg-[#2A2A27] dark:focus-visible:border-[#93B0FF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(147,176,255,0.5)] ${className}`}
+      className={`inline-flex h-9 select-none items-center gap-2 rounded-[9px] border border-black/[0.13] bg-white px-3 text-[13px] text-neutral-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),inset_0_-1px_0_rgba(0,0,0,0.05)] outline-none transition-[border-color,box-shadow,background-color] duration-150 hover:bg-neutral-50 focus-visible:border-[#0F6FFF] focus-visible:shadow-[0_1px_2px_rgba(0,0,0,0.08),0_10px_20px_-14px_rgba(15,111,255,0.6)] disabled:opacity-50 dark:border-[#050505] dark:bg-[#2E2E2D] dark:text-neutral-100 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.09),inset_0_-1px_0_rgba(0,0,0,0.35)] dark:hover:bg-[#363635] dark:focus-visible:border-[#2E8BFF] dark:focus-visible:shadow-[0_10px_20px_-14px_rgba(46,139,255,0.5)] bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(0,0,0,0.035))] dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0))] ${className}`}
     >
       <span className="grid size-[14px] shrink-0" aria-hidden="true">
         <motion.svg
@@ -190,7 +190,7 @@ export function CopyButton({
           strokeWidth={1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="col-start-1 row-start-1 size-[14px]"
+          className="col-start-1 row-start-1 size-[14px] text-[#06B457] dark:text-[#2FE582]"
           initial={false}
           animate={{
             opacity: status === "copied" ? 1 : 0,
@@ -213,7 +213,7 @@ export function CopyButton({
           strokeWidth={1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="col-start-1 row-start-1 size-[14px]"
+          className="col-start-1 row-start-1 size-[14px] text-[#F2303F] dark:text-[#FF4658]"
           initial={false}
           animate={{
             opacity: status === "error" ? 1 : 0,

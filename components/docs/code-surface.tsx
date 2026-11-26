@@ -56,7 +56,7 @@ export function CodeSurface({ html, lines }: { html: string; lines: number }) {
   return (
     <div ref={wrap} className="relative scroll-mt-24">
       <motion.div
-        className={`mat-well relative rounded-[10px] ${
+        className={`mat-well relative rounded-[14px] ${
           settled && capped ? "overflow-y-auto" : "overflow-hidden"
         }`}
         initial={false}
@@ -75,7 +75,7 @@ export function CodeSurface({ html, lines }: { html: string; lines: number }) {
       {overflows && (
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[104px] rounded-b-[10px]"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[104px] rounded-b-[14px]"
           style={{
             background:
               "linear-gradient(to bottom, transparent, var(--well) 78%)",
